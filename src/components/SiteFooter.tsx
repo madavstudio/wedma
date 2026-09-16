@@ -1,0 +1,68 @@
+import { ASSETS, CONTACT } from "../content/config";
+import { useLanguage } from "../hooks/site";
+import { Arrow, Button } from "./shared";
+export function SiteFooter() {
+  const { t } = useLanguage();
+  return (
+    <footer id="footer" className="site-footer dark">
+      <div className="container">
+        <div className="footer-contact">
+          <h2>{t.footer.heading}</h2>
+          <Button>{t.contactUs}</Button>
+        </div>
+        <div className="footer-grid">
+          <div className="footer-brand">
+            <a href="/#uvod" aria-label={t.access.logo}>
+              <picture>
+                <source
+                  media="(max-width: 767px)"
+                  srcSet={ASSETS + "wedma-logo.png"}
+                />
+                <img
+                  src={ASSETS + "wedma-cele-logo-o.png"}
+                  alt=""
+                  width="1080"
+                  height="792"
+                  loading="lazy"
+                />
+              </picture>
+            </a>
+          </div>
+          <nav aria-label={t.access.footerNav}>
+            <h3>{t.footer.navigation}</h3>
+            <a href="/#nasa-misia">{t.footer.mission}</a>
+            <a href="/#co-je-wedma">{t.footer.platform}</a>
+            <a href="/#preco-wedma">{t.footer.why}</a>
+            <a href="/#meratelne-vysledky">{t.footer.results}</a>
+            <a href="/#ako-to-funguje">{t.footer.how}</a>
+            <a href={CONTACT.target}>{t.footer.contact}</a>
+          </nav>
+          <div className="footer-company">
+            <h3>{t.footer.company}</h3>
+            <address>
+              <strong>Nicolas Hecko</strong>
+              <span>Novozámocká 55/58</span>
+              <span>949 05 Nitra</span>
+              <span className="business-id">{t.footer.businessId}</span>
+            </address>
+          </div>
+          <div className="footer-details">
+            <h3>{t.footer.contact}</h3>
+            <a href={CONTACT.phoneTarget}>{CONTACT.phone}</a>
+            <a href={CONTACT.emailTarget}>{CONTACT.email}</a>
+          </div>
+        </div>
+        <div className="footer-bottom">
+          <p>
+            © {new Date().getFullYear()} WEDMA. {t.footer.copyright}
+          </p>
+          <p className="footer-slogan eyebrow">{t.slogan}</p>
+          <a href="/#uvod" aria-label={t.footer.back}>
+            <span>{t.footer.back}</span>
+            <Arrow direction="up" />
+          </a>
+        </div>
+      </div>
+    </footer>
+  );
+}

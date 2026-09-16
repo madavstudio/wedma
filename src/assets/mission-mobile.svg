@@ -1,0 +1,75 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="360" height="344" viewBox="0 0 360 344" fill="none"><defs>
+    <linearGradient id="bg" x1="827" y1="0" x2="827" y2="1190" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#FFFFFF" />
+      <stop offset="1" stop-color="#FFFFFF" />
+    </linearGradient>
+    <radialGradient id="hubGlow" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(827 570) rotate(90) scale(480 650)">
+      <stop stop-color="#F9801C" stop-opacity="0.07" />
+      <stop offset="0.55" stop-color="#F9801C" stop-opacity="0.015" />
+      <stop offset="1" stop-color="#F9801C" stop-opacity="0" />
+    </radialGradient>
+    <linearGradient id="card" x1="0" y1="0" x2="1" y2="1">
+      <stop stop-color="#1B1E21" />
+      <stop offset="1" stop-color="#151719" />
+    </linearGradient>
+    <linearGradient id="hub" x1="604" y1="307" x2="1047" y2="785" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#202326" />
+      <stop offset="1" stop-color="#151719" />
+    </linearGradient>
+    <linearGradient id="orangeLine" x1="0" y1="0" x2="1" y2="0">
+      <stop stop-color="#F9801C" stop-opacity="0.18" />
+      <stop offset="0.48" stop-color="#F9801C" />
+      <stop offset="1" stop-color="#F9801C" stop-opacity="0.18" />
+    </linearGradient>
+    <pattern id="microGrid" width="42" height="42" patternUnits="userSpaceOnUse">
+      <path d="M42 0H0V42" stroke="#0D1B1E" stroke-opacity="0.035" />
+      <circle cx="1" cy="1" r="1" fill="#0D1B1E" fill-opacity="0.05" />
+    </pattern>
+    <pattern id="dataPattern" width="68" height="30" patternUnits="userSpaceOnUse">
+      <text x="0" y="20" fill="#0D1B1E" fill-opacity="0.035" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="15" letter-spacing="5">01 10</text>
+    </pattern>
+    <filter id="shadow" x="-40%" y="-40%" width="180%" height="200%">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="28" result="blur" />
+      <feOffset in="blur" dx="0" dy="24" result="offsetBlur" />
+      <feFlood flood-color="#000000" flood-opacity="0.22" result="shadowColor" />
+      <feComposite in="shadowColor" in2="offsetBlur" operator="in" result="shadowShape" />
+      <feMerge><feMergeNode in="shadowShape" /><feMergeNode in="SourceGraphic" /></feMerge>
+    </filter>
+    <filter id="softShadow" x="-30%" y="-30%" width="160%" height="180%">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="18" result="blur" />
+      <feOffset in="blur" dx="0" dy="14" result="offsetBlur" />
+      <feFlood flood-color="#000000" flood-opacity="0.18" result="shadowColor" />
+      <feComposite in="shadowColor" in2="offsetBlur" operator="in" result="shadowShape" />
+      <feMerge><feMergeNode in="shadowShape" /><feMergeNode in="SourceGraphic" /></feMerge>
+    </filter>
+    <filter id="orangeGlow" x="-200%" y="-200%" width="500%" height="500%">
+      <feGaussianBlur stdDeviation="8" result="blur" />
+      <feMerge><feMergeNode in="blur" /><feMergeNode in="SourceGraphic" /></feMerge>
+    </filter>
+    <clipPath id="hubClip"><rect x="557" y="277" width="540" height="520" rx="46" /></clipPath>
+  </defs>
+
+
+  
+  <path d="M180 85V115H70V148" stroke="#F2801E" stroke-width="1" stroke-opacity=".22" fill="none" stroke-linejoin="round" /><path d="M180 85V115H180V148" stroke="#F2801E" stroke-width="1" stroke-opacity=".22" fill="none" stroke-linejoin="round" /><path d="M180 85V115H120V250" stroke="#F2801E" stroke-width="1" stroke-opacity=".22" fill="none" stroke-linejoin="round" /><path d="M180 85V115H290V148" stroke="#F2801E" stroke-width="1" stroke-opacity=".22" fill="none" stroke-linejoin="round" /><path d="M180 85V115H240V250" stroke="#F2801E" stroke-width="1" stroke-opacity=".22" fill="none" stroke-linejoin="round" /><g transform="translate(137 24) scale(.417) translate(-724 -320)"><g filter="url(#softShadow)">
+    <rect x="724" y="320" width="206" height="206" rx="38" fill="#FFFFFF" />
+    <rect x="733" y="329" width="188" height="188" rx="32" stroke="#D8D8D6" />
+    <g transform="translate(750 381) scale(.23)">
+      <path d="M0 0H82L231 259L267 196L309 268L254 363H209L0 0Z" fill="#050505" />
+      <path d="M206 0H289L438 259L469 206H551L460 363H415L206 0Z" fill="#050505" />
+      <path d="M587 0H670L576 162H494L587 0Z" fill="#F9801C" />
+    </g>
+  </g>
+  
+  </g><g transform="translate(43 149) translate(-150.0 -264.0)"><rect x="150" y="264" width="54" height="54" rx="15" fill="#24272B" stroke="#41454B" />
+    <path d="M166 278H184L191 285V305H166V278Z" stroke="#E6E6E6" stroke-width="2.5" stroke-linejoin="round" />
+    <path d="M184 278V286H191M172 292H185M172 298H182" stroke="#F9801C" stroke-width="2" stroke-linecap="round" />
+    </g><text x="70" y="221" text-anchor="middle" fill="#b0b0b0" font-family="Arial, sans-serif" font-size="12">{{0}}</text><g transform="translate(153 149) translate(-1222.0 -264.0)"><rect x="1222" y="264" width="54" height="54" rx="15" fill="#24272B" stroke="#41454B" />
+    <path d="M1237 288H1261M1243 277V285M1255 277V285" stroke="#F9801C" stroke-width="2.5" stroke-linecap="round" />
+    <rect x="1237" y="281" width="24" height="22" rx="3" stroke="#E6E6E6" stroke-width="2.5" /></g><text x="180" y="221" text-anchor="middle" fill="#b0b0b0" font-family="Arial, sans-serif" font-size="12">{{1}}</text><g transform="translate(93 251) translate(-132.0 -744.0)"><rect x="132" y="744" width="54" height="54" rx="15" fill="#24272B" stroke="#41454B" />
+    <path d="M160 757C160 757 149 768 149 777C149 785 154 790 160 790C167 790 172 785 172 778C172 771 167 768 166 763C162 766 161 770 161 773C157 769 160 757 160 757Z" stroke="#F9801C" stroke-width="2.5" stroke-linejoin="round" />
+    </g><text x="120" y="323" text-anchor="middle" fill="#b0b0b0" font-family="Arial, sans-serif" font-size="12">{{2}}</text><g transform="translate(263 149) translate(-1226.0 -744.0)"><rect x="1226" y="744" width="54" height="54" rx="15" fill="#24272B" stroke="#41454B" />
+    <path d="M1256 756L1240 778H1252L1248 790L1267 766H1255L1256 756Z" stroke="#00D83C" stroke-width="2.5" stroke-linejoin="round" />
+    </g><text x="290" y="221" text-anchor="middle" fill="#b0b0b0" font-family="Arial, sans-serif" font-size="12">{{3}}</text><g transform="translate(213 251) translate(-646.0 -912.0)"><rect x="646" y="912" width="54" height="54" rx="15" fill="#24272B" stroke="#41454B" />
+    <path d="M660 940L668 948L687 927M685 939V954H657V924H675" stroke="#F8C14D" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" />
+    </g><text x="240" y="323" text-anchor="middle" fill="#b0b0b0" font-family="Arial, sans-serif" font-size="12">{{4}}</text></svg>

@@ -1,0 +1,280 @@
+.how-it-works {
+  --how-sticky-top: 124px;
+  --how-scene-height: min(780px, calc(100svh - 148px));
+  background: var(--surface-graphite);
+  padding-block: 168px 128px;
+}
+.how-intro {
+  padding-bottom: 96px;
+}
+.how-intro .section-label {
+  margin-bottom: 36px;
+}
+.how-intro-text {
+  font-size: clamp(2.25rem, 3.1vw, 2.75rem);
+  line-height: 1.26;
+  letter-spacing: -0.035em;
+  font-weight: 430;
+}
+.how-intro-text h2,
+.how-intro-text p {
+  display: inline;
+  font: inherit;
+  letter-spacing: inherit;
+  text-wrap: wrap;
+  color: #fff;
+}
+.how-intro-text [data-how-word] {
+  color: #b0b0b0;
+}
+.how-composition {
+  display: grid;
+  grid-template-columns: minmax(0, 2fr) minmax(0, 3fr);
+  align-items: start;
+  border-top: 1px solid #ffffff20;
+}
+.how-sticky-scene {
+  position: sticky;
+  top: var(--how-sticky-top);
+  height: var(--how-scene-height);
+  display: grid;
+  place-items: center;
+  grid-template-rows: minmax(0, 1fr);
+  margin-top: 0;
+  padding-right: 24px;
+}
+.how-scene {
+  width: 100%;
+  height: 100%;
+  max-width: 520px;
+  min-height: 0;
+  min-width: 0;
+  max-height: 100%;
+  overflow: visible;
+}
+.how-scene text {
+  font-family: "Geist Variable", sans-serif;
+  font-size: 22px;
+  letter-spacing: -0.02em;
+}
+.how-scene .how-alert-label {
+  font-weight: 500;
+  letter-spacing: -0.025em;
+}
+.how-steps {
+  border-left: 1px solid #ffffff20;
+  padding-top: max(16svh, 120px);
+  padding-bottom: clamp(120px, 18svh, 180px);
+}
+.how-step {
+  min-height: clamp(380px, 56svh, 540px);
+  display: flex;
+  align-items: center;
+  padding: 70px clamp(28px, 4.4vw, 72px);
+  border-bottom: 1px solid #ffffff20;
+  scroll-margin-top: 150px;
+}
+.how-step:last-child {
+  border-bottom: 0;
+  padding-bottom: 100px;
+}
+.how-step-copy {
+  position: relative;
+  padding-left: 30px;
+}
+.how-step-marker {
+  position: absolute;
+  top: 5px;
+  left: 0;
+  width: 13px;
+  height: 13px;
+  border: 1px solid #f2801e;
+  border-radius: 50%;
+  background: #613e21;
+}
+.how-step[data-active="true"] .how-step-marker {
+  background: var(--orange);
+  box-shadow: 0 0 0 5px #f2801e14;
+}
+.how-step .how-step-label {
+  color: #b0b0b0;
+  font-size: 0.8125rem;
+  margin-bottom: 19px;
+}
+.how-step[data-active="true"] .how-step-label {
+  color: #ffab64;
+}
+.how-step h3 {
+  font-size: clamp(1.75rem, 2.35vw, 2.125rem);
+  line-height: 1.15;
+  font-weight: 480;
+  letter-spacing: -0.035em;
+  text-wrap: wrap;
+  max-width: 520px;
+}
+.how-step .how-step-body {
+  color: #b8b8b8;
+  font-size: 1.1875rem;
+  line-height: 1.6;
+  margin-top: 22px;
+  max-width: 56ch;
+}
+.how-static-scene {
+  display: none;
+}
+.how-it-works[data-static="true"] .how-sticky-scene {
+  display: none;
+}
+.how-it-works[data-static="true"] .how-composition {
+  display: block;
+}
+.how-it-works[data-static="true"] .how-steps {
+  border-left: 0;
+  padding-top: 0;
+  padding-bottom: 0;
+}
+.how-it-works[data-static="true"] .how-step {
+  display: grid;
+  grid-template-columns: minmax(0, 2fr) minmax(0, 3fr);
+  gap: 32px;
+  padding: 48px 32px 48px 0;
+}
+.how-it-works[data-static="true"] .how-static-scene {
+  display: block;
+  height: 540px;
+}
+.how-it-works[data-static="true"] .how-scene {
+  margin-inline: auto;
+}
+.how-it-works[data-static="true"] [data-how-word] {
+  color: #fff;
+}
+
+.how-it-works[data-compact="true"]:not([data-static="true"]) .how-composition {
+  display: block;
+}
+.how-it-works[data-compact="true"]:not([data-static="true"]) .how-sticky-scene {
+  display: grid;
+  top: var(--how-sticky-top);
+  height: var(--how-scene-height);
+  z-index: 2;
+  isolation: isolate;
+  margin-top: 24px;
+  padding: 0 0 12px;
+  background: #111;
+}
+.how-it-works[data-compact="true"]:not([data-static="true"])
+  .how-sticky-scene::before {
+  content: "";
+  position: absolute;
+  inset: -16px calc(-1 * var(--how-inline-bleed, 20px)) -12px;
+  z-index: -1;
+  background: #111;
+  box-shadow: 0 12px 16px #111;
+  pointer-events: none;
+}
+.how-it-works[data-compact="true"]:not([data-static="true"]) .how-steps {
+  border-left: 0;
+  padding-top: 20px;
+  padding-bottom: max(100px, 18svh);
+}
+.how-it-works[data-compact="true"][data-scene-pinned="true"]
+  .how-sticky-scene::before {
+  top: calc(-1 * var(--how-sticky-top));
+}
+.how-it-works[data-compact="true"]:not([data-static="true"]) .how-step {
+  min-height: max(300px, var(--how-reading-height));
+  padding: 32px 0;
+  display: flex;
+  align-items: center;
+}
+.how-it-works[data-compact="true"]:not([data-static="true"]) .how-static-scene {
+  display: none;
+}
+.how-it-works[data-compact="true"] .how-step-copy {
+  max-width: 600px;
+  margin-inline: auto;
+  width: 100%;
+}
+.how-it-works[data-compact="true"] .how-scene text {
+  font-size: 28px;
+}
+.how-it-works[data-compact="true"] .how-scene .how-alert-label {
+  font-size: 24px;
+}
+@media (max-width: 999px) {
+  .how-sticky-scene {
+    padding-right: 12px;
+  }
+  .how-step {
+    padding-inline: 20px;
+  }
+  .how-step-copy {
+    padding-left: 24px;
+  }
+  .how-step h3 {
+    font-size: 1.5rem;
+  }
+  .how-step .how-step-body {
+    font-size: 1rem;
+    line-height: 1.55;
+  }
+}
+@media (max-width: 767px) {
+  .how-it-works {
+    padding-block: 88px 80px;
+  }
+  .how-intro {
+    padding-bottom: 48px;
+  }
+  .how-intro .section-label {
+    margin-bottom: 24px;
+  }
+  .how-intro-text {
+    font-size: clamp(1.5rem, 6.4vw, 1.875rem);
+    line-height: 1.3;
+  }
+  .how-step h3 {
+    font-size: 1.5rem;
+    line-height: 1.2;
+  }
+  .how-step .how-step-body {
+    font-size: 0.9375rem;
+    line-height: 1.6;
+    margin-top: 14px;
+  }
+  .how-step .how-step-label {
+    font-size: 0.75rem;
+    margin-bottom: 12px;
+  }
+  .how-step-marker {
+    width: 10px;
+    height: 10px;
+  }
+  .how-it-works[data-static="true"] .how-step {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 20px;
+    padding: 32px 0;
+  }
+  .how-it-works[data-static="true"] .how-static-scene {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 620 / 840;
+    max-width: 340px;
+    margin: auto;
+  }
+}
+@media (max-height: 599px) and (min-width: 600px) {
+  .how-step {
+    min-height: 340px;
+    padding: 36px 24px;
+  }
+  .how-step h3 {
+    font-size: 1.5rem;
+  }
+  .how-step .how-step-body {
+    font-size: 0.9375rem;
+  }
+}

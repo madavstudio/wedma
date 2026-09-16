@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="1200" viewBox="0 0 1200 1200" fill="none" role="img" aria-labelledby="title desc">
+  <title id="title">Energetika – prehľad o spotrebách a nákladoch</title>
+  <desc id="desc">Zelený priestorový symbol s kruhovým energetickým prvkom a úzkym čiernym bleskom.</desc>
+  <defs>
+    <pattern id="stripes" width="116" height="116" patternUnits="userSpaceOnUse" patternTransform="rotate(-27)">
+      <rect width="116" height="116" fill="#00D23A"/>
+      <rect width="12" height="116" fill="#0D1B1E" opacity=".075"/>
+    </pattern>
+    <filter id="softShadow" x="-20%" y="-20%" width="140%" height="150%">
+      <feDropShadow dx="0" dy="24" stdDeviation="16" flood-color="#0D1B1E" flood-opacity=".16"/>
+    </filter>
+    <clipPath id="energyCircleInner">
+      <circle cx="600" cy="600" r="304"/>
+    </clipPath>
+  </defs>
+
+  <path d="M112 50H864c33 0 65 13 88 36l162 162c23 23 36 55 36 88v752c0 34-28 62-62 62H336c-33 0-65-13-88-36L86 952c-23-23-36-55-36-88V112c0-34 28-62 62-62Z" fill="url(#stripes)" stroke="#0D1B1E" stroke-opacity=".18" stroke-width="16" stroke-linejoin="round"/>
+  <path d="M115 68H857c28 0 54 11 74 31l157 157" stroke="#FFFFFF" stroke-opacity=".15" stroke-width="6" stroke-linecap="round"/>
+
+  <g filter="url(#softShadow)" transform="translate(45 45) scale(.925)">
+    <circle cx="600" cy="600" r="320" fill="#F7F7F5" stroke="#0D1B1E" stroke-width="32"/>
+    <rect x="600" y="296" width="304" height="608" fill="#E6E6E6" clip-path="url(#energyCircleInner)"/>
+    <circle cx="600" cy="600" r="320" stroke="#0D1B1E" stroke-opacity=".12" stroke-width="10"/>
+    <path d="M654 390 506 610h95l-53 180 162-230h-94l38-170Z" fill="#0D1B1E" stroke="#0D1B1E" stroke-width="12" stroke-linejoin="round"/>
+  </g>
+</svg>

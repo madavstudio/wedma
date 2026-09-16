@@ -1,0 +1,71 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1470" height="630" viewBox="0 0 1470 630">
+<defs>
+  <linearGradient id="ip1_grad0" gradientUnits="objectBoundingBox" x1="0" y1="0" x2="0" y2="1">
+    <stop offset="0" stop-color="#0D1B1E"/>
+    <stop offset="0.5" stop-color="#51351F"/>
+    <stop offset="1" stop-color="#F2801E"/>
+  </linearGradient>
+  <linearGradient id="ip1_grad1" gradientUnits="objectBoundingBox" x1="0" y1="0" x2="0" y2="1">
+    <stop offset="0" stop-color="#0D1B1E"/>
+    <stop offset="0.25" stop-color="#51351F"/>
+    <stop offset="0.5" stop-color="#F2801E"/>
+    <stop offset="1" stop-color="#E6E6E6"/>
+  </linearGradient>
+  <linearGradient id="ip1_grad2" gradientUnits="objectBoundingBox" x1="0" y1="0" x2="0" y2="1">
+    <stop offset="0" stop-color="#874914"/>
+    <stop offset="0.5" stop-color="#F2801E"/>
+    <stop offset="1" stop-color="#E6E6E6"/>
+  </linearGradient>
+  <linearGradient id="ip1_grad3" gradientUnits="objectBoundingBox" x1="0" y1="0" x2="0" y2="1">
+    <stop offset="0" stop-color="#F6A45E"/>
+    <stop offset="1" stop-color="#E6E6E6"/>
+  </linearGradient>
+  <linearGradient id="ip1_grad4" gradientUnits="objectBoundingBox" x1="0" y1="0" x2="0" y2="1">
+    <stop offset="0" stop-color="#E6E6E6"/>
+    <stop offset="1" stop-color="#E6E6E6"/>
+  </linearGradient>
+  <linearGradient id="ip1_grad5" gradientUnits="objectBoundingBox" x1="0" y1="0" x2="0" y2="1">
+    <stop offset="0" stop-color="#E6E6E6"/>
+    <stop offset="1" stop-color="#E6E6E6"/>
+  </linearGradient>
+  <linearGradient id="ip1_grad6" gradientUnits="objectBoundingBox" x1="0" y1="0" x2="0" y2="1">
+    <stop offset="0" stop-color="#D3D3D3"/>
+    <stop offset="1" stop-color="#E6E6E6"/>
+  </linearGradient>
+  <linearGradient id="ip1_grad7" gradientUnits="objectBoundingBox" x1="0" y1="0" x2="0" y2="1">
+    <stop offset="0" stop-color="#0D1B1E"/>
+    <stop offset="0.5" stop-color="#816551"/>
+    <stop offset="1" stop-color="#E6E6E6"/>
+  </linearGradient>
+</defs>
+<polygon points="970.18,-129.97 1194.10,-258.53 1193.51,-129.95 969.60,-1.39" fill="url(#ip1_grad0)" stroke="#0D1B1E" stroke-width="1" stroke-opacity="0.08"/>
+<polygon points="1194.10,-258.53 1416.77,-127.90 1416.18,0.68 1193.51,-129.95" fill="url(#ip1_grad1)"/>
+<polygon points="1194.10,-258.53 970.18,-129.97 858.85,-195.28 1082.76,-323.84" fill="url(#ip1_grad1)" stroke="#0D1B1E" stroke-width="1" stroke-opacity="0.08"/>
+<polygon points="1416.77,-127.90 1194.10,-258.53 1306.06,-322.80 1528.72,-192.18" fill="url(#ip1_grad1)" stroke="#0D1B1E" stroke-width="1" stroke-opacity="0.08"/>
+<polygon points="1195.26,-515.69 1194.10,-258.53 1082.76,-323.84 1083.93,-581.00" fill="url(#ip1_grad1)"/>
+<polygon points="1194.10,-258.53 1195.26,-515.69 1307.22,-579.97 1306.06,-322.80" fill="url(#ip1_grad0)" stroke="#0D1B1E" stroke-width="1" stroke-opacity="0.08"/>
+<polygon points="970.18,-129.97 1192.85,0.65 1080.89,64.93 858.23,-65.69" fill="url(#ip1_grad1)" stroke="#0D1B1E" stroke-width="1" stroke-opacity="0.08"/>
+<polygon points="1192.85,0.65 1416.77,-127.90 1528.10,-62.59 1304.19,65.96" fill="url(#ip1_grad1)" stroke="#0D1B1E" stroke-width="1" stroke-opacity="0.08"/>
+<polygon points="971.35,-387.13 970.18,-129.97 858.23,-65.69 859.39,-322.85" fill="url(#ip1_grad0)" stroke="#0D1B1E" stroke-width="1" stroke-opacity="0.08"/>
+<polygon points="1416.77,-127.90 1417.93,-385.07 1529.27,-319.76 1528.10,-62.59" fill="url(#ip1_grad1)"/>
+<polygon points="971.93,-515.71 1195.85,-644.27 1195.26,-515.69 971.35,-387.13" fill="url(#ip1_grad0)" stroke="#0D1B1E" stroke-width="1" stroke-opacity="0.08"/>
+<polygon points="1195.85,-644.27 1418.51,-513.65 1417.93,-385.07 1195.26,-515.69" fill="url(#ip1_grad1)"/>
+<path d="M1191.64,258.82 L1193.98,-255.50 L748.64,-516.75 L746.31,-2.42 Z M1080.89,64.93 L1082.06,-192.23 L859.39,-322.85 L858.23,-65.69 Z" fill="url(#ip1_grad1)" fill-rule="evenodd"/>
+<path d="M1639.47,1.71 L1641.81,-512.61 L1193.98,-255.50 L1191.64,258.82 Z M1528.10,-62.59 L1529.27,-319.76 L1305.35,-191.20 L1304.19,65.96 Z" fill="url(#ip1_grad0)" fill-rule="evenodd" stroke="#0D1B1E" stroke-width="1" stroke-opacity="0.08"/>
+<path d="M1196.47,-773.86 L748.64,-516.75 L1193.98,-255.50 L1641.81,-512.61 Z M1195.85,-644.27 L971.93,-515.71 L1194.60,-385.09 L1418.51,-513.65 Z" fill="url(#ip1_grad1)" fill-rule="evenodd" stroke="#0D1B1E" stroke-width="1" stroke-opacity="0.08"/>
+<polygon points="-266.24,572.56 -42.32,444.00 -42.91,572.58 -266.82,701.14" fill="url(#ip1_grad0)" stroke="#0D1B1E" stroke-width="1" stroke-opacity="0.08"/>
+<polygon points="-42.32,444.00 180.34,574.62 179.76,703.20 -42.91,572.58" fill="url(#ip1_grad1)"/>
+<polygon points="-42.32,444.00 -266.24,572.56 -377.57,507.25 -153.66,378.69" fill="url(#ip1_grad1)" stroke="#0D1B1E" stroke-width="1" stroke-opacity="0.08"/>
+<polygon points="180.34,574.62 -42.32,444.00 69.63,379.72 292.30,510.34" fill="url(#ip1_grad1)" stroke="#0D1B1E" stroke-width="1" stroke-opacity="0.08"/>
+<polygon points="-41.16,186.84 -42.32,444.00 -153.66,378.69 -152.49,121.53" fill="url(#ip1_grad1)"/>
+<polygon points="-42.32,444.00 -41.16,186.84 70.80,122.56 69.63,379.72" fill="url(#ip1_grad0)" stroke="#0D1B1E" stroke-width="1" stroke-opacity="0.08"/>
+<polygon points="-266.24,572.56 -43.57,703.18 -155.53,767.46 -378.20,636.83" fill="url(#ip1_grad1)" stroke="#0D1B1E" stroke-width="1" stroke-opacity="0.08"/>
+<polygon points="-43.57,703.18 180.34,574.62 291.68,639.93 67.76,768.49" fill="url(#ip1_grad1)" stroke="#0D1B1E" stroke-width="1" stroke-opacity="0.08"/>
+<polygon points="-265.07,315.40 -266.24,572.56 -378.20,636.83 -377.03,379.67" fill="url(#ip1_grad0)" stroke="#0D1B1E" stroke-width="1" stroke-opacity="0.08"/>
+<polygon points="180.34,574.62 181.51,317.46 292.84,382.77 291.68,639.93" fill="url(#ip1_grad1)"/>
+<polygon points="-264.49,186.81 -40.57,58.26 -41.16,186.84 -265.07,315.40" fill="url(#ip1_grad0)" stroke="#0D1B1E" stroke-width="1" stroke-opacity="0.08"/>
+<polygon points="-40.57,58.26 182.09,188.88 181.51,317.46 -41.16,186.84" fill="url(#ip1_grad1)"/>
+<path d="M-44.78,961.35 L-42.44,447.03 L-487.78,185.78 L-490.11,700.10 Z M-155.53,767.46 L-154.36,510.29 L-377.03,379.67 L-378.20,636.83 Z" fill="url(#ip1_grad1)" fill-rule="evenodd"/>
+<path d="M403.05,704.24 L405.38,189.91 L-42.44,447.03 L-44.78,961.35 Z M291.68,639.93 L292.84,382.77 L68.93,511.33 L67.76,768.49 Z" fill="url(#ip1_grad0)" fill-rule="evenodd" stroke="#0D1B1E" stroke-width="1" stroke-opacity="0.08"/>
+<path d="M-39.95,-71.33 L-487.78,185.78 L-42.44,447.03 L405.38,189.91 Z M-40.57,58.26 L-264.49,186.81 L-41.82,317.44 L182.09,188.88 Z" fill="url(#ip1_grad1)" fill-rule="evenodd" stroke="#0D1B1E" stroke-width="1" stroke-opacity="0.08"/>
+</svg>

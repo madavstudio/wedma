@@ -1,0 +1,205 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1654" height="1190" viewBox="0 0 1654 1190" fill="none">
+  <defs>
+    <linearGradient id="bg" x1="827" y1="0" x2="827" y2="1190" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#FFFFFF"/>
+      <stop offset="1" stop-color="#FFFFFF"/>
+    </linearGradient>
+    <radialGradient id="hubGlow" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(827 570) rotate(90) scale(480 650)">
+      <stop stop-color="#F9801C" stop-opacity="0.07"/>
+      <stop offset="0.55" stop-color="#F9801C" stop-opacity="0.015"/>
+      <stop offset="1" stop-color="#F9801C" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="card" x1="0" y1="0" x2="1" y2="1">
+      <stop stop-color="#1B1E21"/>
+      <stop offset="1" stop-color="#151719"/>
+    </linearGradient>
+    <linearGradient id="hub" x1="604" y1="307" x2="1047" y2="785" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#202326"/>
+      <stop offset="1" stop-color="#151719"/>
+    </linearGradient>
+    <linearGradient id="orangeLine" x1="0" y1="0" x2="1" y2="0">
+      <stop stop-color="#F9801C" stop-opacity="0.18"/>
+      <stop offset="0.48" stop-color="#F9801C"/>
+      <stop offset="1" stop-color="#F9801C" stop-opacity="0.18"/>
+    </linearGradient>
+    <pattern id="microGrid" width="42" height="42" patternUnits="userSpaceOnUse">
+      <path d="M42 0H0V42" stroke="#0D1B1E" stroke-opacity="0.035"/>
+      <circle cx="1" cy="1" r="1" fill="#0D1B1E" fill-opacity="0.05"/>
+    </pattern>
+    <pattern id="dataPattern" width="68" height="30" patternUnits="userSpaceOnUse">
+      <text x="0" y="20" fill="#0D1B1E" fill-opacity="0.035" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="15" letter-spacing="5">01 10</text>
+    </pattern>
+    <filter id="shadow" x="-40%" y="-40%" width="180%" height="200%">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="28" result="blur"/>
+      <feOffset in="blur" dx="0" dy="24" result="offsetBlur"/>
+      <feFlood flood-color="#000000" flood-opacity="0.22" result="shadowColor"/>
+      <feComposite in="shadowColor" in2="offsetBlur" operator="in" result="shadowShape"/>
+      <feMerge><feMergeNode in="shadowShape"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <filter id="softShadow" x="-30%" y="-30%" width="160%" height="180%">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="18" result="blur"/>
+      <feOffset in="blur" dx="0" dy="14" result="offsetBlur"/>
+      <feFlood flood-color="#000000" flood-opacity="0.18" result="shadowColor"/>
+      <feComposite in="shadowColor" in2="offsetBlur" operator="in" result="shadowShape"/>
+      <feMerge><feMergeNode in="shadowShape"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <filter id="orangeGlow" x="-200%" y="-200%" width="500%" height="500%">
+      <feGaussianBlur stdDeviation="8" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <clipPath id="hubClip"><rect x="557" y="277" width="540" height="520" rx="46"/></clipPath>
+  </defs>
+
+
+  <!-- primary connections -->
+  <g fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M557 420H486L438 372" stroke="#34383D" stroke-width="6"/>
+    <path d="M557 420H486L438 372" stroke="url(#orangeLine)" stroke-width="2"/>
+    <path d="M1097 420H1168L1216 372" stroke="#34383D" stroke-width="6"/>
+    <path d="M1097 420H1168L1216 372" stroke="url(#orangeLine)" stroke-width="2"/>
+    <path d="M557 665H470L415 733" stroke="#34383D" stroke-width="6"/>
+    <path d="M557 665H470L415 733" stroke="#00D83C" stroke-opacity="0.78" stroke-width="2"/>
+    <path d="M1097 665H1185L1240 733" stroke="#34383D" stroke-width="6"/>
+    <path d="M1097 665H1185L1240 733" stroke="#F8C14D" stroke-opacity="0.82" stroke-width="2"/>
+    <path d="M827 797V900" stroke="#34383D" stroke-width="6"/>
+    <path d="M827 797V900" stroke="#F9801C" stroke-opacity="0.88" stroke-width="2"/>
+  </g>
+  <g filter="url(#orangeGlow)">
+    <circle cx="557" cy="420" r="5" fill="#F9801C"/><circle cx="1097" cy="420" r="5" fill="#F9801C"/>
+    <circle cx="557" cy="665" r="5" fill="#00D83C"/><circle cx="1097" cy="665" r="5" fill="#F8C14D"/>
+    <circle cx="827" cy="797" r="5" fill="#F9801C"/>
+  </g>
+
+  <!-- top left: documentation -->
+  <g filter="url(#softShadow)">
+    <rect x="126" y="240" width="330" height="198" rx="28" fill="url(#card)" stroke="#34383D"/>
+    <rect x="150" y="264" width="54" height="54" rx="15" fill="#24272B" stroke="#41454B"/>
+    <path d="M166 278H184L191 285V305H166V278Z" stroke="#E6E6E6" stroke-width="2.5" stroke-linejoin="round"/>
+    <path d="M184 278V286H191M172 292H185M172 298H182" stroke="#F9801C" stroke-width="2" stroke-linecap="round"/>
+    <text x="222" y="284" fill="#777C84" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="14" letter-spacing="2.2">DOKUMENTY</text>
+    <text x="222" y="308" fill="#E6E6E6" font-family="Inter, Arial, sans-serif" font-size="18" font-weight="600">Prevádzková</text>
+    <text x="222" y="331" fill="#E6E6E6" font-family="Inter, Arial, sans-serif" font-size="18" font-weight="600">dokumentácia</text>
+    <rect x="151" y="350" width="281" height="1" fill="#2B2F33"/>
+    <rect x="151" y="369" width="170" height="9" rx="4.5" fill="#44484E"/>
+    <rect x="151" y="390" width="222" height="9" rx="4.5" fill="#2D3135"/>
+    <circle cx="406" cy="373" r="11" fill="#F9801C"/>
+    <path d="M401 373L405 377L412 369" stroke="#121416" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+    <text x="151" y="419" fill="#777C84" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="13" letter-spacing="1.4">VŠETKO NA JEDNOM MIESTE</text>
+  </g>
+
+  <!-- top right: deadlines -->
+  <g filter="url(#softShadow)">
+    <rect x="1198" y="240" width="330" height="198" rx="28" fill="url(#card)" stroke="#34383D"/>
+    <rect x="1222" y="264" width="54" height="54" rx="15" fill="#24272B" stroke="#41454B"/>
+    <rect x="1237" y="281" width="24" height="22" rx="3" stroke="#E6E6E6" stroke-width="2.5"/>
+    <path d="M1237 288H1261M1243 277V285M1255 277V285" stroke="#F9801C" stroke-width="2.5" stroke-linecap="round"/>
+    <text x="1294" y="286" fill="#777C84" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="14" letter-spacing="2.2">TERMÍNY</text>
+    <text x="1294" y="313" fill="#E6E6E6" font-family="Inter, Arial, sans-serif" font-size="18" font-weight="600">Automatické stráženie</text>
+    <rect x="1223" y="348" width="280" height="49" rx="13" fill="#1F2225" stroke="#32363B"/>
+    <rect x="1238" y="360" width="5" height="25" rx="2.5" fill="#F9801C"/>
+    <text x="1257" y="369" fill="#E6E6E6" font-family="Inter, Arial, sans-serif" font-size="13" font-weight="600">Revízia elektro</text>
+    <text x="1257" y="387" fill="#777C84" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="11" letter-spacing="1">ZOSTÁVA 14 DNÍ</text>
+    <circle cx="1481" cy="372" r="9" fill="#F8C14D"/>
+    <text x="1223" y="419" fill="#777C84" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="13" letter-spacing="1.4">NIČ NEZMEŠKÁTE</text>
+  </g>
+
+  <!-- central WEDMA hub -->
+  <g filter="url(#shadow)">
+    <rect x="557" y="277" width="540" height="520" rx="46" fill="url(#hub)" stroke="#4A4E54" stroke-width="1.5"/>
+    <rect x="575" y="295" width="504" height="484" rx="34" stroke="#2C3034"/>
+    <g clip-path="url(#hubClip)" opacity="0.5">
+      <path d="M557 490H1097M827 277V797" stroke="#777C84" stroke-opacity="0.08"/>
+      <circle cx="827" cy="506" r="250" stroke="#F9801C" stroke-opacity="0.05"/>
+      <circle cx="827" cy="506" r="180" stroke="#F9801C" stroke-opacity="0.06"/>
+    </g>
+    <circle cx="586" cy="306" r="5" fill="#61666D"/><circle cx="1068" cy="306" r="5" fill="#61666D"/>
+    <circle cx="586" cy="768" r="5" fill="#61666D"/><circle cx="1068" cy="768" r="5" fill="#61666D"/>
+  </g>
+
+  <!-- exact WEDMA-style vector symbol in white chip -->
+  <g filter="url(#softShadow)">
+    <rect x="724" y="320" width="206" height="206" rx="38" fill="#FFFFFF"/>
+    <rect x="733" y="329" width="188" height="188" rx="32" stroke="#D8D8D6"/>
+    <g transform="translate(750 381) scale(.23)">
+      <path d="M0 0H82L231 259L267 196L309 268L254 363H209L0 0Z" fill="#050505"/>
+      <path d="M206 0H289L438 259L469 206H551L460 363H415L206 0Z" fill="#050505"/>
+      <path d="M587 0H670L576 162H494L587 0Z" fill="#F9801C"/>
+    </g>
+  </g>
+  <!-- dashboard chart within the hub -->
+  <g>
+    <rect x="605" y="565" width="444" height="165" rx="20" fill="#121416" stroke="#34383D"/>
+    <text x="631" y="595" fill="#8B9098" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="12" letter-spacing="1.7">PREHĽAD POVINNOSTÍ</text>
+    <circle cx="938" cy="591" r="4" fill="#00D83C"/>
+    <text x="1023" y="595" text-anchor="end" fill="#00D83C" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="11" letter-spacing="1.2">AKTUÁLNE</text>
+    <path d="M631 622H1023M631 655H1023M631 688H1023" stroke="#2C3034" stroke-width="1"/>
+    <g>
+      <rect x="653" y="672" width="24" height="26" rx="2" fill="#00D83C"/><rect x="653" y="655" width="24" height="17" rx="2" fill="#F9801C"/>
+      <rect x="706" y="661" width="24" height="37" rx="2" fill="#00D83C"/><rect x="706" y="637" width="24" height="24" rx="2" fill="#F9801C"/><rect x="706" y="628" width="24" height="9" rx="2" fill="#F8C14D"/>
+      <rect x="759" y="677" width="24" height="21" rx="2" fill="#00D83C"/><rect x="759" y="659" width="24" height="18" rx="2" fill="#F9801C"/>
+      <rect x="812" y="657" width="24" height="41" rx="2" fill="#00D83C"/><rect x="812" y="630" width="24" height="27" rx="2" fill="#F9801C"/><rect x="812" y="620" width="24" height="10" rx="2" fill="#747982"/>
+      <rect x="865" y="669" width="24" height="29" rx="2" fill="#00D83C"/><rect x="865" y="645" width="24" height="24" rx="2" fill="#F9801C"/><rect x="865" y="635" width="24" height="10" rx="2" fill="#F8C14D"/>
+      <rect x="918" y="651" width="24" height="47" rx="2" fill="#00D83C"/><rect x="918" y="625" width="24" height="26" rx="2" fill="#F9801C"/><rect x="918" y="614" width="24" height="11" rx="2" fill="#F8C14D"/>
+      <rect x="971" y="664" width="24" height="34" rx="2" fill="#00D83C"/><rect x="971" y="639" width="24" height="25" rx="2" fill="#F9801C"/><rect x="971" y="629" width="24" height="10" rx="2" fill="#747982"/>
+    </g>
+    <g fill="#6F747C" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="9" text-anchor="middle">
+      <text x="665" y="716">M</text><text x="718" y="716">J</text><text x="771" y="716">J</text><text x="824" y="716">A</text>
+      <text x="877" y="716">S</text><text x="930" y="716">O</text><text x="983" y="716">N</text>
+    </g>
+  </g>
+
+  <!-- bottom left: fire safety -->
+  <g filter="url(#softShadow)">
+    <rect x="106" y="718" width="348" height="208" rx="28" fill="url(#card)" stroke="#34383D"/>
+    <rect x="132" y="744" width="54" height="54" rx="15" fill="#24272B" stroke="#41454B"/>
+    <path d="M160 757C160 757 149 768 149 777C149 785 154 790 160 790C167 790 172 785 172 778C172 771 167 768 166 763C162 766 161 770 161 773C157 769 160 757 160 757Z" stroke="#F9801C" stroke-width="2.5" stroke-linejoin="round"/>
+    <text x="204" y="765" fill="#777C84" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="14" letter-spacing="2.2">BEZPEČNOSŤ</text>
+    <text x="204" y="793" fill="#E6E6E6" font-family="Inter, Arial, sans-serif" font-size="20" font-weight="600">Požiarna ochrana</text>
+    <rect x="132" y="827" width="296" height="44" rx="13" fill="#1F2225"/>
+    <text x="149" y="854" fill="#A0A4AA" font-family="Inter, Arial, sans-serif" font-size="14">Kontrola dokumentácie</text>
+    <rect x="350" y="840" width="58" height="18" rx="9" fill="#F9801C" fill-opacity="0.16"/>
+    <text x="379" y="853" text-anchor="middle" fill="#F9801C" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="10" font-weight="700">14 DNÍ</text>
+    <rect x="132" y="893" width="225" height="7" rx="3.5" fill="#2F3337"/>
+    <rect x="132" y="893" width="168" height="7" rx="3.5" fill="#F9801C"/>
+  </g>
+
+  <!-- bottom right: energy -->
+  <g filter="url(#softShadow)">
+    <rect x="1200" y="718" width="348" height="208" rx="28" fill="url(#card)" stroke="#34383D"/>
+    <rect x="1226" y="744" width="54" height="54" rx="15" fill="#24272B" stroke="#41454B"/>
+    <path d="M1256 756L1240 778H1252L1248 790L1267 766H1255L1256 756Z" stroke="#00D83C" stroke-width="2.5" stroke-linejoin="round"/>
+    <text x="1298" y="765" fill="#777C84" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="14" letter-spacing="2.2">ENERGIE</text>
+    <text x="1298" y="793" fill="#E6E6E6" font-family="Inter, Arial, sans-serif" font-size="18" font-weight="600">Spotreba pod kontrolou</text>
+    <path d="M1227 876L1262 850L1295 864L1332 826L1368 848L1410 816L1448 836L1520 797" stroke="#00D83C" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M1227 876L1262 850L1295 864L1332 826L1368 848L1410 816L1448 836L1520 797V884H1227Z" fill="#00D83C" fill-opacity="0.07"/>
+    <circle cx="1520" cy="797" r="5" fill="#00D83C"/>
+    <text x="1227" y="905" fill="#777C84" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="12" letter-spacing="1.5">−12.4 % OPROTI MIN. MESIACU</text>
+  </g>
+
+  <!-- bottom center: revisions -->
+  <g filter="url(#softShadow)">
+    <rect x="620" y="886" width="414" height="204" rx="28" fill="url(#card)" stroke="#34383D"/>
+    <rect x="646" y="912" width="54" height="54" rx="15" fill="#24272B" stroke="#41454B"/>
+    <path d="M660 940L668 948L687 927M685 939V954H657V924H675" stroke="#F8C14D" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+    <text x="720" y="933" fill="#777C84" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="14" letter-spacing="2.2">REVÍZIE &amp; SERVIS</text>
+    <text x="720" y="961" fill="#E6E6E6" font-family="Inter, Arial, sans-serif" font-size="20" font-weight="600">Všetky povinnosti včas</text>
+    <rect x="646" y="992" width="362" height="1" fill="#2B2F33"/>
+    <g font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="11" letter-spacing="1">
+      <circle cx="657" cy="1021" r="5" fill="#00D83C"/><text x="671" y="1025" fill="#A0A4AA">ELEKTRO</text>
+      <circle cx="763" cy="1021" r="5" fill="#F9801C"/><text x="777" y="1025" fill="#A0A4AA">SERVIS</text>
+      <circle cx="867" cy="1021" r="5" fill="#F8C14D"/><text x="881" y="1025" fill="#A0A4AA">ŠKOLENIA</text>
+      <circle cx="657" cy="1053" r="5" fill="#747982"/><text x="671" y="1057" fill="#A0A4AA">POISTKY</text>
+      <circle cx="763" cy="1053" r="5" fill="#F9801C"/><text x="777" y="1057" fill="#A0A4AA">BOZP</text>
+    </g>
+  </g>
+
+  <!-- edge signal nodes -->
+  <g>
+    <circle cx="438" cy="372" r="12" fill="#17191B" stroke="#4A4E54"/><circle cx="438" cy="372" r="4" fill="#F9801C"/>
+    <circle cx="1216" cy="372" r="12" fill="#17191B" stroke="#4A4E54"/><circle cx="1216" cy="372" r="4" fill="#F9801C"/>
+    <circle cx="415" cy="733" r="12" fill="#17191B" stroke="#4A4E54"/><circle cx="415" cy="733" r="4" fill="#00D83C"/>
+    <circle cx="1240" cy="733" r="12" fill="#17191B" stroke="#4A4E54"/><circle cx="1240" cy="733" r="4" fill="#F8C14D"/>
+    <circle cx="827" cy="900" r="12" fill="#17191B" stroke="#4A4E54"/><circle cx="827" cy="900" r="4" fill="#F9801C"/>
+  </g>
+
+</svg>

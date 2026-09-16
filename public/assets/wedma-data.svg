@@ -1,0 +1,165 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="930" height="1222" viewBox="0 0 930 1222" fill="none">
+  <defs>
+    <radialGradient id="networkAura" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(465 348) rotate(90) scale(286 282)">
+      <stop stop-color="#F2801E" stop-opacity="0.22"/>
+      <stop offset="0.52" stop-color="#F2801E" stop-opacity="0.08"/>
+      <stop offset="1" stop-color="#F2801E" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="networkLine" x1="300" y1="170" x2="610" y2="500" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#E6E6E6" stop-opacity="0.18"/>
+      <stop offset="0.48" stop-color="#F2801E" stop-opacity="0.52"/>
+      <stop offset="1" stop-color="#F2801E" stop-opacity="0.82"/>
+    </linearGradient>
+    <radialGradient id="discTop" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(465 570) rotate(90) scale(225 390)">
+      <stop stop-color="#24282A"/>
+      <stop offset="0.28" stop-color="#1F2224"/>
+      <stop offset="0.54" stop-color="#191C1E"/>
+      <stop offset="0.76" stop-color="#131719"/>
+      <stop offset="1" stop-color="#0D1B1E"/>
+    </radialGradient>
+    <linearGradient id="discSide" x1="465" y1="610" x2="465" y2="880" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#1A1D20"/>
+      <stop offset="1" stop-color="#0D1B1E"/>
+    </linearGradient>
+    <linearGradient id="baseSide" x1="465" y1="817" x2="465" y2="1085" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#25292D"/>
+      <stop offset="1" stop-color="#101214"/>
+    </linearGradient>
+    <radialGradient id="discLight" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(465 602) rotate(90) scale(186 286)">
+      <stop stop-color="#F2801E" stop-opacity="0.20"/>
+      <stop offset="0.30" stop-color="#F2801E" stop-opacity="0.12"/>
+      <stop offset="0.56" stop-color="#F2801E" stop-opacity="0.055"/>
+      <stop offset="0.78" stop-color="#F2801E" stop-opacity="0.018"/>
+      <stop offset="1" stop-color="#F2801E" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="surfaceSheen" x1="465" y1="432" x2="465" y2="690" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#FFFFFF" stop-opacity="0.075"/>
+      <stop offset="0.42" stop-color="#FFFFFF" stop-opacity="0.018"/>
+      <stop offset="1" stop-color="#FFFFFF" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="surfaceEdge" x1="206" y1="466" x2="724" y2="760" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#F2801E" stop-opacity="0.72"/>
+      <stop offset="0.48" stop-color="#F9A459"/>
+      <stop offset="1" stop-color="#F2801E" stop-opacity="0.82"/>
+    </linearGradient>
+    <pattern id="hatch" width="18" height="18" patternUnits="userSpaceOnUse" patternTransform="rotate(-22)">
+      <rect width="18" height="18" fill="#F7F7F6"/>
+      <rect width="4" height="18" fill="#0D1B1E"/>
+      <rect x="8" width="2" height="18" fill="#747982" fill-opacity="0.62"/>
+    </pattern>
+    <filter id="mainShadow" x="-30%" y="-30%" width="160%" height="190%">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="28" result="blur"/>
+      <feOffset in="blur" dx="0" dy="28" result="offsetBlur"/>
+      <feFlood flood-color="#0D1B1E" flood-opacity="0.22" result="shadowColor"/>
+      <feComposite in="shadowColor" in2="offsetBlur" operator="in" result="shadowShape"/>
+      <feMerge><feMergeNode in="shadowShape"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <filter id="chipShadow" x="-50%" y="-50%" width="200%" height="220%">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="18" result="blur"/>
+      <feOffset in="blur" dx="0" dy="14" result="offsetBlur"/>
+      <feFlood flood-color="#000000" flood-opacity="0.35" result="shadowColor"/>
+      <feComposite in="shadowColor" in2="offsetBlur" operator="in" result="shadowShape"/>
+      <feMerge><feMergeNode in="shadowShape"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <filter id="portalGlow" x="-80%" y="-50%" width="260%" height="220%">
+      <feGaussianBlur stdDeviation="26"/>
+    </filter>
+    <filter id="lineGlow" x="-200%" y="-200%" width="500%" height="500%">
+      <feGaussianBlur stdDeviation="7" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <filter id="nodeGlow" x="-250%" y="-250%" width="600%" height="600%">
+      <feGaussianBlur stdDeviation="9" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <clipPath id="baseTopClip">
+      <ellipse cx="465" cy="817" rx="318" ry="171"/>
+    </clipPath>
+    <clipPath id="discTopClip">
+      <ellipse cx="465" cy="607" rx="334" ry="187"/>
+    </clipPath>
+  </defs>
+
+  <!-- transparent canvas -->
+
+  <!-- compact synaptic data network -->
+  <ellipse cx="465" cy="350" rx="286" ry="270" fill="url(#networkAura)" filter="url(#portalGlow)"/>
+  <g fill="none" stroke="url(#networkLine)" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M465 146L350 220L282 315L337 410L465 500"/>
+    <path d="M465 146L566 215L651 318L604 446L465 500"/>
+    <path d="M350 220L451 298L566 215"/>
+    <path d="M282 315L451 298L651 318"/>
+    <path d="M337 410L520 402L604 446"/>
+    <path d="M451 298L520 402"/>
+    <path d="M350 220L520 402" stroke-opacity="0.52"/>
+    <path d="M566 215L337 410" stroke-opacity="0.40"/>
+  </g>
+  <g fill="#0D1B1E" stroke="#F2801E" stroke-width="3">
+    <circle cx="465" cy="146" r="8"/>
+    <circle cx="350" cy="220" r="9"/>
+    <circle cx="566" cy="215" r="8"/>
+    <circle cx="282" cy="315" r="7"/>
+    <circle cx="451" cy="298" r="11"/>
+    <circle cx="651" cy="318" r="7"/>
+    <circle cx="337" cy="410" r="8"/>
+    <circle cx="520" cy="402" r="9"/>
+    <circle cx="604" cy="446" r="7"/>
+  </g>
+  <g fill="#F2801E" filter="url(#nodeGlow)">
+    <circle cx="465" cy="146" r="3.5"/>
+    <circle cx="350" cy="220" r="4"/>
+    <circle cx="566" cy="215" r="3.5"/>
+    <circle cx="282" cy="315" r="3"/>
+    <circle cx="451" cy="298" r="5"/>
+    <circle cx="651" cy="318" r="3"/>
+    <circle cx="337" cy="410" r="3.5"/>
+    <circle cx="520" cy="402" r="4"/>
+    <circle cx="604" cy="446" r="3"/>
+  </g>
+  <path d="M465 500V526" stroke="#F2801E" stroke-width="4" stroke-linecap="round" filter="url(#lineGlow)"/>
+  <circle cx="465" cy="500" r="9" fill="#F2801E" filter="url(#nodeGlow)"/>
+
+  <!-- soft grounding shadow -->
+  <ellipse cx="465" cy="1053" rx="330" ry="92" fill="#0D1B1E" fill-opacity="0.12" filter="url(#portalGlow)"/>
+
+  <!-- lower technical base -->
+  <g filter="url(#mainShadow)">
+    <path d="M147 817A318 171 0 0 0 783 817V995A318 171 0 0 1 147 995V817Z" fill="url(#baseSide)" stroke="#3B3F44" stroke-width="2"/>
+    <path d="M147 995A318 171 0 0 0 783 995" stroke="#0D1B1E" stroke-width="5"/>
+    <path d="M245 872V1030M465 904V1064M685 872V1030" stroke="#4B5056" stroke-opacity="0.55" stroke-width="2"/>
+    <ellipse cx="465" cy="817" rx="318" ry="171" fill="url(#hatch)" stroke="#0D1B1E" stroke-width="3"/>
+    <ellipse cx="465" cy="817" rx="304" ry="158" stroke="#FFFFFF" stroke-opacity="0.7" stroke-width="2"/>
+  </g>
+
+  <!-- three simple base fasteners -->
+  <g>
+    <circle cx="226" cy="805" r="12" fill="#17191B" stroke="#5D6269" stroke-width="2"/><circle cx="226" cy="805" r="4" fill="#F2801E"/>
+    <circle cx="704" cy="805" r="12" fill="#17191B" stroke="#5D6269" stroke-width="2"/><circle cx="704" cy="805" r="4" fill="#F2801E"/>
+    <circle cx="465" cy="950" r="12" fill="#17191B" stroke="#5D6269" stroke-width="2"/><circle cx="465" cy="950" r="4" fill="#F2801E"/>
+  </g>
+
+  <!-- upper WEDMA platform -->
+  <ellipse cx="465" cy="646" rx="342" ry="198" fill="#0D1B1E" fill-opacity="0.18" filter="url(#portalGlow)"/>
+  <g>
+    <path d="M131 607A334 187 0 0 0 799 607V770A334 187 0 0 1 131 770V607Z" fill="url(#discSide)" stroke="#0D1B1E" stroke-width="3"/>
+    <path d="M131 607A334 187 0 0 0 799 607V770A334 187 0 0 1 131 770" stroke="#F2801E" stroke-opacity="0.92" stroke-width="3"/>
+    <path d="M229 667V823M465 701V855M701 667V823" stroke="#F2801E" stroke-opacity="0.44" stroke-width="2"/>
+    <ellipse cx="465" cy="607" rx="334" ry="187" fill="url(#discTop)" stroke="url(#surfaceEdge)" stroke-width="3.5"/>
+    <ellipse cx="465" cy="607" rx="327" ry="180" fill="url(#surfaceSheen)"/>
+    <ellipse cx="465" cy="607" rx="319" ry="173" fill="url(#discLight)"/>
+  </g>
+
+  <!-- raised WEDMA logo chip -->
+  <g filter="url(#chipShadow)">
+    <rect x="370" y="512" width="190" height="190" rx="36" fill="#FFFFFF"/>
+    <rect x="379" y="521" width="172" height="172" rx="30" stroke="#D7D9DA" stroke-width="2"/>
+    <g transform="translate(391 567) scale(.22)">
+      <path d="M0 0H82L231 259L267 196L309 268L254 363H209L0 0Z" fill="#050505"/>
+      <path d="M206 0H289L438 259L469 206H551L460 363H415L206 0Z" fill="#050505"/>
+      <path d="M587 0H670L576 162H494L587 0Z" fill="#F2801E"/>
+    </g>
+  </g>
+
+  <!-- active status halo around chip -->
+  <rect x="360" y="502" width="210" height="210" rx="43" stroke="#F2801E" stroke-width="4" stroke-opacity="0.78" filter="url(#lineGlow)"/>
+</svg>

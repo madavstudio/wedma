@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="1200" viewBox="0 0 1200 1200" fill="none" role="img" aria-labelledby="title desc">
+  <title id="title">BOZP, bezpečnosť a compliance</title>
+  <desc id="desc">Oranžový priestorový symbol so štítom a fajkou, ktorý predstavuje BOZP, revízie, požiarnu ochranu a compliance.</desc>
+  <defs>
+    <clipPath id="tileClip">
+      <path d="M112 50H864c33 0 65 13 88 36l162 162c23 23 36 55 36 88v752c0 34-28 62-62 62H336c-33 0-65-13-88-36L86 952c-23-23-36-55-36-88V112c0-34 28-62 62-62Z"/>
+    </clipPath>
+    <pattern id="stripes" width="116" height="116" patternUnits="userSpaceOnUse" patternTransform="rotate(-27)">
+      <rect width="116" height="116" fill="#F2801E"/>
+      <rect width="12" height="116" fill="#0D1B1E" opacity=".075"/>
+    </pattern>
+    <filter id="softShadow" x="-20%" y="-20%" width="140%" height="150%">
+      <feDropShadow dx="0" dy="24" stdDeviation="16" flood-color="#0D1B1E" flood-opacity=".16"/>
+    </filter>
+  </defs>
+
+  <path d="M112 50H864c33 0 65 13 88 36l162 162c23 23 36 55 36 88v752c0 34-28 62-62 62H336c-33 0-65-13-88-36L86 952c-23-23-36-55-36-88V112c0-34 28-62 62-62Z" fill="url(#stripes)" stroke="#0D1B1E" stroke-opacity=".18" stroke-width="16" stroke-linejoin="round"/>
+  <path d="M115 68H857c28 0 54 11 74 31l157 157" stroke="#FFFFFF" stroke-opacity=".15" stroke-width="6" stroke-linecap="round"/>
+  <g filter="url(#softShadow)" transform="translate(45 45) scale(.925)">
+    <path d="M600 246c112 85 226 106 320 120v206c0 188-116 331-320 398-204-67-320-210-320-398V366c94-14 208-35 320-120Z" fill="#F7F7F5" stroke="#0D1B1E" stroke-width="32" stroke-linejoin="round"/>
+    <path d="M600 301c91 62 178 83 263 98v168c0 151-88 266-263 330V301Z" fill="#E6E6E6"/>
+    <path d="M600 246c112 85 226 106 320 120v206c0 188-116 331-320 398-204-67-320-210-320-398V366c94-14 208-35 320-120Z" stroke="#0D1B1E" stroke-opacity=".12" stroke-width="10" stroke-linejoin="round"/>
+    <path d="m441 594 100 100 218-225" stroke="#0D1B1E" stroke-width="44" stroke-linecap="round" stroke-linejoin="round"/>
+  </g>
+</svg>

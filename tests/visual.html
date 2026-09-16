@@ -1,0 +1,193 @@
+<!doctype html>
+<html lang="sk">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+    <title>WEDMA visual QA fixture</title>
+    <script>
+      // Test-only fixture. Vite's production build only includes /index.html.
+      const qaParams = new URLSearchParams(location.search);
+      if (qaParams.get("font") === "200")
+        document.documentElement.style.fontSize = "200%";
+      if (qaParams.get("motion") === "reduce") {
+        const nativeMatchMedia = window.matchMedia.bind(window);
+        window.matchMedia = (query) =>
+          query === "(prefers-reduced-motion: reduce)"
+            ? {
+                matches: true,
+                media: query,
+                onchange: null,
+                addEventListener() {},
+                removeEventListener() {},
+                addListener() {},
+                removeListener() {},
+                dispatchEvent() {
+                  return true;
+                },
+              }
+            : nativeMatchMedia(query);
+      }
+      if (qaParams.get("storage") === "blocked") {
+        Object.defineProperty(window, "localStorage", {
+          get() {
+            throw new DOMException("Storage blocked for QA", "SecurityError");
+          },
+        });
+      }
+    </script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+    <script src="/node_modules/axe-core/axe.min.js"></script>
+    <script>
+      window.addEventListener("load", () =>
+        setTimeout(async () => {
+          // Named scroll positions make visual checks reproducible without
+          // touching the production page or interfering with a live preview.
+          if (qaParams.has("scroll"))
+            window.scrollTo({
+              top: Number(qaParams.get("scroll")) || 0,
+              behavior: "instant",
+            });
+          const results = await axe.run(document, {
+            runOnly: { type: "tag", values: ["wcag2a", "wcag2aa", "wcag21aa"] },
+          });
+          const report = document.createElement("pre");
+          report.id = "qa-report";
+          report.setAttribute("aria-label", "Accessibility audit results");
+          report.style.cssText =
+            "white-space:pre-wrap;overflow-wrap:anywhere;background:#fff;color:#111;padding:24px;font:14px monospace";
+          report.textContent = JSON.stringify(
+            {
+              scenario: location.search,
+              violations: results.violations.map((v) => ({
+                id: v.id,
+                impact: v.impact,
+                description: v.description,
+                nodes: v.nodes.map((n) => ({
+                  target: n.target,
+                  summary: n.failureSummary,
+                })),
+              })),
+              passes: results.passes.length,
+            },
+            null,
+            2,
+          );
+          document.body.append(report);
+          if (qaParams.get("benchmark") === "how") {
+            const section = document.querySelector(".how-it-works");
+            const scene = section.querySelector("[data-how-animated]");
+            const header = document.querySelector(".site-header");
+            const top = header.getBoundingClientRect().bottom + 24;
+            const reading =
+              Number(section.dataset.readingLine) ||
+              top + (innerHeight - top - 24) / 2;
+            const positions = [
+              ...section.querySelectorAll(".how-step-copy"),
+            ].map((el) => {
+              const r = el.getBoundingClientRect();
+              return r.top + scrollY + r.height / 2 - reading;
+            });
+            const gaps = [],
+              samples = [];
+            let started = 0,
+              previous = 0;
+            const tick = (now) => {
+              if (!started) started = now;
+              if (previous) gaps.push(now - previous);
+              previous = now;
+              const time = (now - started) / 1000;
+              // Traverse down, hold the final state, reverse, then jump to step 3.
+              const travel =
+                time < 2
+                  ? time / 2
+                  : time < 2.6
+                    ? 1
+                    : time < 4.6
+                      ? 1 - (time - 2.6) / 2
+                      : time < 5.2
+                        ? 0
+                        : 1;
+              window.scrollTo({
+                top: positions[0] + (positions[2] - positions[0]) * travel,
+                behavior: "instant",
+              });
+              samples.push({
+                time,
+                progress: Number(scene.dataset.progress),
+                active: Number(section.dataset.activeStep),
+              });
+              if (time < 5.8) requestAnimationFrame(tick);
+              else {
+                gaps.sort((a, b) => a - b);
+                const output = document.createElement("pre");
+                output.id = "qa-how-timeline";
+                const finalRect = scene.getBoundingClientRect();
+                output.textContent = JSON.stringify({
+                  frames: gaps.length,
+                  p95FrameMs: gaps[Math.floor(gaps.length * 0.95)],
+                  maxFrameMs: Math.max(...gaps),
+                  markerMismatches: samples.filter(
+                    (s) => s.active !== Math.round(s.progress) + 1,
+                  ).length,
+                  finalHold: samples
+                    .filter((s) => s.time > 2.5 && s.time < 2.6)
+                    .map((s) => s.progress),
+                  reverseHold: samples
+                    .filter((s) => s.time > 5.1 && s.time < 5.2)
+                    .map((s) => s.progress),
+                  afterJump: samples.at(-1),
+                  sceneFits:
+                    finalRect.top >= header.getBoundingClientRect().bottom &&
+                    finalRect.bottom <= innerHeight,
+                });
+                document.body.append(output);
+              }
+            };
+            requestAnimationFrame(tick);
+          }
+          if (qaParams.get("benchmark") === "hero") {
+            const gaps = [],
+              work = [];
+            let last = 0,
+              started = 0;
+            const longTasks = new PerformanceObserver((list) =>
+              work.push(...list.getEntries().map((entry) => entry.duration)),
+            );
+            longTasks.observe({ type: "longtask", buffered: false });
+            const sample = (time) => {
+              if (!started) started = time;
+              if (last) gaps.push(time - last);
+              last = time;
+              const progress = Math.min(1, (time - started) / 4000);
+              window.scrollTo({
+                top: Math.sin(progress * Math.PI) * innerHeight * 0.9,
+                behavior: "instant",
+              });
+              if (progress < 1) requestAnimationFrame(sample);
+              else {
+                longTasks.disconnect();
+                gaps.sort((a, b) => a - b);
+                const output = document.createElement("pre");
+                output.id = "qa-performance";
+                output.style.cssText =
+                  "white-space:pre-wrap;overflow-wrap:anywhere";
+                output.textContent = JSON.stringify({
+                  frames: gaps.length,
+                  p95FrameMs: gaps[Math.floor(gaps.length * 0.95)],
+                  maxFrameMs: Math.max(...gaps),
+                  framesOver32Ms: gaps.filter((gap) => gap > 32).length,
+                  longTasks: work,
+                });
+                document.body.append(output);
+              }
+            };
+            requestAnimationFrame(sample);
+          }
+        }, 1600),
+      );
+    </script>
+  </body>
+</html>
