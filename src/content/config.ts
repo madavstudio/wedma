@@ -16,6 +16,7 @@ export const SECTION_IDS = [
   "ako-to-funguje",
   "ukazka",
   "kontakt",
+  "ochrana-osobnych-udajov",
   "footer",
 ] as const;
 export const NAVIGATION = [

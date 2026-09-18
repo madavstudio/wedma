@@ -1,8 +1,9 @@
 import { ASSETS, CONTACT } from "../content/config";
 import { useLanguage } from "../hooks/site";
-import { Arrow, Button } from "./shared";
+import { PRIVACY_PATH, privacyContent } from "../content/privacy";
+import { Button } from "./shared";
 export function SiteFooter() {
-  const { t } = useLanguage();
+  const { t, lang } = useLanguage();
   return (
     <footer id="footer" className="site-footer dark">
       <div className="container">
@@ -59,9 +60,8 @@ export function SiteFooter() {
             © {new Date().getFullYear()} WEDMA. {t.footer.copyright}
           </p>
           <p className="footer-slogan eyebrow">{t.slogan}</p>
-          <a href="/#uvod" aria-label={t.footer.back}>
-            <span>{t.footer.back}</span>
-            <Arrow direction="up" />
+          <a href={PRIVACY_PATH} className="footer-privacy">
+            {privacyContent[lang].title}
           </a>
         </div>
       </div>

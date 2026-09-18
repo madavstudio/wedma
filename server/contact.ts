@@ -1,5 +1,6 @@
 import { createHash, randomBytes } from "node:crypto";
 import type { IncomingMessage, ServerResponse } from "node:http";
+import { PRIVACY_VERSION } from "../src/content/privacy.ts";
 import { validateContact } from "../src/contact/schema.ts";
 import type { ContactValues } from "../src/contact/schema.ts";
 
@@ -28,7 +29,8 @@ export function createResendTransport(
       `Firma: ${values.company}`,
       `Pozícia: ${values.role || "—"}`,
       `Oblasť: ${values.interest}`,
-      "Súhlas s vybavením požiadavky: áno",
+      "Potvrdenie oboznámenia sa s informáciami o spracúvaní údajov: áno",
+      `Verzia informácií: ${PRIVACY_VERSION}`,
       "",
       "Správa:",
       values.message,

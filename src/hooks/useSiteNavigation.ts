@@ -1,10 +1,18 @@
 import { useEffect, useLayoutEffect, useRef, useState } from "react";
 import { useLanguage } from "./site";
-const contactPath = (path: string) => path.replace(/\/$/, "") === "/kontakt";
+import { PRIVACY_PATH, privacyContent } from "../content/privacy";
+
+type SitePage = "home" | "contact" | "privacy";
+const pageFor = (path: string, hash = ""): SitePage => {
+  const normalized = path.replace(/\/$/, "");
+  if (normalized === PRIVACY_PATH) return "privacy";
+  if (normalized === "/kontakt" || hash === "#kontakt") return "contact";
+  return "home";
+};
 export function useSiteNavigation() {
   const { lang, t } = useLanguage();
   const [route, setRoute] = useState(() => ({
-    contact: contactPath(location.pathname) || location.hash === "#kontakt",
+    page: pageFor(location.pathname, location.hash),
     revision: 0,
   }));
   const pending = useRef<{
@@ -31,28 +39,30 @@ export function useSiteNavigation() {
           : null;
       if (!link || link.target || link.hasAttribute("download")) return;
       const url = new URL(link.href, location.href);
-      if (url.origin !== location.origin) return;
-      const contact = contactPath(url.pathname) || url.hash === "#kontakt";
-      if (
-        !contact &&
-        !(url.pathname === "/" && url.hash && url.hash !== "#main-content")
-      )
+      if (url.origin !== location.origin || url.hash === "#main-content")
         return;
+      const page = pageFor(url.pathname, url.hash);
+      if (page === "home" && url.pathname !== "/") return;
       event.preventDefault();
       history.replaceState(
         { ...history.state, wedmaY: scrollY },
         "",
         location.href,
       );
-      const next = contact ? "/kontakt" : `/${url.hash}`;
+      const next =
+        page === "contact"
+          ? "/kontakt"
+          : page === "privacy"
+            ? PRIVACY_PATH + url.hash
+            : `/${url.hash}`;
       if (location.pathname + location.hash !== next)
         history.pushState(null, "", next);
       pending.current = {
-        hash: contact ? "" : url.hash,
+        hash: page === "contact" ? "" : url.hash,
         focus: true,
-        smooth: contact === route.contact,
+        smooth: page === route.page,
       };
-      setRoute((previous) => ({ contact, revision: previous.revision + 1 }));
+      setRoute((previous) => ({ page, revision: previous.revision + 1 }));
     };
     const back = () => {
       pending.current = {
@@ -65,7 +75,7 @@ export function useSiteNavigation() {
         smooth: false,
       };
       setRoute((previous) => ({
-        contact: contactPath(location.pathname),
+        page: pageFor(location.pathname, location.hash),
         revision: previous.revision + 1,
       }));
     };
@@ -78,47 +88,45 @@ export function useSiteNavigation() {
       window.removeEventListener("popstate", back);
       history.scrollRestoration = oldRestoration;
     };
-  }, [route.contact]);
+  }, [route.page]);
   useLayoutEffect(() => {
     const frame = requestAnimationFrame(() => {
       const nav = pending.current;
-      if (route.contact && nav.focus)
-        document
-          .getElementById("contact-heading")
-          ?.focus({ preventScroll: true });
+      let id =
+        route.page === "privacy"
+          ? "privacy-heading"
+          : route.page === "contact"
+            ? "contact-heading"
+            : "uvod";
+      try {
+        if (nav.hash) id = decodeURIComponent(nav.hash.slice(1));
+      } catch {
+        /* Keep the page heading for malformed anchors. */
+      }
+      const target = document.getElementById(id);
+      if (nav.focus && route.page !== "home")
+        target?.focus({ preventScroll: true });
       if (nav.y !== undefined)
         window.scrollTo({ top: nav.y, behavior: "instant" });
-      else if (route.contact)
-        window.scrollTo({
-          top: 0,
+      else if (route.page !== "home" && !nav.hash)
+        window.scrollTo({ top: 0, behavior: "instant" });
+      else
+        target?.scrollIntoView({
           behavior:
             nav.smooth && document.documentElement.dataset.motion !== "off"
               ? "smooth"
               : "instant",
         });
-      else {
-        let id = "uvod";
-        try {
-          id = decodeURIComponent(nav.hash.slice(1)) || "uvod";
-        } catch {
-          /* Malformed hashes fall back to the hero. */
-        }
-        document
-          .getElementById(id)
-          ?.scrollIntoView({
-            behavior:
-              nav.smooth && document.documentElement.dataset.motion !== "off"
-                ? "smooth"
-                : "instant",
-          });
-      }
     });
     return () => cancelAnimationFrame(frame);
   }, [route]);
   useEffect(() => {
-    document.title = route.contact
-      ? `${lang === "sk" ? "Kontakt" : "Contact"} — WEDMA`
-      : t.title;
-  }, [route.contact, lang, t.title]);
-  return route.contact;
+    document.title =
+      route.page === "privacy"
+        ? `${privacyContent[lang].title} — WEDMA`
+        : route.page === "contact"
+          ? `${lang === "sk" ? "Kontakt" : "Contact"} — WEDMA`
+          : t.title;
+  }, [route.page, lang, t.title]);
+  return route.page;
 }

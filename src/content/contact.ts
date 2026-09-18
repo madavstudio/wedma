@@ -24,8 +24,11 @@ export const contactContent = {
     ],
     placeholder:
       "Stručne nám opíšte svoju prevádzku alebo oblasť, ktorú chcete dostať pod kontrolu.",
+    privacySummary:
+      "WEDMA s.r.o. použije vaše meno, kontaktné a firemné údaje, oblasť záujmu a obsah správy na vybavenie vašej požiadavky. Telefón a pracovná pozícia sú nepovinné.",
+    privacyLink: "Ako spracúvame vaše údaje",
     consent:
-      "Súhlasím so spracovaním osobných údajov na účely vybavenia mojej požiadavky.*",
+      "Potvrdzujem, že som sa oboznámil/a s informáciami o spracúvaní osobných údajov.*",
     submit: "Chcem ukážku",
     sending: "Odosielam…",
     success: "Ďakujeme. Vašu správu sme prijali a čoskoro sa vám ozveme.",
@@ -39,7 +42,8 @@ export const contactContent = {
       company: "Zadajte názov firmy.",
       interest: "Vyberte oblasť záujmu.",
       message: "Stručne opíšte, čo potrebujete vyriešiť.",
-      consent: "Na odoslanie požiadavky je potrebný váš súhlas.",
+      consent:
+        "Pred odoslaním potvrďte oboznámenie sa s informáciami o spracúvaní údajov.",
       tooLong: "Skráťte text na najviac {limit} znakov.",
       invalid: "Skontrolujte zadanú hodnotu.",
     },
@@ -69,8 +73,11 @@ export const contactContent = {
     ],
     placeholder:
       "Briefly describe your operation or the area you’d like to bring under control.",
+    privacySummary:
+      "WEDMA s.r.o. will use your name, contact and company details, area of interest and message to handle your enquiry. Phone number and job title are optional.",
+    privacyLink: "How we process your information",
     consent:
-      "I agree to the processing of my personal data for the purpose of handling my enquiry.*",
+      "I confirm that I have read the information about the processing of personal data.*",
     submit: "Request a demo",
     sending: "Sending…",
     success:
@@ -85,7 +92,8 @@ export const contactContent = {
       company: "Enter your company name.",
       interest: "Select an area of interest.",
       message: "Briefly describe what you need to solve.",
-      consent: "Your consent is required to submit your enquiry.",
+      consent:
+        "Please confirm that you have read the privacy information before submitting.",
       tooLong: "Shorten this text to at most {limit} characters.",
       invalid: "Check this value.",
     },

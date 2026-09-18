@@ -46,7 +46,13 @@ const server = createServer(async (req, res) => {
     const file = resolve(
       root,
       "." +
-        (["/", "/kontakt", "/kontakt/"].includes(pathname)
+        ([
+          "/",
+          "/kontakt",
+          "/kontakt/",
+          "/ochrana-osobnych-udajov",
+          "/ochrana-osobnych-udajov/",
+        ].includes(pathname)
           ? "/index.html"
           : pathname),
     );

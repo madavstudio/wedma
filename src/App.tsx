@@ -10,19 +10,21 @@ import {
 } from "./components/Sections";
 import { SiteFooter } from "./components/SiteFooter";
 import { HowItWorksSection } from "./components/HowItWorksSection";
+import { PrivacyPage } from "./components/PrivacyPage";
 import { ContactSection } from "./components/ContactSection";
 import { useSiteNavigation } from "./hooks/useSiteNavigation";
 export default function App() {
   const { t } = useLanguage();
-  const contactPage = useSiteNavigation();
+  const page = useSiteNavigation();
+  const contactPage = page === "contact";
   return (
     <>
       <a className="skip-link" href="#main-content">
         {t.access.skip}
       </a>
-      <SiteHeader contactPage={contactPage} />
+      <SiteHeader contactPage={contactPage} privacyPage={page === "privacy"} />
       <main id="main-content">
-        {!contactPage && (
+        {page === "home" && (
           <>
             <HeroSection />
             <MissionSection />
@@ -33,6 +35,7 @@ export default function App() {
             <DemoCtaSection />
           </>
         )}
+        {page === "privacy" && <PrivacyPage />}
         {/* Keep a draft in memory during navigation; hidden content is not in the page layout or accessibility tree. */}
         <div hidden={!contactPage}>
           <ContactSection />

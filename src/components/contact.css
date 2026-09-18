@@ -175,6 +175,22 @@
 .contact-consent {
   grid-column: 1/-1;
 }
+.contact-privacy-summary {
+  padding: 18px 20px;
+  margin-bottom: 14px;
+  border: 1px solid #e4e5e6;
+  border-radius: 16px;
+  color: #606060;
+  font-size: 0.875rem;
+  line-height: 1.65;
+  background: #fafaf9;
+}
+.contact-privacy-summary a {
+  color: #191919;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  text-decoration-thickness: 1px;
+}
 .contact-consent > label {
   display: flex;
   align-items: flex-start;

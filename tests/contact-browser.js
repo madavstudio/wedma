@@ -153,6 +153,67 @@ async function run() {
     fill(field, value);
     await wait(20);
   }
+  submit();
+  await wait(80);
+  check(
+    calls === 0 && document.activeElement.id === "contact-consent",
+    "Valid fields cannot submit without privacy acknowledgement",
+  );
+  check(
+    document.querySelector("#contact-consent").required,
+    "Privacy acknowledgement is required",
+  );
+  document.querySelector(".contact-privacy-summary a").click();
+  await until(() => document.querySelector(".privacy-page"));
+  await wait(80);
+  check(
+    location.pathname === "/ochrana-osobnych-udajov" &&
+      document.title.includes("WEDMA"),
+    "Privacy has a dedicated route and page title",
+  );
+  check(
+    document.activeElement.id === "privacy-heading",
+    "Privacy navigation focuses its heading",
+  );
+  check(
+    document.querySelector(".site-footer .footer-privacy") &&
+      !document.querySelector(
+        ".site-header a[href='/ochrana-osobnych-udajov']",
+      ),
+    "Privacy is discreetly linked from the footer, not the main menu",
+  );
+  check(
+    !document.querySelector(".privacy-page").textContent.includes("@"),
+    "Privacy policy does not hard-code an email address",
+  );
+  check(
+    document.documentElement.scrollWidth <= innerWidth,
+    "Privacy fits the viewport",
+  );
+  const audit = await window.axe.run(document.querySelector(".privacy-page"), {
+    runOnly: { type: "tag", values: ["wcag2a", "wcag2aa", "wcag21aa"] },
+  });
+  check(audit.violations.length === 0, "Privacy accessibility audit passes");
+  await changeLanguage();
+  check(
+    document.querySelector("#privacy-heading").textContent === "Privacy notice",
+    "Privacy notice is translated to English",
+  );
+  await changeLanguage();
+  document.querySelector(".privacy-controller a[href='/kontakt']").click();
+  await until(() => location.pathname === "/kontakt");
+  await wait(80);
+  check(
+    Object.entries(values).every(
+      ([field, value]) =>
+        document.getElementById(`contact-${field}`).value === value,
+    ),
+    "Reading privacy preserves the contact draft",
+  );
+  check(
+    !document.querySelector("#contact-consent").checked,
+    "Reading privacy does not automatically check acknowledgement",
+  );
   document.querySelector("#contact-consent").click();
   await wait(50);
   check(

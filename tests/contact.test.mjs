@@ -101,6 +101,17 @@ test("server repeats validation, rejects wrong content type, foreign origin and 
       );
     },
   ));
+test("privacy acknowledgement must be explicitly true before transport", async () =>
+  fixture(
+    { send: async () => assert.fail("No delivery without acknowledgement") },
+    async (post) => {
+      for (const consent of [false, undefined, "true", 1]) {
+        const response = await post({ ...valid, consent });
+        assert.equal(response.status, 422);
+        assert.equal((await response.json()).accepted, false);
+      }
+    },
+  ));
 test("same in-flight request and repeated success deliver only once; changed payload conflicts", async () => {
   let sends = 0;
   let release;
@@ -200,6 +211,8 @@ test("mail adapter uses verified sender, reply-to, plain text, fixed recipient a
   assert.equal(body.from, "WEDMA <verified@example.com>");
   assert.equal(body.html, undefined);
   assert.ok(body.text.includes("<script>literal data</script>"));
+  assert.ok(body.text.includes("Potvrdenie oboznámenia"));
+  assert.ok(body.text.includes("2026-09-18"));
   assert.equal(
     request.headers["Idempotency-Key"],
     "wedma-contact/test-request",

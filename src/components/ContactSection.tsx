@@ -1,6 +1,7 @@
 import { useRef, useState } from "react";
 import type { FormEvent } from "react";
 import { useLanguage } from "../hooks/site";
+import { PRIVACY_PATH } from "../content/privacy";
 import { CONTACT } from "../content/config";
 import {
   EMPTY_CONTACT,
@@ -305,10 +306,18 @@ export function ContactSection() {
                   {errorNode("message")}
                 </div>
                 <div className="contact-consent">
+                  <p
+                    id="contact-privacy-summary"
+                    className="contact-privacy-summary"
+                  >
+                    {c.privacySummary}{" "}
+                    <a href={PRIVACY_PATH}>{c.privacyLink}</a>.
+                  </p>
                   <label htmlFor="contact-consent">
                     <span className="contact-check-target">
                       <input
                         {...accessibility("consent")}
+                        aria-describedby={`contact-privacy-summary${errors.consent ? " contact-consent-error" : ""}`}
                         type="checkbox"
                         required
                         checked={values.consent}

@@ -40,7 +40,7 @@ export function LanguageProvider({ children }: PropsWithChildren) {
     if (next === lang) return;
     const sections = SECTION_IDS.map((id) =>
       document.getElementById(id),
-    ).filter((el): el is HTMLElement => !!el);
+    ).filter((el): el is HTMLElement => !!el && el.getClientRects().length > 0);
     const howSection = document.getElementById("ako-to-funguje");
     const howSteps = [
       ...document.querySelectorAll<HTMLElement>("[data-how-step]"),

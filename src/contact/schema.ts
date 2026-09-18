@@ -25,6 +25,7 @@ export const TEXT_FIELDS = [
 ] as const;
 export type ContactValues = Record<(typeof TEXT_FIELDS)[number], string> & {
   interest: string;
+  // Legacy field name: acknowledgement of the privacy notice, not GDPR consent.
   consent: boolean;
 };
 export type ContactField = keyof ContactValues;

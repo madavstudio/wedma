@@ -90,6 +90,7 @@ assert.deepEqual(SECTION_IDS, [
   "ako-to-funguje",
   "ukazka",
   "kontakt",
+  "ochrana-osobnych-udajov",
   "footer",
 ]);
 assert.equal(

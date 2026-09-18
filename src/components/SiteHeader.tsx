@@ -2,10 +2,16 @@ import { useEffect, useLayoutEffect, useRef, useState } from "react";
 import { ASSETS, NAVIGATION, SECTION_IDS } from "../content/config";
 import { useLanguage } from "../hooks/site";
 import { Arrow, Button, LanguageSwitcher } from "./shared";
-export function SiteHeader({ contactPage = false }: { contactPage?: boolean }) {
+export function SiteHeader({
+  contactPage = false,
+  privacyPage = false,
+}: {
+  contactPage?: boolean;
+  privacyPage?: boolean;
+}) {
   const { t } = useLanguage();
   const [scrolled, setScrolled] = useState(
-    () => contactPage || window.scrollY > 60,
+    () => contactPage || privacyPage || window.scrollY > 60,
   );
   const [active, setActive] = useState("uvod");
   const [open, setOpen] = useState(false);
@@ -36,8 +42,12 @@ export function SiteHeader({ contactPage = false }: { contactPage?: boolean }) {
     let frame = 0;
     const update = () => {
       frame = 0;
-      setScrolled(contactPage || window.scrollY > 60);
-      let current = contactPage ? "kontakt" : "uvod";
+      setScrolled(contactPage || privacyPage || window.scrollY > 60);
+      let current = contactPage
+        ? "kontakt"
+        : privacyPage
+          ? "ochrana-osobnych-udajov"
+          : "uvod";
       for (const id of SECTION_IDS) {
         const el = document.getElementById(id);
         if (
@@ -58,7 +68,7 @@ export function SiteHeader({ contactPage = false }: { contactPage?: boolean }) {
       cancelAnimationFrame(frame);
       window.removeEventListener("scroll", scroll);
     };
-  }, [contactPage]);
+  }, [contactPage, privacyPage]);
   useEffect(() => {
     if (!open) return;
     const el = dialog.current;
