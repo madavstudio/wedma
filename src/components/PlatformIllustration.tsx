@@ -16,6 +16,9 @@ export function PlatformIllustration({ index }: { index: number }) {
       focusable="false"
     >
       <defs>
+        <clipPath id={`${gradientId}-chat-clip`}>
+          <rect x="56" y="81" width="188" height="90" rx="5" />
+        </clipPath>
         <linearGradient
           id={gradientId}
           x1="36"
@@ -178,66 +181,89 @@ export function PlatformIllustration({ index }: { index: number }) {
         </g>
       )}
       {index === 2 && (
-        <g className="ui-chat">
-          <g className="ui-motion ui-chat-question">
-            <rect x="91" y="84" width="152" height="32" rx="7" fill="#2B2E32" />
-            <text x="101" y="97" fill="#E6E6E6" fontSize="8.2">
-              <tspan x="101">{ui.question[0]}</tspan>
-              <tspan x="101" dy="11">
-                {ui.question[1]}
-              </tspan>
-            </text>
-          </g>
-          <g className="ui-motion ui-chat-thinking">
-            <rect
-              x="58"
-              y="125"
-              width="151"
-              height="25"
-              rx="7"
-              fill="#0094F3"
-              fillOpacity=".035"
-              stroke="#0094F3"
-              strokeOpacity=".28"
-            />
-            {[68, 73, 78].map((x, i) => (
-              <circle
-                className="ui-motion ui-dot"
-                key={x}
-                cx={x}
-                cy="138"
-                r="1.3"
-                fill="#0094F3"
-                style={{ "--ui-delay": `${i * 0.18}s` } as CSSProperties}
-              />
+        <g
+          className="ui-chat ui-chat-thread"
+          clipPath={`url(#${gradientId}-chat-clip)`}
+        >
+          <g className="ui-motion ui-thread-scroll">
+            {ui.conversation.map((turn, turnIndex) => (
+              <g
+                className="ui-chat-exchange"
+                key={turnIndex}
+                transform={`translate(0 ${turnIndex * 100})`}
+                style={
+                  { "--turn-delay": `${turnIndex * 12}s` } as CSSProperties
+                }
+              >
+                <g className="ui-motion ui-chat-question">
+                  <rect
+                    x="91"
+                    y="84"
+                    width="152"
+                    height="32"
+                    rx="7"
+                    fill="#2B2E32"
+                  />
+                  <text x="101" y="97" fill="#E6E6E6" fontSize="8.2">
+                    <tspan x="101">{turn.question[0]}</tspan>
+                    <tspan x="101" dy="11">
+                      {turn.question[1]}
+                    </tspan>
+                  </text>
+                </g>
+                <g className="ui-motion ui-chat-thinking">
+                  <rect
+                    x="58"
+                    y="125"
+                    width="181"
+                    height="25"
+                    rx="7"
+                    fill="#0094F3"
+                    fillOpacity=".035"
+                    stroke="#0094F3"
+                    strokeOpacity=".28"
+                  />
+                  {[68, 73, 78].map((x, i) => (
+                    <circle
+                      className="ui-motion ui-dot"
+                      key={x}
+                      cx={x}
+                      cy="138"
+                      r="1.3"
+                      fill="#0094F3"
+                      style={{ "--ui-delay": `${i * 0.18}s` } as CSSProperties}
+                    />
+                  ))}
+                  <text x="87" y="140" fill="#AABFCF" fontSize="8">
+                    {turn.reading}
+                  </text>
+                </g>
+                <g className="ui-motion ui-chat-answer">
+                  <rect
+                    x="58"
+                    y="124"
+                    width="183"
+                    height="43"
+                    rx="7"
+                    fill="#1A242C"
+                    stroke="#0094F3"
+                    strokeOpacity=".24"
+                  />
+                  <text x="68" y="138" fill="#E6E6E6" fontSize="8">
+                    {turn.answer}
+                  </text>
+                  <path
+                    d="M68 147h6l3 3v9h-9Zm6 0v4h3"
+                    stroke="#0094F3"
+                    strokeWidth=".8"
+                    strokeLinejoin="round"
+                  />
+                  <text x="84" y="156" fill="#79BEE9" fontSize="7.7">
+                    {turn.source}
+                  </text>
+                </g>
+              </g>
             ))}
-            <text x="87" y="140" fill="#AABFCF" fontSize="8">
-              {ui.reading}
-            </text>
-          </g>
-          <g className="ui-motion ui-chat-answer">
-            <rect
-              x="58"
-              y="124"
-              width="178"
-              height="43"
-              rx="7"
-              fill="#1A242C"
-              stroke="#0094F3"
-              strokeOpacity=".24"
-            />
-            <text x="68" y="138" fill="#E6E6E6" fontSize="8.4">
-              {ui.answer}
-            </text>
-            <path
-              d="M68 147h6l3 3v9h-9Zm6 0v4h3"
-              stroke="#0094F3"
-              strokeWidth=".8"
-              strokeLinejoin="round"
-            />
-            <text x="84" y="156" fill="#79BEE9" fontSize="7.7">
-              {ui.source}
-            </text>
           </g>
         </g>
       )}

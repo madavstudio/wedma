@@ -28,16 +28,48 @@ export const missionEnglish: Record<string, string> = {
 export const illustrationUi = {
   sk: {
     checks: ["Školenia", "Revízie", "Požiarna ochrana"],
-    question: ["Koľko revízií je aktuálne", "neplatných?"],
-    reading: "Čítam revízne správy…",
-    answer: "Aktuálne sú neplatné 3 revízie.",
-    source: "Zdroj: revízne správy",
+    conversation: [
+      {
+        question: ["Koľko revízií je aktuálne", "neplatných?"],
+        reading: "Čítam revízne správy…",
+        answer: "Aktuálne sú neplatné 3 revízie.",
+        source: "Zdroj: revízne správy",
+      },
+      {
+        question: ["Ktoré zariadenia", "potrebujú kontrolu?"],
+        reading: "Prechádzam zariadenia…",
+        answer: "Kotolňa a dva rozvádzače.",
+        source: "Zdroj: evidencia zariadení",
+      },
+      {
+        question: ["Priprav mi podklady", "na najbližšiu kontrolu."],
+        reading: "Pripravujem podklady…",
+        answer: "Podklady sú pripravené.",
+        source: "3 správy · prehľad termínov",
+      },
+    ],
   },
   en: {
     checks: ["Training", "Inspections", "Fire safety"],
-    question: ["How many inspections", "are currently overdue?"],
-    reading: "Reading inspection reports…",
-    answer: "3 inspections are currently overdue.",
-    source: "Source: inspection reports",
+    conversation: [
+      {
+        question: ["How many inspections", "are currently overdue?"],
+        reading: "Reading inspection reports…",
+        answer: "3 inspections are currently overdue.",
+        source: "Source: inspection reports",
+      },
+      {
+        question: ["Which equipment", "needs an inspection?"],
+        reading: "Checking equipment records…",
+        answer: "The boiler room and two switchboards.",
+        source: "Source: equipment records",
+      },
+      {
+        question: ["Prepare the documents", "for the next inspection."],
+        reading: "Preparing the documents…",
+        answer: "Your documents are ready.",
+        source: "3 reports · deadline overview",
+      },
+    ],
   },
 };

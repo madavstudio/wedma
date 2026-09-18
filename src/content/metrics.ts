@@ -17,7 +17,7 @@ export const metrics = {
       value: "8 – 12 h späť",
       label: "KAŽDÝ TÝŽDEŇ",
       description:
-        "pre váš tím vďaka automatickému čítaniu dokumentov, sledovaniu lehôt a príprave podkladov",
+        "pre administratívneho pracovníka vďaka automatickému čítaniu dokumentov, sledovaniu lehôt a príprave podkladov",
     },
   ],
   en: [
@@ -37,7 +37,7 @@ export const metrics = {
       value: "8 – 12 h back",
       label: "EVERY WEEK",
       description:
-        "for your team through automated document reading, deadline tracking and preparation of supporting materials",
+        "for an administrative employee through automated document reading, deadline tracking and preparation of supporting materials",
     },
   ],
 };

@@ -32,6 +32,20 @@
   animation-name: ui-status;
   animation-duration: 4s;
 }
+.ui-route {
+  stroke-dasharray: 5 95;
+  animation-name: ui-route;
+  animation-duration: 6s;
+  animation-timing-function: linear;
+}
+@keyframes ui-route {
+  from {
+    stroke-dashoffset: 0;
+  }
+  to {
+    stroke-dashoffset: -100;
+  }
+}
 .ui-processor {
   animation-name: ui-processor;
   animation-duration: 3.5s;
@@ -52,6 +66,89 @@
 .ui-chat-answer {
   animation-name: ui-answer;
   animation-duration: 12s;
+}
+/* Three linked exchanges scroll through the same screen before the quiet reset. */
+.ui-thread-scroll {
+  animation-name: ui-conversation-scroll;
+  animation-duration: 36s;
+}
+.ui-chat-thread :is(.ui-chat-question, .ui-chat-thinking, .ui-chat-answer) {
+  animation-duration: 36s;
+  animation-delay: var(--turn-delay, 0s);
+  animation-fill-mode: both;
+}
+.ui-chat-thread .ui-chat-question {
+  animation-name: ui-conversation-question;
+}
+.ui-chat-thread .ui-chat-thinking {
+  animation-name: ui-conversation-thinking;
+}
+.ui-chat-thread .ui-chat-answer {
+  animation-name: ui-conversation-answer;
+}
+@keyframes ui-conversation-scroll {
+  0% {
+    transform: translateY(0);
+    opacity: 0;
+  }
+  2%,
+  29% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  33.333%,
+  62% {
+    transform: translateY(-100px);
+    opacity: 1;
+  }
+  66.667%,
+  96% {
+    transform: translateY(-200px);
+    opacity: 1;
+  }
+  99% {
+    transform: translateY(-200px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 0;
+  }
+}
+@keyframes ui-conversation-question {
+  0%,
+  38%,
+  100% {
+    opacity: 0;
+  }
+  3%,
+  35% {
+    opacity: 1;
+  }
+}
+@keyframes ui-conversation-thinking {
+  0%,
+  3%,
+  12%,
+  100% {
+    opacity: 0;
+  }
+  5%,
+  10% {
+    opacity: 1;
+  }
+}
+@keyframes ui-conversation-answer {
+  0%,
+  12%,
+  40%,
+  100% {
+    opacity: 0;
+  }
+  16%,
+  36% {
+    opacity: 1;
+  }
 }
 :is(
     .platform-system,

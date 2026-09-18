@@ -870,7 +870,7 @@ select:focus-visible {
 .platform-description {
   margin-top: 22px;
   padding-top: 22px;
-  border-top: 1px solid color-mix(in srgb, var(--module-color) 28%, white);
+  border-top: 1px solid color-mix(in srgb, var(--module-color) 44%, white);
   font-size: 1rem;
   line-height: 1.7;
   color: #606060;

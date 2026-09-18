@@ -29,10 +29,11 @@ export function createHowScenePainter(svg: SVGSVGElement) {
   const inputs = all("input"),
     signals = all("signal"),
     alerts = all("alert");
-  const hubStates = all("hub");
+  const groups = all("group");
   const data = one("data"),
     scan = one("scan"),
-    base = one("base"),
+    orbit = one("orbit"),
+    dataLine = one("data-line"),
     output = one("output"),
     outputLine = one("output-line"),
     glow = one("glow"),
@@ -43,30 +44,19 @@ export function createHowScenePainter(svg: SVGSVGElement) {
     const recognition = clamp(progress),
       overview = clamp(progress - 1);
     svg.dataset.progress = progress.toFixed(3);
-    hubStates.forEach((el) => {
-      const state = el.dataset.howHub;
-      opacity(
-        el,
-        state === "inbox"
-          ? 1 - smooth(recognition)
-          : state === "data"
-            ? smooth(recognition) * (1 - smooth(overview))
-            : smooth(overview),
-      );
-    });
     documents.forEach((el, i) => {
       const x = Number(el.dataset.x),
         y = Number(el.dataset.y);
       el.setAttribute(
         "transform",
-        `translate(${x + (310 - x) * recognition * 0.22} ${y - recognition * 26}) scale(${1 - recognition * 0.22})`,
+        `translate(${x + (310 - x) * recognition * 0.42} ${y + (360 - y) * recognition * 0.65}) scale(${1 - recognition * 0.22})`,
       );
       opacity(
         el,
         (0.7 + 0.3 * smooth(entry * 2 - i * 0.18)) * (1 - smooth(recognition)),
       );
       opacity(lines[i], 1 - recognition * 0.7);
-      opacity(labels[i], 1 - recognition);
+      opacity(labels[i], 1 - recognition * 1.6);
     });
     inputs.forEach((el, i) => {
       el.setAttribute(
@@ -81,16 +71,35 @@ export function createHowScenePainter(svg: SVGSVGElement) {
       opacity(el, Math.sin(p * Math.PI) * (1 - recognition));
     });
     opacity(inputBase, 1 - smooth(recognition));
-    opacity(data, smooth(recognition));
+    const arranged = smooth(recognition);
+    opacity(data, arranged);
+    data?.setAttribute(
+      "transform",
+      `translate(0 ${28 * (1 - arranged) - overview * 10})`,
+    );
+    dataLine?.setAttribute("stroke-dashoffset", String(100 * (1 - arranged)));
+    groups.forEach((el, i) => {
+      const settled = smooth(clamp((recognition - i * 0.08) / 0.8));
+      const x = Number(el.dataset.x);
+      el.setAttribute(
+        "transform",
+        `translate(${x + (310 - x) * 0.16 * (1 - settled)} 278) scale(${0.92 + settled * 0.08})`,
+      );
+    });
     opacity(scan, Math.sin(recognition * Math.PI) * 0.85);
     scan?.setAttribute("transform", `translate(0 ${90 + recognition * 260})`);
-    base?.setAttribute("transform", `translate(0 ${-overview * 32})`);
+    orbit?.setAttribute("ry", String(84 - overview * 6));
+    orbit?.setAttribute("stroke-opacity", String(0.4 + overview * 0.2));
     opacity(glow, 0.65 + 0.25 * Math.sin(entry * Math.PI) + recognition * 0.1);
     opacity(output, smooth(overview * 2));
     outputLine?.setAttribute(
       "stroke-dashoffset",
       String(100 * (1 - smooth(overview * 2))),
     );
-    alerts.forEach((el, i) => opacity(el, smooth((overview - i * 0.19) / 0.5)));
+    alerts.forEach((el, i) => {
+      const revealed = smooth((overview - i * 0.19) / 0.5);
+      opacity(el, revealed);
+      el.setAttribute("transform", `translate(0 ${14 * (1 - revealed)})`);
+    });
   };
 }

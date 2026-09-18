@@ -197,8 +197,33 @@ export function HowItWorksIllustration({
       </g>
 
       <g data-how-data opacity="0">
+        <g strokeWidth="2.5" strokeLinecap="round" fill="none">
+          <path
+            className="ui-motion ui-route"
+            pathLength="100"
+            d="M120 392V412Q120 420 128 424L280 500"
+            stroke="#F8C14D"
+          />
+          <path
+            className="ui-motion ui-route"
+            pathLength="100"
+            d="M310 392V496"
+            stroke="#0094F3"
+            style={{ animationDelay: "-2s" }}
+          />
+          <path
+            className="ui-motion ui-route"
+            pathLength="100"
+            d="M500 414V416Q500 421 493 425L340 500"
+            stroke="#00D23A"
+            style={{ animationDelay: "-4s" }}
+          />
+        </g>
         <path
-          d="M104 338H516M120 338V346M120 392V420L280 500M310 338V346M310 392V486M500 338V346M500 414V420L340 500"
+          data-how-data-line
+          pathLength="100"
+          strokeDasharray="100"
+          d="M104 338H516M120 338V346M120 392V412Q120 420 128 424L280 500M310 338V346M310 392V496M500 338V346M500 414V416Q500 421 493 425L340 500"
           stroke="#41454B"
           strokeWidth="2"
           strokeLinecap="round"
@@ -208,7 +233,12 @@ export function HowItWorksIllustration({
           <path key={x} d={`M${x} 333l5 5-5 5-5-5Z`} fill={accents[i]} />
         ))}
         {[120, 310, 500].map((x, i) => (
-          <g key={x} transform={`translate(${x} 278)`}>
+          <g
+            key={x}
+            data-how-group={i}
+            data-x={x}
+            transform={`translate(${x} 278)`}
+          >
             <rect
               x="-37"
               y="-37"
@@ -284,6 +314,7 @@ export function HowItWorksIllustration({
 
       <g data-how-base>
         <ellipse
+          data-how-orbit
           cx="310"
           cy="672"
           rx="254"
@@ -320,6 +351,12 @@ export function HowItWorksIllustration({
           transform="translate(0 10)"
         />
         <rect x="230" y="486" width="160" height="160" rx="30" fill="#FFF" />
+        <path
+          d="M253 490H366Q386 490 386 511"
+          stroke="#FFF"
+          strokeWidth="2"
+          strokeLinecap="round"
+        />
         <rect
           x="237"
           y="493"
@@ -334,47 +371,9 @@ export function HowItWorksIllustration({
           strokeLinecap="round"
           strokeLinejoin="round"
         >
-          <g data-how-hub="inbox">
-            <path d="M282 543H316L332 559V594H282ZM316 543V559H332" />
-            <path
-              className="ui-motion ui-draw"
-              pathLength="1"
-              d="M292 570H320M292 581H311"
-              stroke="#F2801E"
-              strokeWidth="3"
-            />
-          </g>
-          <g data-how-hub="data">
-            <path d="m278 552 32-18 32 18-32 18Z" />
-            <path d="m278 566 32 18 32-18M278 580l32 18 32-18" />
-            <path d="m310 598 32-18" stroke="#F2801E" />
-          </g>
-          <g data-how-hub="monitor">
-            <rect
-              x="277"
-              y="537"
-              width="66"
-              height="56"
-              rx="7"
-              strokeWidth="3"
-            />
-            <path d="M297 602H323M310 594V602" strokeWidth="3" />
-            <path
-              className="ui-motion ui-draw"
-              pathLength="1"
-              d="m286 577 13-15 12 7 22-22"
-              stroke="#F2801E"
-              strokeWidth="3"
-            />
-            <circle
-              className="ui-motion ui-status"
-              cx="333"
-              cy="547"
-              r="3"
-              fill="#00D23A"
-              stroke="none"
-            />
-          </g>
+          <path d="m278 552 32-18 32 18-32 18Z" />
+          <path d="m278 566 32 18 32-18M278 580l32 18 32-18" />
+          <path d="m310 598 32-18" stroke="#F2801E" />
         </g>
       </g>
 
