@@ -71,8 +71,8 @@
   </g>
 
   <!-- top left: documentation -->
-  <g filter="url(#softShadow)">
-    <rect x="126" y="240" width="330" height="198" rx="28" fill="url(#card)" stroke="#34383D"/>
+  <g>
+    <rect filter="url(#softShadow)" x="126" y="240" width="330" height="198" rx="28" fill="url(#card)" stroke="#34383D"/>
     <rect x="150" y="264" width="54" height="54" rx="15" fill="#24272B" stroke="#41454B"/>
     <path d="M166 278H184L191 285V305H166V278Z" stroke="#E6E6E6" stroke-width="2.5" stroke-linejoin="round"/>
     <path d="M184 278V286H191M172 292H185M172 298H182" stroke="#F9801C" stroke-width="2" stroke-linecap="round"/>
@@ -80,26 +80,26 @@
     <text x="222" y="308" fill="#E6E6E6" font-family="Inter, Arial, sans-serif" font-size="18" font-weight="600">Prevádzková</text>
     <text x="222" y="331" fill="#E6E6E6" font-family="Inter, Arial, sans-serif" font-size="18" font-weight="600">dokumentácia</text>
     <rect x="151" y="350" width="281" height="1" fill="#2B2F33"/>
-    <rect x="151" y="369" width="170" height="9" rx="4.5" fill="#44484E"/>
-    <rect x="151" y="390" width="222" height="9" rx="4.5" fill="#2D3135"/>
+    <rect class="ui-motion ui-progress" x="151" y="369" width="170" height="9" rx="4.5" fill="#44484E"/>
+    <rect class="ui-motion ui-progress" style="--ui-delay:.5s" x="151" y="390" width="222" height="9" rx="4.5" fill="#2D3135"/>
     <circle cx="406" cy="373" r="11" fill="#F9801C"/>
-    <path d="M401 373L405 377L412 369" stroke="#121416" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+    <path class="ui-motion ui-check" pathLength="1" d="M401 373L405 377L412 369" stroke="#121416" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
     <text x="151" y="419" fill="#777C84" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="13" letter-spacing="1.4">VŠETKO NA JEDNOM MIESTE</text>
   </g>
 
   <!-- top right: deadlines -->
-  <g filter="url(#softShadow)">
-    <rect x="1198" y="240" width="330" height="198" rx="28" fill="url(#card)" stroke="#34383D"/>
+  <g>
+    <rect filter="url(#softShadow)" x="1198" y="240" width="330" height="198" rx="28" fill="url(#card)" stroke="#34383D"/>
     <rect x="1222" y="264" width="54" height="54" rx="15" fill="#24272B" stroke="#41454B"/>
     <rect x="1237" y="281" width="24" height="22" rx="3" stroke="#E6E6E6" stroke-width="2.5"/>
     <path d="M1237 288H1261M1243 277V285M1255 277V285" stroke="#F9801C" stroke-width="2.5" stroke-linecap="round"/>
     <text x="1294" y="286" fill="#777C84" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="14" letter-spacing="2.2">TERMÍNY</text>
     <text x="1294" y="313" fill="#E6E6E6" font-family="Inter, Arial, sans-serif" font-size="18" font-weight="600">Automatické stráženie</text>
     <rect x="1223" y="348" width="280" height="49" rx="13" fill="#1F2225" stroke="#32363B"/>
-    <rect x="1238" y="360" width="5" height="25" rx="2.5" fill="#F9801C"/>
+    <rect class="ui-motion ui-progress" x="1238" y="360" width="5" height="25" rx="2.5" fill="#F9801C"/>
     <text x="1257" y="369" fill="#E6E6E6" font-family="Inter, Arial, sans-serif" font-size="13" font-weight="600">Revízia elektro</text>
     <text x="1257" y="387" fill="#777C84" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="11" letter-spacing="1">ZOSTÁVA 14 DNÍ</text>
-    <circle cx="1481" cy="372" r="9" fill="#F8C14D"/>
+    <circle class="ui-motion ui-status" cx="1481" cy="372" r="9" fill="#F8C14D"/>
     <text x="1223" y="419" fill="#777C84" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="13" letter-spacing="1.4">NIČ NEZMEŠKÁTE</text>
   </g>
 
@@ -117,79 +117,73 @@
   </g>
 
   <!-- exact WEDMA-style vector symbol in white chip -->
-  <g filter="url(#softShadow)">
-    <rect x="724" y="320" width="206" height="206" rx="38" fill="#FFFFFF"/>
-    <rect x="733" y="329" width="188" height="188" rx="32" stroke="#D8D8D6"/>
-    <g transform="translate(750 381) scale(.23)">
+  <g>
+    <rect filter="url(#softShadow)" x="724" y="434" width="206" height="206" rx="38" fill="#FFFFFF"/>
+    <rect x="733" y="443" width="188" height="188" rx="32" stroke="#D8D8D6"/>
+    <g transform="translate(750 495) scale(.23)">
       <path d="M0 0H82L231 259L267 196L309 268L254 363H209L0 0Z" fill="#050505"/>
       <path d="M206 0H289L438 259L469 206H551L460 363H415L206 0Z" fill="#050505"/>
       <path d="M587 0H670L576 162H494L587 0Z" fill="#F9801C"/>
     </g>
   </g>
-  <!-- dashboard chart within the hub -->
-  <g>
-    <rect x="605" y="565" width="444" height="165" rx="20" fill="#121416" stroke="#34383D"/>
-    <text x="631" y="595" fill="#8B9098" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="12" letter-spacing="1.7">PREHĽAD POVINNOSTÍ</text>
-    <circle cx="938" cy="591" r="4" fill="#00D83C"/>
-    <text x="1023" y="595" text-anchor="end" fill="#00D83C" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="11" letter-spacing="1.2">AKTUÁLNE</text>
-    <path d="M631 622H1023M631 655H1023M631 688H1023" stroke="#2C3034" stroke-width="1"/>
-    <g>
-      <rect x="653" y="672" width="24" height="26" rx="2" fill="#00D83C"/><rect x="653" y="655" width="24" height="17" rx="2" fill="#F9801C"/>
-      <rect x="706" y="661" width="24" height="37" rx="2" fill="#00D83C"/><rect x="706" y="637" width="24" height="24" rx="2" fill="#F9801C"/><rect x="706" y="628" width="24" height="9" rx="2" fill="#F8C14D"/>
-      <rect x="759" y="677" width="24" height="21" rx="2" fill="#00D83C"/><rect x="759" y="659" width="24" height="18" rx="2" fill="#F9801C"/>
-      <rect x="812" y="657" width="24" height="41" rx="2" fill="#00D83C"/><rect x="812" y="630" width="24" height="27" rx="2" fill="#F9801C"/><rect x="812" y="620" width="24" height="10" rx="2" fill="#747982"/>
-      <rect x="865" y="669" width="24" height="29" rx="2" fill="#00D83C"/><rect x="865" y="645" width="24" height="24" rx="2" fill="#F9801C"/><rect x="865" y="635" width="24" height="10" rx="2" fill="#F8C14D"/>
-      <rect x="918" y="651" width="24" height="47" rx="2" fill="#00D83C"/><rect x="918" y="625" width="24" height="26" rx="2" fill="#F9801C"/><rect x="918" y="614" width="24" height="11" rx="2" fill="#F8C14D"/>
-      <rect x="971" y="664" width="24" height="34" rx="2" fill="#00D83C"/><rect x="971" y="639" width="24" height="25" rx="2" fill="#F9801C"/><rect x="971" y="629" width="24" height="10" rx="2" fill="#747982"/>
-    </g>
-    <g fill="#6F747C" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="9" text-anchor="middle">
-      <text x="665" y="716">M</text><text x="718" y="716">J</text><text x="771" y="716">J</text><text x="824" y="716">A</text>
-      <text x="877" y="716">S</text><text x="930" y="716">O</text><text x="983" y="716">N</text>
-    </g>
-  </g>
 
-  <!-- bottom left: fire safety -->
-  <g filter="url(#softShadow)">
-    <rect x="106" y="718" width="348" height="208" rx="28" fill="url(#card)" stroke="#34383D"/>
+  <!-- bottom left: document-grounded assistant -->
+  <g>
+    <rect filter="url(#softShadow)" x="106" y="718" width="348" height="208" rx="28" fill="url(#card)" stroke="#34383D"/>
     <rect x="132" y="744" width="54" height="54" rx="15" fill="#24272B" stroke="#41454B"/>
-    <path d="M160 757C160 757 149 768 149 777C149 785 154 790 160 790C167 790 172 785 172 778C172 771 167 768 166 763C162 766 161 770 161 773C157 769 160 757 160 757Z" stroke="#F9801C" stroke-width="2.5" stroke-linejoin="round"/>
-    <text x="204" y="765" fill="#777C84" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="14" letter-spacing="2.2">BEZPEČNOSŤ</text>
-    <text x="204" y="793" fill="#E6E6E6" font-family="Inter, Arial, sans-serif" font-size="20" font-weight="600">Požiarna ochrana</text>
-    <rect x="132" y="827" width="296" height="44" rx="13" fill="#1F2225"/>
-    <text x="149" y="854" fill="#A0A4AA" font-family="Inter, Arial, sans-serif" font-size="14">Kontrola dokumentácie</text>
-    <rect x="350" y="840" width="58" height="18" rx="9" fill="#F9801C" fill-opacity="0.16"/>
-    <text x="379" y="853" text-anchor="middle" fill="#F9801C" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="10" font-weight="700">14 DNÍ</text>
-    <rect x="132" y="893" width="225" height="7" rx="3.5" fill="#2F3337"/>
-    <rect x="132" y="893" width="168" height="7" rx="3.5" fill="#F9801C"/>
+    <path d="M146 757H173V780H158L148 788V780H146ZM152 765H167M152 772H162" stroke="#F9801C" stroke-width="2.5" stroke-linejoin="round"/>
+    <text x="204" y="765" fill="#777C84" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="14" letter-spacing="2.2">AI ASISTENT</text>
+    <text x="204" y="793" fill="#E6E6E6" font-family="Inter, Arial, sans-serif" font-size="20" font-weight="600">Odpoveď so zdrojom</text>
+    <rect x="132" y="819" width="296" height="81" rx="13" fill="#1F2225" stroke="#32363B"/>
+    <g class="ui-motion ui-chat-thinking">
+      <text x="150" y="850" fill="#A0A4AA" font-family="Arial, sans-serif" font-size="15">Čítam dokumenty…</text>
+      <circle class="ui-motion ui-dot" cx="153" cy="875" r="3" fill="#F9801C"/>
+      <circle class="ui-motion ui-dot" cx="166" cy="875" r="3" fill="#F9801C" style="--ui-delay:.18s"/>
+      <circle class="ui-motion ui-dot" cx="179" cy="875" r="3" fill="#F9801C" style="--ui-delay:.36s"/>
+    </g>
+    <g class="ui-motion ui-chat-answer">
+      <text x="150" y="848" fill="#E6E6E6" font-family="Arial, sans-serif" font-size="16">Revízia je naplánovaná.</text>
+      <path d="M151 863H161L167 869V882H151ZM161 863V870H167" stroke="#F9801C" stroke-width="1.5" stroke-linejoin="round"/>
+      <text x="178" y="878" fill="#F8C14D" font-family="Arial, sans-serif" font-size="13">Zdroj: revízna správa</text>
+    </g>
   </g>
 
   <!-- bottom right: energy -->
-  <g filter="url(#softShadow)">
-    <rect x="1200" y="718" width="348" height="208" rx="28" fill="url(#card)" stroke="#34383D"/>
+  <g>
+    <rect filter="url(#softShadow)" x="1200" y="718" width="348" height="208" rx="28" fill="url(#card)" stroke="#34383D"/>
     <rect x="1226" y="744" width="54" height="54" rx="15" fill="#24272B" stroke="#41454B"/>
     <path d="M1256 756L1240 778H1252L1248 790L1267 766H1255L1256 756Z" stroke="#00D83C" stroke-width="2.5" stroke-linejoin="round"/>
     <text x="1298" y="765" fill="#777C84" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="14" letter-spacing="2.2">ENERGIE</text>
     <text x="1298" y="793" fill="#E6E6E6" font-family="Inter, Arial, sans-serif" font-size="18" font-weight="600">Spotreba pod kontrolou</text>
-    <path d="M1227 876L1262 850L1295 864L1332 826L1368 848L1410 816L1448 836L1520 797" stroke="#00D83C" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
-    <path d="M1227 876L1262 850L1295 864L1332 826L1368 848L1410 816L1448 836L1520 797V884H1227Z" fill="#00D83C" fill-opacity="0.07"/>
-    <circle cx="1520" cy="797" r="5" fill="#00D83C"/>
+    <path d="M1227 826H1520M1227 854H1520M1227 883H1520" stroke="#34383D"/>
+      <rect class="ui-motion ui-bar" style="--ui-delay:0s" x="1229" y="860" width="20" height="24" rx="2" fill="#00D23A" opacity="0.25"/>
+      <rect class="ui-motion ui-bar" style="--ui-delay:0.12s" x="1258" y="849" width="20" height="35" rx="2" fill="#00D23A" opacity="0.33"/>
+      <rect class="ui-motion ui-bar" style="--ui-delay:0.24s" x="1287" y="855" width="20" height="29" rx="2" fill="#00D23A" opacity="0.41000000000000003"/>
+      <rect class="ui-motion ui-bar" style="--ui-delay:0.36s" x="1316" y="840" width="20" height="44" rx="2" fill="#00D23A" opacity="0.49"/>
+      <rect class="ui-motion ui-bar" style="--ui-delay:0.48s" x="1345" y="847" width="20" height="37" rx="2" fill="#00D23A" opacity="0.5700000000000001"/>
+      <rect class="ui-motion ui-bar" style="--ui-delay:0.6s" x="1374" y="831" width="20" height="53" rx="2" fill="#00D23A" opacity="0.65"/>
+      <rect class="ui-motion ui-bar" style="--ui-delay:0.72s" x="1403" y="837" width="20" height="47" rx="2" fill="#00D23A" opacity="0.73"/>
+      <rect class="ui-motion ui-bar" style="--ui-delay:0.84s" x="1432" y="824" width="20" height="60" rx="2" fill="#00D23A" opacity="0.81"/>
+      <rect class="ui-motion ui-bar" style="--ui-delay:0.96s" x="1461" y="828" width="20" height="56" rx="2" fill="#00D23A" opacity="0.89"/>
+      <rect class="ui-motion ui-bar" style="--ui-delay:1.08s" x="1490" y="814" width="20" height="70" rx="2" fill="#00D23A" opacity="0.97"/>
+    <path class="ui-motion ui-draw" pathLength="1" d="M1237 867C1300 858 1360 837 1400 830S1480 811 1510 808" stroke="#F9801C" stroke-width="3" stroke-linecap="round"/>
     <text x="1227" y="905" fill="#777C84" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="12" letter-spacing="1.5">−12.4 % OPROTI MIN. MESIACU</text>
   </g>
 
   <!-- bottom center: revisions -->
-  <g filter="url(#softShadow)">
-    <rect x="620" y="886" width="414" height="204" rx="28" fill="url(#card)" stroke="#34383D"/>
+  <g>
+    <rect filter="url(#softShadow)" x="620" y="886" width="414" height="204" rx="28" fill="url(#card)" stroke="#34383D"/>
     <rect x="646" y="912" width="54" height="54" rx="15" fill="#24272B" stroke="#41454B"/>
     <path d="M660 940L668 948L687 927M685 939V954H657V924H675" stroke="#F8C14D" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
     <text x="720" y="933" fill="#777C84" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="14" letter-spacing="2.2">REVÍZIE &amp; SERVIS</text>
     <text x="720" y="961" fill="#E6E6E6" font-family="Inter, Arial, sans-serif" font-size="20" font-weight="600">Všetky povinnosti včas</text>
     <rect x="646" y="992" width="362" height="1" fill="#2B2F33"/>
     <g font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="11" letter-spacing="1">
-      <circle cx="657" cy="1021" r="5" fill="#00D83C"/><text x="671" y="1025" fill="#A0A4AA">ELEKTRO</text>
-      <circle cx="763" cy="1021" r="5" fill="#F9801C"/><text x="777" y="1025" fill="#A0A4AA">SERVIS</text>
-      <circle cx="867" cy="1021" r="5" fill="#F8C14D"/><text x="881" y="1025" fill="#A0A4AA">ŠKOLENIA</text>
-      <circle cx="657" cy="1053" r="5" fill="#747982"/><text x="671" y="1057" fill="#A0A4AA">POISTKY</text>
-      <circle cx="763" cy="1053" r="5" fill="#F9801C"/><text x="777" y="1057" fill="#A0A4AA">BOZP</text>
+      <circle class="ui-motion ui-status" cx="657" cy="1021" r="5" fill="#00D83C"/><text x="671" y="1025" fill="#A0A4AA">ELEKTRO</text>
+      <circle class="ui-motion ui-status" cx="763" cy="1021" r="5" fill="#F9801C"/><text x="777" y="1025" fill="#A0A4AA">SERVIS</text>
+      <circle class="ui-motion ui-status" cx="867" cy="1021" r="5" fill="#F8C14D"/><text x="881" y="1025" fill="#A0A4AA">ŠKOLENIA</text>
+      <circle class="ui-motion ui-status" cx="657" cy="1053" r="5" fill="#747982"/><text x="671" y="1057" fill="#A0A4AA">POISTKY</text>
+      <circle class="ui-motion ui-status" cx="763" cy="1053" r="5" fill="#F9801C"/><text x="777" y="1057" fill="#A0A4AA">BOZP</text>
     </g>
   </g>
 

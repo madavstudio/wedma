@@ -40,53 +40,48 @@
       <feGaussianBlur stdDeviation="9" result="blur"/><feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
     </filter>
   </defs>
-  <!-- compact synaptic data network -->
-  <ellipse class="data-glow" cx="465" cy="350" rx="286" ry="270" fill="url(#networkAura)" filter="url(#portalGlow)"/>
+  <!-- Rounded, converging circuit routes carry each signal into the processor. -->
+  <ellipse class="data-glow" cx="465" cy="350" rx="286" ry="270" fill="url(#networkAura)"/>
   <g fill="none" stroke="url(#networkLine)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-    <path d="M465 146L350 220L282 315L337 410L465 500"/>
-    <path d="M465 146L566 215L651 318L604 446L465 500"/>
-    <path d="M350 220L451 298L566 215"/>
-    <path d="M282 315L451 298L651 318"/>
-    <path d="M337 410L520 402L604 446"/>
-    <path d="M451 298L520 402"/>
-    <path d="M350 220L520 402" stroke-opacity="0.52"/>
-    <path d="M566 215L337 410" stroke-opacity="0.40"/>
+    <path d="M465 162V260Q465 280 465 302V500"/>
+    <path d="M332 215V267Q332 285 350 295L443 349Q465 362 465 385V500"/>
+    <path d="M598 215V267Q598 285 580 295L487 349Q465 362 465 385V500"/>
+    <path d="M270 330H309Q325 330 340 342L431 414Q465 440 465 468V500"/>
+    <path d="M660 330H621Q605 330 590 342L499 414Q465 440 465 468V500"/>
+    <path d="M350 432H387Q406 432 420 447L450 478Q465 493 465 500"/>
+    <path d="M580 432H543Q524 432 510 447L480 478Q465 493 465 500"/>
   </g>
-  <g class="data-synapses" fill="none" stroke="#F2801E" stroke-width="4" stroke-linecap="round">
-    <path class="data-synapse" d="M465 146L350 220L282 315L337 410L465 500" pathLength="100" style="animation-delay:-0.00s;animation-duration:5.4s"/>
-    <path class="data-synapse" d="M465 146L566 215L651 318L604 446L465 500" pathLength="100" style="animation-delay:-0.57s;animation-duration:6.1s"/>
-    <path class="data-synapse" d="M350 220L451 298L566 215" pathLength="100" style="animation-delay:-1.14s;animation-duration:6.8s"/>
-    <path class="data-synapse" d="M282 315L451 298L651 318" pathLength="100" style="animation-delay:-1.71s;animation-duration:5.4s"/>
-    <path class="data-synapse" d="M337 410L520 402L604 446" pathLength="100" style="animation-delay:-2.28s;animation-duration:6.1s"/>
-    <path class="data-synapse" d="M451 298L520 402" pathLength="100" style="animation-delay:-2.85s;animation-duration:6.8s"/>
-    <path class="data-synapse" d="M350 220L520 402" pathLength="100" style="animation-delay:-3.42s;animation-duration:5.4s"/>
-    <path class="data-synapse" d="M566 215L337 410" pathLength="100" style="animation-delay:-3.99s;animation-duration:6.1s"/>
+  <g fill="none" stroke="#F2801E" stroke-width="3" stroke-linecap="round">
+    <path class="data-synapse" d="M465 162V260Q465 280 465 302V500" pathLength="100" style="animation-delay:-0s;animation-duration:4.6s"/>
+    <path class="data-synapse" d="M332 215V267Q332 285 350 295L443 349Q465 362 465 385V500" pathLength="100" style="animation-delay:-0.68s;animation-duration:4.819999999999999s"/>
+    <path class="data-synapse" d="M598 215V267Q598 285 580 295L487 349Q465 362 465 385V500" pathLength="100" style="animation-delay:-1.36s;animation-duration:5.04s"/>
+    <path class="data-synapse" d="M270 330H309Q325 330 340 342L431 414Q465 440 465 468V500" pathLength="100" style="animation-delay:-2.04s;animation-duration:5.26s"/>
+    <path class="data-synapse" d="M660 330H621Q605 330 590 342L499 414Q465 440 465 468V500" pathLength="100" style="animation-delay:-2.72s;animation-duration:5.4799999999999995s"/>
+    <path class="data-synapse" d="M350 432H387Q406 432 420 447L450 478Q465 493 465 500" pathLength="100" style="animation-delay:-3.4000000000000004s;animation-duration:5.699999999999999s"/>
+    <path class="data-synapse" d="M580 432H543Q524 432 510 447L480 478Q465 493 465 500" pathLength="100" style="animation-delay:-4.08s;animation-duration:5.92s"/>
   </g>
-  <g fill="#111214" stroke="#F2801E" stroke-width="2.5">
-    <circle cx="465" cy="146" r="8"/>
-    <circle cx="350" cy="220" r="9"/>
-    <circle cx="566" cy="215" r="8"/>
-    <circle cx="282" cy="315" r="7"/>
-    <circle cx="451" cy="298" r="11"/>
-    <circle cx="651" cy="318" r="7"/>
-    <circle cx="337" cy="410" r="8"/>
-    <circle cx="520" cy="402" r="9"/>
-    <circle cx="604" cy="446" r="7"/>
+  <g fill="#111214" stroke="#F2801E" stroke-width="2">
+    <rect x="458" y="155" width="14" height="14" rx="4"/>
+    <rect x="325" y="208" width="14" height="14" rx="4"/>
+    <rect x="591" y="208" width="14" height="14" rx="4"/>
+    <rect x="263" y="323" width="14" height="14" rx="4"/>
+    <rect x="653" y="323" width="14" height="14" rx="4"/>
+    <rect x="343" y="425" width="14" height="14" rx="4"/>
+    <rect x="573" y="425" width="14" height="14" rx="4"/>
+    <rect x="458" y="295" width="14" height="14" rx="4"/>
   </g>
   <g class="data-neurons" fill="#F2801E">
-    <circle cx="465" cy="146" r="3.5"/>
-    <circle cx="350" cy="220" r="4"/>
-    <circle cx="566" cy="215" r="3.5"/>
-    <circle cx="282" cy="315" r="3"/>
-    <circle cx="451" cy="298" r="5"/>
-    <circle cx="651" cy="318" r="3"/>
-    <circle cx="337" cy="410" r="3.5"/>
-    <circle cx="520" cy="402" r="4"/>
-    <circle cx="604" cy="446" r="3"/>
+    <circle cx="465" cy="162" r="2.5"/>
+    <circle cx="332" cy="215" r="2.5"/>
+    <circle cx="598" cy="215" r="2.5"/>
+    <circle cx="270" cy="330" r="2.5"/>
+    <circle cx="660" cy="330" r="2.5"/>
+    <circle cx="350" cy="432" r="2.5"/>
+    <circle cx="580" cy="432" r="2.5"/>
+    <circle cx="465" cy="302" r="2.5"/>
   </g>
-  <path d="M465 500V526" stroke="#F2801E" stroke-width="4" stroke-linecap="round" filter="url(#lineGlow)"/>
-  <circle cx="465" cy="500" r="9" fill="#F2801E" filter="url(#nodeGlow)"/>
-
+  <path d="M465 500V526" stroke="#F2801E" stroke-width="3" stroke-linecap="round"/>
+  <circle class="ui-motion ui-status" cx="465" cy="500" r="6" fill="#F2801E"/>
 
   <!-- Thin, chamfered processor layers replace the cylindrical pedestal. -->
   <g stroke-linejoin="round" filter="url(#mainShadow)">
@@ -113,7 +108,7 @@
   </g>
 
   <!-- A dedicated processor, with the quiet line weight of How it works. -->
-  <g class="data-core" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <g class="data-core" transform="translate(465 614) scale(.9) translate(-465 -614)" fill="none" stroke-linecap="round" stroke-linejoin="round">
     <path d="M362 614H335L315 625M568 614H595L615 625M395 524V510M535 524V510M465 710V735" stroke="#F2801E" stroke-opacity=".5" stroke-width="2"/>
     <g filter="url(#chipShadow)">
       <rect x="362" y="523" width="206" height="206" rx="24" fill="#080808"/>
@@ -123,8 +118,9 @@
     <g class="data-core-symbol" transform="translate(465 614)" stroke="#191919" stroke-width="3.5">
       <rect x="-34" y="-34" width="68" height="68" rx="6"/>
       <path d="M-18-46V-34M0-46V-34M18-46V-34M-18 34V46M0 34V46M18 34V46M-46-18H-34M-46 0H-34M-46 18H-34M34-18H46M34 0H46M34 18H46"/>
+      <rect class="ui-motion ui-processor" x="-8" y="-8" width="16" height="16" rx="2" fill="#F2801E" fill-opacity=".14" stroke="none"/>
       <rect x="-15" y="-15" width="30" height="30" rx="3" stroke-width="3"/>
-      <path d="M0-15H12a3 3 0 0 1 3 3V0" stroke="#F2801E"/>
+      <path class="ui-motion ui-draw" pathLength="1" d="M0-15H12a3 3 0 0 1 3 3V0" stroke="#F2801E"/>
     </g>
   </g>
 </svg>

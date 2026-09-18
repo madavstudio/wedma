@@ -15,7 +15,9 @@ export function HeroTextRotator() {
   }, [running, visible]);
   return (
     <>
-      <span className="sr-only">{t.hero.phrases.join(" ")}</span>
+      <span className="sr-only">
+        {t.hero.connector} {t.hero.phrases.join(" ")}
+      </span>
       <span
         ref={ref}
         className={`rotator ${reduced ? "rotator--static" : ""}`}
@@ -26,6 +28,8 @@ export function HeroTextRotator() {
             key={i}
             className={`rotator-line ${i === index ? "is-current" : i === (index + 2) % 3 ? "is-previous" : "is-next"}`}
           >
+            {t.hero.connector}
+            {"\u00a0"}
             {phrase}
           </span>
         ))}

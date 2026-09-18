@@ -17,12 +17,12 @@ export const howItWorks = {
       {
         label: "KROK 3",
         title: "Prehľad pracuje ďalej",
-        body: "Priebežne ukazuje stav súladu a blížiace sa lehoty. Upozornenia dostanete 90, 30 a 7 dní vopred, takže viete, čo treba riešiť ako prvé.",
+        body: "Priebežne ukazuje stav súladu, blížiace sa lehoty aj namerané spotreby. Upozornenia dostanete v dostatočnom predstihu, takže viete, čo treba riešiť ako prvé.",
       },
     ],
     documents: ["Revízie", "Školenia", "Zmluvy", "Protokoly"],
     groups: ["Termíny", "Zariadenia", "Zodpovedné osoby"],
-    alerts: ["90 dní vopred", "30 dní vopred", "7 dní vopred"],
+    alerts: ["Súlad", "Termíny", "Spotreba"],
   },
   en: {
     label: "HOW IT WORKS",
@@ -43,11 +43,11 @@ export const howItWorks = {
       {
         label: "STEP 3",
         title: "Your overview keeps working",
-        body: "It continuously shows compliance status and upcoming deadlines. You receive alerts 90, 30 and 7 days in advance, so you know what to address first.",
+        body: "It continuously shows compliance status, upcoming deadlines and measured consumption. You receive alerts well in advance, so you know what to address first.",
       },
     ],
     documents: ["Inspections", "Training", "Contracts", "Protocols"],
     groups: ["Deadlines", "Equipment", "Responsible people"],
-    alerts: ["90 days ahead", "30 days ahead", "7 days ahead"],
+    alerts: ["Compliance", "Deadlines", "Consumption"],
   },
 };

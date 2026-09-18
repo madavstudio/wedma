@@ -40,14 +40,16 @@ export function SiteFooter() {
           <div className="footer-company">
             <h3>{t.footer.company}</h3>
             <address>
-              <strong>Nicolas Hecko</strong>
+              <strong>{CONTACT.company}</strong>
               <span>Novozámocká 55/58</span>
               <span>949 05 Nitra</span>
               <span className="business-id">{t.footer.businessId}</span>
+              <span>{t.footer.taxId}</span>
             </address>
           </div>
           <div className="footer-details">
             <h3>{t.footer.contact}</h3>
+            <p className="footer-person">{CONTACT.person}</p>
             <a href={CONTACT.phoneTarget}>{CONTACT.phone}</a>
             <a href={CONTACT.emailTarget}>{CONTACT.email}</a>
           </div>

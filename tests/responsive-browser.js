@@ -1,5 +1,7 @@
 // Test-only browser traversal. It never submits a form or contacts a transport.
 const params = new URLSearchParams(location.search);
+// Keep scripted jumps deterministic in WebKit as well as Chromium.
+document.documentElement.style.scrollBehavior = "auto";
 const wait = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
 const result = {
   width: innerWidth,
@@ -73,6 +75,15 @@ async function run() {
       .join("|");
   const firstPoints = geometryPoints();
   await scroll(innerHeight * 0.82);
+  // Give the damped camera time to settle when the browser is under load.
+  for (let attempt = 0; attempt < 12; attempt++) {
+    if (
+      Number(document.querySelector(".geometry-scene--hero").dataset.progress) >
+      0.98
+    )
+      break;
+    await wait(100);
+  }
   check(
     Number(document.querySelector(".geometry-scene--hero").dataset.progress) >
       0.98,
@@ -112,6 +123,7 @@ async function run() {
   );
   await section("meratelne-vysledky");
   const cards = [...document.querySelectorAll(".result-card")];
+  check(cards.length === 3, "Results contain the three requested cards");
   const first = cards[0];
   const top = parseFloat(getComputedStyle(first).top);
   const origin = first.getBoundingClientRect().top + scrollY;

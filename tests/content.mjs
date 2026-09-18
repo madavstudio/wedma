@@ -6,7 +6,12 @@ import { metrics } from "../src/content/metrics.ts";
 import { CONTACT, SECTION_IDS, NAVIGATION } from "../src/content/config.ts";
 const normalize = (text) => text.replace(/\s+/g, " ").trim();
 const brief = normalize(
-  readFileSync(new URL("../docs/brief.md", import.meta.url), "utf8") +
+  readFileSync(
+    new URL("../docs/revision-2026-09-18.md", import.meta.url),
+    "utf8",
+  ) +
+    "\n" +
+    readFileSync(new URL("../docs/brief.md", import.meta.url), "utf8") +
     "\n" +
     readFileSync(
       new URL("../docs/revision-2026-09-13.md", import.meta.url),
@@ -67,8 +72,9 @@ for (const language of ["sk", "en"]) {
   verify(t.contact.failure + " info@wedma.sk.");
   for (const metric of metrics[language]) {
     Object.values(metric).forEach(verify);
-    assert.ok(metric.value.includes("[X]"));
+    assert.ok(!metric.value.includes("[X]"));
   }
+  assert.equal(metrics[language].length, 3);
 }
 assert.deepEqual(SECTION_IDS, [
   "uvod",
@@ -87,7 +93,9 @@ assert.equal(
 );
 assert.equal(CONTACT.target, "/kontakt");
 assert.equal(CONTACT.emailTarget, "mailto:info@wedma.sk");
-assert.equal(CONTACT.phoneTarget, "tel:+421904418299");
+assert.equal(CONTACT.phoneTarget, "tel:+421911511299");
+assert.equal(CONTACT.company, "WEDMA s.r.o.");
+assert.equal(CONTACT.person, "Lukáš Galo");
 const manifest = JSON.parse(
   readFileSync(new URL("../docs/asset-manifest.json", import.meta.url), "utf8"),
 );
@@ -102,5 +110,5 @@ for (const [name, sha] of Object.entries(manifest))
     `Original asset changed: ${name}`,
   );
 console.log(
-  `PASS: ${count} supplied content strings in SK/EN, all [X] metrics, shared contacts, stable section IDs and ${Object.keys(manifest).length} original assets.`,
+  `PASS: ${count} supplied content strings in SK/EN, three client-supplied metrics, shared contacts, stable section IDs and ${Object.keys(manifest).length} original assets.`,
 );

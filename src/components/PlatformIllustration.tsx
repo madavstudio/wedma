@@ -1,7 +1,11 @@
-import { useId } from "react";
+import { useId, type CSSProperties } from "react";
+import { useLanguage } from "../hooks/site";
+import { illustrationUi } from "../content/illustration-labels";
 
 /** Decorative UI schematics, using the graphite surfaces of the mission artwork. */
 export function PlatformIllustration({ index }: { index: number }) {
+  const { lang } = useLanguage();
+  const ui = illustrationUi[lang];
   const gradientId = `module-surface-${useId().replace(/:/g, "")}`;
   return (
     <svg
@@ -89,96 +93,152 @@ export function PlatformIllustration({ index }: { index: number }) {
       {index === 0 && (
         <g strokeLinecap="round" strokeLinejoin="round">
           <path
-            d="M103 87L133 99V119C133 138 117 151 103 158C89 151 73 138 73 119V99L103 87Z"
+            d="M88 91L110 100V118C110 133 99 144 88 150C77 144 66 133 66 118V100Z"
             stroke="#E2E5E7"
             strokeWidth="1.8"
           />
           <path
-            d="M91 121L100 130L117 111"
-            className="schematic-accent"
-            strokeWidth="2"
+            className="ui-motion ui-check"
+            pathLength="1"
+            d="m78 119 7 7 13-15"
+            stroke="#F2801E"
+            strokeWidth="2.2"
           />
-          {[99, 122, 145].map((y) => (
-            <g key={y}>
+          {ui.checks.map((label, i) => (
+            <g
+              key={label}
+              style={{ "--ui-delay": `${i * 0.65}s` } as CSSProperties}
+            >
               <rect
-                x="156"
-                y={y - 5}
-                width="10"
-                height="10"
-                rx="2"
-                stroke="#62686D"
+                x="126"
+                y={87 + i * 26}
+                width="116"
+                height="23"
+                rx="5"
+                fill="#24272B"
               />
+              <circle cx="138" cy={98 + i * 26} r="5.5" stroke="#495057" />
               <path
-                d={`M158 ${y}L160 ${y + 2}L164 ${y - 2}`}
-                className="schematic-accent"
+                className="ui-motion ui-check"
+                pathLength="1"
+                d={`m135 ${98 + i * 26} 2 2 4-4`}
+                stroke={i === 2 ? "#F8C14D" : "#00D23A"}
+                strokeWidth="1.4"
               />
-              <path d={`M177 ${y - 2}H230M177 ${y + 3}H210`} stroke="#555B60" />
+              <text x="150" y={101 + i * 26} fill="#CFD3D6" fontSize="8.5">
+                {label}
+              </text>
             </g>
           ))}
+          <path d="M66 164H234" stroke="#34383D" strokeWidth="2" />
+          <path
+            className="ui-motion ui-draw"
+            pathLength="1"
+            d="M66 164H234"
+            stroke="#F2801E"
+            strokeWidth="2"
+          />
         </g>
       )}
       {index === 1 && (
         <g strokeLinecap="round" strokeLinejoin="round">
           <path
-            d="M60 100H240M60 124H240M60 148H240M90 89V156M138 89V156M186 89V156M234 89V156"
+            d="M58 96H242M58 120H242M58 144H242"
             stroke="#34383D"
-            strokeOpacity=".65"
+            strokeOpacity=".7"
           />
+          {[28, 38, 33, 49, 44, 61, 54, 72, 66, 84].map((h, i) => (
+            <rect
+              key={i}
+              className="ui-motion ui-bar"
+              x={60 + i * 18}
+              y={166 - h * 0.87}
+              width="12"
+              height={h * 0.87}
+              rx="1.5"
+              fill="#00D23A"
+              opacity={0.24 + i * 0.075}
+              style={{ "--ui-delay": `${i * 0.12}s` } as CSSProperties}
+            />
+          ))}
           <path
-            d="M60 140L86 123L113 132L141 105L168 115L197 93L237 102"
-            className="schematic-accent"
-            strokeWidth="1.8"
+            className="ui-motion ui-draw"
+            pathLength="1"
+            d="M66 143C103 138 132 127 162 117S216 98 234 91"
+            stroke="#F2801E"
+            strokeWidth="2.4"
           />
           <circle
-            cx="141"
-            cy="105"
-            r="3.5"
-            fill="#202326"
-            className="schematic-accent"
-            strokeWidth="1.5"
-          />
-          <circle
-            cx="197"
-            cy="93"
-            r="3.5"
-            fill="#202326"
-            className="schematic-accent"
-            strokeWidth="1.5"
-          />
-          <path
-            d="M60 160H81M105 160H126M150 160H171M195 160H216"
-            stroke="#62686D"
+            className="ui-motion ui-status"
+            cx="234"
+            cy="91"
+            r="3"
+            fill="#F2801E"
           />
         </g>
       )}
       {index === 2 && (
-        <g strokeLinecap="round" strokeLinejoin="round">
-          <path
-            d="M76 89H102L115 102V152C115 156 112 159 108 159H76C72 159 69 156 69 152V96C69 92 72 89 76 89Z"
-            stroke="#7A8187"
-            strokeWidth="1.4"
-          />
-          <path
-            d="M102 89V102H115M80 114H103M80 122H99M80 130H103M80 138H93"
-            stroke="#62686D"
-          />
-          <path
-            d="M115 145H133L143 135"
-            className="schematic-accent"
-            strokeWidth="1.5"
-          />
-          <path
-            d="M141 92H223C229 92 234 97 234 103V132C234 138 229 143 223 143H166L148 156V143H141C135 143 130 138 130 132V103C130 97 135 92 141 92Z"
-            fill="#1B1E21"
-            stroke="#CAD0D4"
-            strokeWidth="1.5"
-          />
-          <path
-            d="M167 105C168 113 172 117 180 118C172 119 168 123 167 131C166 123 162 119 154 118C162 117 166 113 167 105Z"
-            className="schematic-accent"
-            strokeWidth="1.6"
-          />
-          <path d="M193 114H216M193 122H210" stroke="#6D747A" />
+        <g className="ui-chat">
+          <g className="ui-motion ui-chat-question">
+            <rect x="91" y="84" width="152" height="32" rx="7" fill="#2B2E32" />
+            <text x="101" y="97" fill="#E6E6E6" fontSize="8.2">
+              <tspan x="101">{ui.question[0]}</tspan>
+              <tspan x="101" dy="11">
+                {ui.question[1]}
+              </tspan>
+            </text>
+          </g>
+          <g className="ui-motion ui-chat-thinking">
+            <rect
+              x="58"
+              y="125"
+              width="151"
+              height="25"
+              rx="7"
+              fill="#0094F3"
+              fillOpacity=".035"
+              stroke="#0094F3"
+              strokeOpacity=".28"
+            />
+            {[68, 73, 78].map((x, i) => (
+              <circle
+                className="ui-motion ui-dot"
+                key={x}
+                cx={x}
+                cy="138"
+                r="1.3"
+                fill="#0094F3"
+                style={{ "--ui-delay": `${i * 0.18}s` } as CSSProperties}
+              />
+            ))}
+            <text x="87" y="140" fill="#AABFCF" fontSize="8">
+              {ui.reading}
+            </text>
+          </g>
+          <g className="ui-motion ui-chat-answer">
+            <rect
+              x="58"
+              y="124"
+              width="178"
+              height="43"
+              rx="7"
+              fill="#1A242C"
+              stroke="#0094F3"
+              strokeOpacity=".24"
+            />
+            <text x="68" y="138" fill="#E6E6E6" fontSize="8.4">
+              {ui.answer}
+            </text>
+            <path
+              d="M68 147h6l3 3v9h-9Zm6 0v4h3"
+              stroke="#0094F3"
+              strokeWidth=".8"
+              strokeLinejoin="round"
+            />
+            <text x="84" y="156" fill="#79BEE9" fontSize="7.7">
+              {ui.source}
+            </text>
+          </g>
         </g>
       )}
     </svg>

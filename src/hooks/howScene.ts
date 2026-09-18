@@ -29,6 +29,7 @@ export function createHowScenePainter(svg: SVGSVGElement) {
   const inputs = all("input"),
     signals = all("signal"),
     alerts = all("alert");
+  const hubStates = all("hub");
   const data = one("data"),
     scan = one("scan"),
     base = one("base"),
@@ -42,6 +43,17 @@ export function createHowScenePainter(svg: SVGSVGElement) {
     const recognition = clamp(progress),
       overview = clamp(progress - 1);
     svg.dataset.progress = progress.toFixed(3);
+    hubStates.forEach((el) => {
+      const state = el.dataset.howHub;
+      opacity(
+        el,
+        state === "inbox"
+          ? 1 - smooth(recognition)
+          : state === "data"
+            ? smooth(recognition) * (1 - smooth(overview))
+            : smooth(overview),
+      );
+    });
     documents.forEach((el, i) => {
       const x = Number(el.dataset.x),
         y = Number(el.dataset.y);

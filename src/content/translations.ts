@@ -33,7 +33,8 @@ export const translations = {
       scroll: "Prejsť na našu misiu",
     },
     hero: {
-      fixed: "Jeden systém pre poriadok v celej vašej prevádzke. S",
+      fixed: "Jeden systém pre poriadok v celej vašej prevádzke.",
+      connector: "S",
       phrases: [
         "lehotami pod kontrolou.",
         "prehľadom o energiách.",
@@ -47,13 +48,13 @@ export const translations = {
     },
     platform: {
       label: "ČO JE WEDMA",
-      heading: "Bezpečnosť. Energie. Dokumentácia. Jeden systém.",
+      heading: "Tri agendy prevádzky. Jeden systém.",
       body: "WEDMA je jednotná platforma, ktorá spája prevádzkovú dokumentáciu, zákonné povinnosti a energie do jedného prehľadu. Sama vyhľadá dôležité termíny, upozorní vopred a všetky dáta necháva priamo u vás.",
       cards: [
         {
           title: "Bezpečnosť & compliance",
           benefit: "Nič dôležité nezmeškáte.",
-          body: "WEDMA stráži školenia, lekárske prehliadky, revízie technických zariadení aj kontroly požiarnej ochrany. Jasne ukáže, čo je v poriadku, čo sa blíži a na čo treba reagovať. Upozorní vás 90, 30 a 7 dní vopred.",
+          body: "WEDMA stráži školenia, lekárske prehliadky, revízie technických zariadení aj kontroly požiarnej ochrany. Jasne ukáže, čo je v poriadku, čo sa blíži a na čo treba reagovať — a upozorní vás v dostatočnom predstihu.",
         },
         {
           title: "Energetika",
@@ -63,17 +64,17 @@ export const translations = {
         {
           title: "AI asistent",
           benefit: "Odpovede bez zdĺhavého hľadania.",
-          body: "Opýtate sa bežnou rečou — napríklad, kedy je ďalšia revízia kotolne — a dostanete odpoveď priamo z vašich dokumentov aj s odkazom na zdroj. Asistent pripraví podklady a odporúčania, rozhodnutie však zostáva na človeku.",
+          body: "Opýtate sa bežnou rečou — napríklad, kedy je ďalšia revízia kotolne — a dostanete odpoveď priamo z vašich dokumentov aj s odkazom na zdroj. Asistent pripraví podklady aj odporúčania a beží na lokálnom modeli, takže do odpovedí môžu vstúpiť aj citlivé podklady.",
         },
       ],
     },
     why: {
       label: "PREČO WEDMA",
-      heading: "Viac kontroly. Menej priestoru na chyby.",
+      heading: "Štyri veci, ktoré sme postavili inak.",
       benefits: [
         {
           title: "Dáta zostávajú pod vašou kontrolou",
-          body: "Celý systém vrátane AI beží lokálne na vašom serveri. Citlivé informácie neopúšťajú firmu a pravidlá ich používania určujete vy.",
+          body: "Aplikácia, databáza aj jazykový model bežia na serveri u vás alebo v našej správe. Citlivé údaje zostávajú vo zvolenom prostredí a pravidlá ich používania určujete vy.",
         },
         {
           title: "Čas sa vracia ľuďom",
@@ -91,12 +92,11 @@ export const translations = {
     },
     results: {
       label: "MERATEĽNÉ VÝSLEDKY",
-      heading:
-        "Firmy využívajú WEDMA na znižovanie prevádzkových nákladov a získanie času svojich ľudí späť.",
+      heading: "Nižšie prevádzkové náklady a čas, ktorý sa vráti vášmu tímu.",
     },
     cta: {
       heading: "Zistite, kde môže vaša prevádzka ",
-      highlight: "ušetriť čas a peniaze.",
+      highlight: "ušetriť čas a financie.",
       body: "Na krátkej ukážke prejdeme váš konkrétny príklad — lehoty, dokumentáciu aj spotrebu energií. Uvidíte, kde môže WEDMA odbremeniť váš tím, znížiť riziká a vytvoriť priestor na reálne úspory.",
     },
     footer: {
@@ -109,6 +109,7 @@ export const translations = {
       how: "Ako to funguje",
       company: "Údaje o firme",
       businessId: "IČO: 57759855",
+      taxId: "DIČ: 2123098659",
       contact: "Kontakt",
       copyright: "Všetky práva vyhradené.",
       back: "Späť na začiatok",
@@ -145,7 +146,8 @@ export const translations = {
       scroll: "Go to our mission",
     },
     hero: {
-      fixed: "One system to bring order to your entire operation. With",
+      fixed: "One system to bring order to your entire operation.",
+      connector: "With",
       phrases: [
         "deadlines under control.",
         "a clear view of energy use.",
@@ -159,13 +161,13 @@ export const translations = {
     },
     platform: {
       label: "WHAT IS WEDMA",
-      heading: "Safety. Energy. Documentation. One system.",
+      heading: "Three areas of your operation. One system.",
       body: "WEDMA is a unified platform that brings operational documentation, statutory obligations and energy into one clear overview. It identifies important deadlines, alerts you in advance and keeps all your data on your own premises.",
       cards: [
         {
           title: "Safety & compliance",
           benefit: "Never miss what matters.",
-          body: "WEDMA tracks training, medical examinations, technical equipment inspections and fire safety checks. It clearly shows what is in order, what is coming up and what needs attention. It alerts you 90, 30 and 7 days in advance.",
+          body: "WEDMA tracks training, medical examinations, technical equipment inspections and fire safety checks. It clearly shows what is in order, what is coming up and what needs attention — and alerts you well in advance.",
         },
         {
           title: "Energy management",
@@ -175,17 +177,17 @@ export const translations = {
         {
           title: "AI assistant",
           benefit: "Answers without the lengthy search.",
-          body: "Ask in everyday language — for example, when the next boiler room inspection is due — and receive an answer directly from your documents, with a link to the source. The assistant prepares supporting materials and recommendations, while the decision remains with a person.",
+          body: "Ask in everyday language — for example, when the next boiler room inspection is due — and receive an answer directly from your documents, with a link to the source. The assistant prepares supporting materials and recommendations and runs on a local model, so sensitive documents can also inform its answers.",
         },
       ],
     },
     why: {
       label: "WHY WEDMA",
-      heading: "More control. Less room for error.",
+      heading: "Four things we built differently.",
       benefits: [
         {
           title: "Your data stays under your control",
-          body: "The entire system, including AI, runs locally on your server. Sensitive information stays within your company, and you set the rules for how it is used.",
+          body: "The application, database and language model run on a server on your premises or managed by us. Sensitive data stays in your chosen environment, and you set the rules for its use.",
         },
         {
           title: "Give people their time back",
@@ -203,12 +205,11 @@ export const translations = {
     },
     results: {
       label: "MEASURABLE RESULTS",
-      heading:
-        "Companies use WEDMA to reduce operating costs and give their teams time back.",
+      heading: "Lower operating costs and time returned to your team.",
     },
     cta: {
       heading: "Discover where your operation can ",
-      highlight: "save time and money.",
+      highlight: "save time and reduce costs.",
       body: "In a short demo, we’ll walk through your specific use case — deadlines, documentation and energy consumption. You’ll see where WEDMA can ease your team’s workload, reduce risks and create opportunities for real savings.",
     },
     footer: {
@@ -221,6 +222,7 @@ export const translations = {
       how: "How it works",
       company: "Company details",
       businessId: "Business ID: 57759855",
+      taxId: "Tax ID: 2123098659",
       contact: "Contact",
       copyright: "All rights reserved.",
       back: "Back to top",

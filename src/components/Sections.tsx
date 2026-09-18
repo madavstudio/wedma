@@ -134,7 +134,7 @@ function ResultCard({ index }: { index: number }) {
       </div>
       <p>{item.description}</p>
       <span className="result-index" aria-hidden="true">
-        0{index + 1} / 04
+        0{index + 1} / 0{metrics[lang].length}
       </span>
     </article>
   );
@@ -155,7 +155,7 @@ export function ResultsSection() {
           <h2 id="results-heading">{t.results.heading}</h2>
         </div>
         <div className="results-panel">
-          {[0, 1, 2, 3].map((i) => (
+          {metrics[lang].map((_, i) => (
             <ResultCard key={i} index={i} />
           ))}
         </div>

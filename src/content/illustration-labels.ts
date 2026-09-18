@@ -8,12 +8,11 @@ export const missionEnglish: Record<string, string> = {
   "Revízia elektro": "Electrical inspection",
   "ZOSTÁVA 14 DNÍ": "14 DAYS REMAINING",
   "NIČ NEZMEŠKÁTE": "NEVER MISS A DEADLINE",
-  "PREHĽAD POVINNOSTÍ": "OBLIGATIONS OVERVIEW",
-  AKTUÁLNE: "UP TO DATE",
-  BEZPEČNOSŤ: "SAFETY",
-  "Požiarna ochrana": "Fire safety",
-  "Kontrola dokumentácie": "Documentation check",
-  "14 DNÍ": "14 DAYS",
+  "AI ASISTENT": "AI ASSISTANT",
+  "Odpoveď so zdrojom": "Answers with sources",
+  "Čítam dokumenty…": "Reading documents…",
+  "Revízia je naplánovaná.": "Inspection is scheduled.",
+  "Zdroj: revízna správa": "Source: inspection report",
   ENERGIE: "ENERGY",
   "Spotreba pod kontrolou": "Consumption under control",
   "−12.4 % OPROTI MIN. MESIACU": "−12.4% VS. LAST MONTH",
@@ -24,4 +23,21 @@ export const missionEnglish: Record<string, string> = {
   ŠKOLENIA: "TRAINING",
   POISTKY: "INSURANCE",
   BOZP: "H&S",
+};
+
+export const illustrationUi = {
+  sk: {
+    checks: ["Školenia", "Revízie", "Požiarna ochrana"],
+    question: ["Koľko revízií je aktuálne", "neplatných?"],
+    reading: "Čítam revízne správy…",
+    answer: "Aktuálne sú neplatné 3 revízie.",
+    source: "Zdroj: revízne správy",
+  },
+  en: {
+    checks: ["Training", "Inspections", "Fire safety"],
+    question: ["How many inspections", "are currently overdue?"],
+    reading: "Reading inspection reports…",
+    answer: "3 inspections are currently overdue.",
+    source: "Source: inspection reports",
+  },
 };

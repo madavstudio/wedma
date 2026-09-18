@@ -1,5 +1,5 @@
 import { useId, useLayoutEffect, useRef } from "react";
-import { useLanguage } from "../hooks/site";
+import { useInView, useLanguage, useMotion } from "../hooks/site";
 import { createHowScenePainter } from "../hooks/howScene";
 
 // The four documents keep their identities while their data joins the same hub.
@@ -28,6 +28,8 @@ export function HowItWorksIllustration({
   const { t } = useLanguage();
   const id = `how-${useId().replace(/:/g, "")}`;
   const ref = useRef<SVGSVGElement>(null);
+  const visible = useInView(ref);
+  const { running } = useMotion();
   useLayoutEffect(() => {
     if (ref.current) createHowScenePainter(ref.current)(stage);
   }, [stage]);
@@ -35,6 +37,7 @@ export function HowItWorksIllustration({
     <svg
       ref={ref}
       className="how-scene"
+      data-animating={animated && running && visible}
       data-how-animated={animated || undefined}
       viewBox="0 50 620 840"
       fill="none"
@@ -154,7 +157,12 @@ export function HowItWorksIllustration({
             ) : (
               <path d="M-17-23H8L20-11V25H-17Z" />
             )}
-            <g data-how-document-lines stroke={inputAccents[i]} strokeWidth="2">
+            <g
+              className="ui-motion ui-document"
+              data-how-document-lines
+              stroke={inputAccents[i]}
+              strokeWidth="2"
+            >
               {i === 0 ? (
                 <path d="m-9-2 8 8 20-23M-8 15H6" />
               ) : i === 1 ? (
@@ -217,7 +225,13 @@ export function HowItWorksIllustration({
               strokeWidth="2.5"
               strokeLinecap="round"
             />
-            <circle cx="25" cy="25" r="3" fill={accents[i]} />
+            <circle
+              className="ui-motion ui-status"
+              cx="25"
+              cy="25"
+              r="3"
+              fill={accents[i]}
+            />
             <g
               stroke="#E6E6E6"
               strokeWidth="3"
@@ -320,9 +334,47 @@ export function HowItWorksIllustration({
           strokeLinecap="round"
           strokeLinejoin="round"
         >
-          <path d="m278 552 32-18 32 18-32 18Z" />
-          <path d="m278 566 32 18 32-18M278 580l32 18 32-18" />
-          <path d="m310 598 32-18" stroke="#F2801E" />
+          <g data-how-hub="inbox">
+            <path d="M282 543H316L332 559V594H282ZM316 543V559H332" />
+            <path
+              className="ui-motion ui-draw"
+              pathLength="1"
+              d="M292 570H320M292 581H311"
+              stroke="#F2801E"
+              strokeWidth="3"
+            />
+          </g>
+          <g data-how-hub="data">
+            <path d="m278 552 32-18 32 18-32 18Z" />
+            <path d="m278 566 32 18 32-18M278 580l32 18 32-18" />
+            <path d="m310 598 32-18" stroke="#F2801E" />
+          </g>
+          <g data-how-hub="monitor">
+            <rect
+              x="277"
+              y="537"
+              width="66"
+              height="56"
+              rx="7"
+              strokeWidth="3"
+            />
+            <path d="M297 602H323M310 594V602" strokeWidth="3" />
+            <path
+              className="ui-motion ui-draw"
+              pathLength="1"
+              d="m286 577 13-15 12 7 22-22"
+              stroke="#F2801E"
+              strokeWidth="3"
+            />
+            <circle
+              className="ui-motion ui-status"
+              cx="333"
+              cy="547"
+              r="3"
+              fill="#00D23A"
+              stroke="none"
+            />
+          </g>
         </g>
       </g>
 
@@ -356,7 +408,7 @@ export function HowItWorksIllustration({
               x={x - 91}
               y="803"
               width="182"
-              height="49"
+              height="73"
               rx="13"
               fill="#1F2225"
               stroke="#34383D"
@@ -370,10 +422,67 @@ export function HowItWorksIllustration({
               rx="1.25"
               fill={accents[i]}
             />
+            <g
+              transform={`translate(${x} 824)`}
+              stroke={accents[i]}
+              strokeWidth="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            >
+              {i === 0 ? (
+                <>
+                  <circle r="10" />
+                  <path
+                    className="ui-motion ui-check"
+                    pathLength="1"
+                    d="m-5 0 4 4 7-8"
+                  />
+                </>
+              ) : i === 1 ? (
+                <>
+                  <path d="M-8 5V-2a8 8 0 0 1 16 0v7l3 3h-22ZM-3 12H3" />
+                  <circle
+                    className="ui-motion ui-status"
+                    cx="9"
+                    cy="-8"
+                    r="3"
+                    fill="#0094F3"
+                    stroke="#1F2225"
+                  />
+                </>
+              ) : (
+                <g fill={accents[i]} stroke="none">
+                  <rect
+                    className="ui-motion ui-bar"
+                    x="-13"
+                    y="1"
+                    width="6"
+                    height="9"
+                    rx="1"
+                  />
+                  <rect
+                    className="ui-motion ui-bar"
+                    x="-3"
+                    y="-4"
+                    width="6"
+                    height="14"
+                    rx="1"
+                  />
+                  <rect
+                    className="ui-motion ui-bar"
+                    x="7"
+                    y="-10"
+                    width="6"
+                    height="20"
+                    rx="1"
+                  />
+                </g>
+              )}
+            </g>
             <text
               className="how-alert-label"
               x={x}
-              y="834"
+              y="858"
               textAnchor="middle"
               fill="#E6E6E6"
             >

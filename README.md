@@ -39,7 +39,7 @@ Prezentačný klient má kontaktné API na Node.js; doručovanie vyžaduje serve
 | Riadenie pohybu, jazyk a úložisko          | `src/hooks/site.tsx`                 |
 | Pôvodné zadanie                            | `docs/brief.md`                      |
 
-`[X]` je zámerný zástupný údaj. Vo všetkých štyroch metrikách čaká na skutočné výsledky; nejde o overené číselné tvrdenia. Zmeny textov oproti zadaniu treba zohľadniť aj v obsahovej kontrole.
+Tri metriky používajú hodnoty a texty dodané klientom 18. 9. 2026. Aktualizované SK/EN znenie je v `docs/revision-2026-09-18.md` a zahŕňa ho obsahová kontrola.
 
 Všetky kontaktné CTA používajú `CONTACT.target = "/kontakt"`. E-mail vo footeri používa samostatný `CONTACT.emailTarget`. Kontaktná podstránka má presné SK/EN texty, vlastné SVG, validáciu a rozhranie `/api/contact`. Bez `RESEND_API_KEY` a overeného `CONTACT_FROM` sa nezobrazí úspech. Konfigurácia a nasadenie sú v [docs/contact.md](docs/contact.md).
 
