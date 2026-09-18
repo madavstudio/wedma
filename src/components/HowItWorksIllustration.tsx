@@ -46,7 +46,7 @@ export function HowItWorksIllustration({
     >
       <defs>
         <linearGradient id={`${id}-card`} x1="0" y1="0" x2="1" y2="1">
-          <stop stopColor="#1B1E21" />
+          <stop stopColor="#202326" />
           <stop offset="1" stopColor="#151719" />
         </linearGradient>
         <radialGradient id={`${id}-glow`}>
@@ -61,9 +61,9 @@ export function HowItWorksIllustration({
           y2="705"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stopColor="#080808" />
-          <stop offset=".5" stopColor="#252525" />
-          <stop offset="1" stopColor="#0A0A0A" />
+          <stop stopColor="#111214" />
+          <stop offset=".5" stopColor="#24272B" />
+          <stop offset="1" stopColor="#151719" />
         </linearGradient>
         <linearGradient
           id={`${id}-top`}
@@ -73,8 +73,8 @@ export function HowItWorksIllustration({
           y2="720"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stopColor="#303030" />
-          <stop offset="1" stopColor="#141414" />
+          <stop stopColor="#202326" />
+          <stop offset="1" stopColor="#151719" />
         </linearGradient>
         <linearGradient id={`${id}-scan`}>
           <stop stopColor="#F2801E" stopOpacity="0" />
@@ -136,6 +136,16 @@ export function HowItWorksIllustration({
         >
           <rect
             x="-45"
+            y="-43"
+            width="90"
+            height="104"
+            rx="18"
+            fill="#151719"
+            stroke="#34383D"
+            strokeWidth="1.25"
+          />
+          <rect
+            x="-45"
             y="-48"
             width="90"
             height="104"
@@ -143,6 +153,15 @@ export function HowItWorksIllustration({
             fill={`url(#${id}-card)`}
             stroke="#34383D"
             strokeWidth="1.25"
+          />
+          <rect
+            x="-40"
+            y="-43"
+            width="80"
+            height="94"
+            rx="13"
+            stroke="#FFF"
+            strokeOpacity=".045"
           />
           <path
             d="M-31-44H28Q40-44 40-32"
@@ -263,6 +282,15 @@ export function HowItWorksIllustration({
               stroke="#41454B"
               strokeWidth="1.25"
             />
+            <rect
+              x="-32"
+              y="-32"
+              width="64"
+              height="64"
+              rx="12"
+              stroke="#FFF"
+              strokeOpacity=".045"
+            />
             <path
               d="M-12-37H12"
               stroke={accents[i]}
@@ -278,7 +306,7 @@ export function HowItWorksIllustration({
             />
             <g
               stroke="#E6E6E6"
-              strokeWidth="3"
+              strokeWidth="2.5"
               strokeLinecap="round"
               strokeLinejoin="round"
             >
@@ -349,14 +377,14 @@ export function HowItWorksIllustration({
             <path
               data-how-layer-face
               fill={`url(#${id}-top)`}
-              stroke="#45494E"
+              stroke="#41454B"
               strokeWidth="1.25"
             />
             <path
               data-how-layer-edge
               fill="none"
               stroke={layer === 0 ? "#F2801E" : "#60656B"}
-              strokeOpacity={layer === 0 ? ".65" : ".35"}
+              strokeOpacity={layer === 0 ? ".6" : ".3"}
               strokeWidth="1.3"
             />
           </g>
@@ -367,8 +395,8 @@ export function HowItWorksIllustration({
           width="160"
           height="160"
           rx="30"
-          fill="#080808"
-          transform="translate(0 10)"
+          fill="#151719"
+          transform="translate(0 8)"
         />
         <rect x="230" y="486" width="160" height="160" rx="30" fill="#FFF" />
         <path
@@ -387,7 +415,7 @@ export function HowItWorksIllustration({
         />
         <g
           stroke="#191919"
-          strokeWidth="4"
+          strokeWidth="3.5"
           strokeLinecap="round"
           strokeLinejoin="round"
         >
@@ -429,9 +457,18 @@ export function HowItWorksIllustration({
               width="182"
               height="73"
               rx="13"
-              fill="#1F2225"
+              fill={`url(#${id}-card)`}
               stroke="#34383D"
               strokeWidth="1.25"
+            />
+            <rect
+              x={x - 86}
+              y="808"
+              width="172"
+              height="63"
+              rx="9"
+              stroke="#FFF"
+              strokeOpacity=".045"
             />
             <rect
               x={x - 12}
