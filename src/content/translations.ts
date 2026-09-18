@@ -48,7 +48,7 @@ export const translations = {
     },
     platform: {
       label: "ČO JE WEDMA",
-      heading: "Tri agendy prevádzky. Jeden systém.",
+      heading: "Tri piliere prevádzky. Jeden systém.",
       body: "WEDMA je jednotná platforma, ktorá spája prevádzkovú dokumentáciu, zákonné povinnosti a energie do jedného prehľadu. Sama vyhľadá dôležité termíny, upozorní vopred a všetky dáta necháva priamo u vás.",
       cards: [
         {
@@ -161,7 +161,7 @@ export const translations = {
     },
     platform: {
       label: "WHAT IS WEDMA",
-      heading: "Three areas of your operation. One system.",
+      heading: "Three pillars of your operation. One system.",
       body: "WEDMA is a unified platform that brings operational documentation, statutory obligations and energy into one clear overview. It identifies important deadlines, alerts you in advance and keeps all your data on your own premises.",
       cards: [
         {

@@ -71,7 +71,12 @@ for (const language of ["sk", "en"]) {
   t.contact.interests.forEach(verify);
   verify(t.contact.failure + " info@wedma.sk.");
   for (const metric of metrics[language]) {
-    Object.values(metric).forEach(verify);
+    [metric.value, metric.label, metric.description].forEach(verify);
+    assert.equal(
+      metric.display.join(" "),
+      metric.value,
+      "Visual grouping preserves the supplied metric",
+    );
     assert.ok(!metric.value.includes("[X]"));
   }
   assert.equal(metrics[language].length, 3);

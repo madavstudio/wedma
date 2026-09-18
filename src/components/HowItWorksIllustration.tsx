@@ -144,6 +144,12 @@ export function HowItWorksIllustration({
             stroke="#34383D"
             strokeWidth="1.25"
           />
+          <path
+            d="M-31-44H28Q40-44 40-32"
+            stroke="#FFF"
+            strokeOpacity=".12"
+            strokeWidth="1.25"
+          />
           <g
             stroke="#E6E6E6"
             strokeWidth="2.5"
@@ -201,12 +207,14 @@ export function HowItWorksIllustration({
           <path
             className="ui-motion ui-route"
             pathLength="100"
+            data-how-route={0}
             d="M120 392V412Q120 420 128 424L280 500"
             stroke="#F8C14D"
           />
           <path
             className="ui-motion ui-route"
             pathLength="100"
+            data-how-route={1}
             d="M310 392V496"
             stroke="#0094F3"
             style={{ animationDelay: "-2s" }}
@@ -214,6 +222,7 @@ export function HowItWorksIllustration({
           <path
             className="ui-motion ui-route"
             pathLength="100"
+            data-how-route={2}
             d="M500 414V416Q500 421 493 425L340 500"
             stroke="#00D23A"
             style={{ animationDelay: "-4s" }}
@@ -230,7 +239,12 @@ export function HowItWorksIllustration({
           strokeLinejoin="round"
         />
         {[104, 310, 516].map((x, i) => (
-          <path key={x} d={`M${x} 333l5 5-5 5-5-5Z`} fill={accents[i]} />
+          <path
+            key={x}
+            data-how-junction
+            d={`M${x} 333l5 5-5 5-5-5Z`}
+            fill={accents[i]}
+          />
         ))}
         {[120, 310, 500].map((x, i) => (
           <g
@@ -323,24 +337,30 @@ export function HowItWorksIllustration({
           strokeOpacity=".4"
           strokeWidth="1.2"
         />
-        <path
-          d="M95 638V673C95 708 191 736 310 736S525 708 525 673V638Z"
-          fill={`url(#${id}-side)`}
-          stroke="#3F3F3F"
-        />
-        <ellipse
-          cx="310"
-          cy="638"
-          rx="215"
-          ry="63"
-          fill={`url(#${id}-top)`}
-          stroke="#525252"
-        />
-        <path
-          d="M125 684C180 718 438 725 495 684"
-          stroke="#F2801E"
-          strokeOpacity=".6"
-        />
+        {/* Three projected planes unfold together; the central hub stays fixed. */}
+        {[2, 1, 0].map((layer) => (
+          <g key={layer} data-how-layer={layer}>
+            <path
+              data-how-layer-side
+              fill={`url(#${id}-side)`}
+              stroke="#34383D"
+              strokeWidth="1.2"
+            />
+            <path
+              data-how-layer-face
+              fill={`url(#${id}-top)`}
+              stroke="#45494E"
+              strokeWidth="1.25"
+            />
+            <path
+              data-how-layer-edge
+              fill="none"
+              stroke={layer === 0 ? "#F2801E" : "#60656B"}
+              strokeOpacity={layer === 0 ? ".65" : ".35"}
+              strokeWidth="1.3"
+            />
+          </g>
+        ))}
         <rect
           x="230"
           y="486"
@@ -390,7 +410,7 @@ export function HowItWorksIllustration({
           <path key={x} d={`M${x} 769l5 5-5 5-5-5Z`} fill="#F2801E" />
         ))}
         <g
-          transform="translate(310 730)"
+          transform="translate(310 762)"
           fill="#1B1E21"
           stroke="#F2801E"
           strokeWidth="2.5"

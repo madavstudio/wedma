@@ -129,7 +129,15 @@ function ResultCard({ index }: { index: number }) {
       style={{ zIndex: index + 1 }}
     >
       <div className="result-card-top">
-        <div className="metric">{item.value}</div>
+        <div className={`metric metric--${index === 1 ? "duration" : "range"}`}>
+          <span className="sr-only">{item.value}</span>
+          <span className="metric-primary" aria-hidden="true">
+            {item.display[0]}
+          </span>
+          <span className="metric-secondary" aria-hidden="true">
+            {item.display[1]}
+          </span>
+        </div>
         <h3>{item.label}</h3>
       </div>
       <p>{item.description}</p>

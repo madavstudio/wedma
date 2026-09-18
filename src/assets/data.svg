@@ -32,6 +32,16 @@
     <filter id="chipShadow" x="-30%" y="-30%" width="160%" height="180%">
       <feDropShadow dx="0" dy="14" stdDeviation="18" flood-color="#000" flood-opacity=".18"/>
     </filter>
+    <linearGradient id="engravedStroke" x1="0" y1="0" x2="0.7" y2="1">
+      <stop stop-color="#070809"/><stop offset=".5" stop-color="#191B1D"/><stop offset="1" stop-color="#3A3D40"/>
+    </linearGradient>
+    <linearGradient id="engravedFace" x1="0" y1="0" x2="0" y2="1">
+      <stop stop-color="#E8E9E9"/><stop offset=".35" stop-color="#F8F8F7"/><stop offset="1" stop-color="#FFF"/>
+    </linearGradient>
+    <filter id="engravedEdge" x="-15%" y="-15%" width="130%" height="130%">
+      <feDropShadow dx="0" dy="1.2" stdDeviation=".25" flood-color="#FFF" flood-opacity=".95"/>
+      <feDropShadow dx="0" dy="-.7" stdDeviation=".3" flood-color="#000" flood-opacity=".22"/>
+    </filter>
     <filter id="portalGlow" x="-80%" y="-50%" width="260%" height="220%"><feGaussianBlur stdDeviation="26"/></filter>
     <filter id="lineGlow" x="-200%" y="-200%" width="500%" height="500%">
       <feGaussianBlur stdDeviation="7" result="blur"/><feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
@@ -40,49 +50,44 @@
       <feGaussianBlur stdDeviation="9" result="blur"/><feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
     </filter>
   </defs>
-  <!-- Rounded, converging circuit routes carry each signal into the processor. -->
+  <!-- Separate circuit lanes echo the 45-degree routes in Mission. -->
   <ellipse class="data-glow" cx="465" cy="350" rx="286" ry="270" fill="url(#networkAura)"/>
-  <g fill="none" stroke="url(#networkLine)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-    <path d="M465 162V260Q465 280 465 302V500"/>
-    <path d="M332 215V267Q332 285 350 295L443 349Q465 362 465 385V500"/>
-    <path d="M598 215V267Q598 285 580 295L487 349Q465 362 465 385V500"/>
-    <path d="M270 330H309Q325 330 340 342L431 414Q465 440 465 468V500"/>
-    <path d="M660 330H621Q605 330 590 342L499 414Q465 440 465 468V500"/>
-    <path d="M350 432H387Q406 432 420 447L450 478Q465 493 465 500"/>
-    <path d="M580 432H543Q524 432 510 447L480 478Q465 493 465 500"/>
+  <g fill="none" stroke="url(#networkLine)" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M465 162V500"/>
+    <path d="M320 210V278Q320 284 326 290L420 384Q428 392 428 404V514"/>
+    <path d="M610 210V278Q610 284 604 290L510 384Q502 392 502 404V514"/>
+    <path d="M232 320H288Q296 320 302 326L382 406Q390 414 390 424V534"/>
+    <path d="M698 320H642Q634 320 628 326L548 406Q540 414 540 424V534"/>
+    <path d="M276 438H322Q330 438 336 444L354 462Q362 470 362 480V555"/>
+    <path d="M654 438H608Q600 438 594 444L576 462Q568 470 568 480V555"/>
   </g>
-  <g fill="none" stroke="#F2801E" stroke-width="3" stroke-linecap="round">
-    <path class="data-synapse" d="M465 162V260Q465 280 465 302V500" pathLength="100" style="animation-delay:-0s;animation-duration:4.6s"/>
-    <path class="data-synapse" d="M332 215V267Q332 285 350 295L443 349Q465 362 465 385V500" pathLength="100" style="animation-delay:-0.68s;animation-duration:4.819999999999999s"/>
-    <path class="data-synapse" d="M598 215V267Q598 285 580 295L487 349Q465 362 465 385V500" pathLength="100" style="animation-delay:-1.36s;animation-duration:5.04s"/>
-    <path class="data-synapse" d="M270 330H309Q325 330 340 342L431 414Q465 440 465 468V500" pathLength="100" style="animation-delay:-2.04s;animation-duration:5.26s"/>
-    <path class="data-synapse" d="M660 330H621Q605 330 590 342L499 414Q465 440 465 468V500" pathLength="100" style="animation-delay:-2.72s;animation-duration:5.4799999999999995s"/>
-    <path class="data-synapse" d="M350 432H387Q406 432 420 447L450 478Q465 493 465 500" pathLength="100" style="animation-delay:-3.4000000000000004s;animation-duration:5.699999999999999s"/>
-    <path class="data-synapse" d="M580 432H543Q524 432 510 447L480 478Q465 493 465 500" pathLength="100" style="animation-delay:-4.08s;animation-duration:5.92s"/>
+  <g fill="none" stroke="#F2801E" stroke-width="2.6" stroke-linecap="round">
+    <path class="data-synapse" d="M465 162V500" pathLength="100" style="animation-delay:-0.0s;animation-duration:5.00s"/>
+    <path class="data-synapse" d="M320 210V278Q320 284 326 290L420 384Q428 392 428 404V514" pathLength="100" style="animation-delay:-0.7s;animation-duration:5.22s"/>
+    <path class="data-synapse" d="M610 210V278Q610 284 604 290L510 384Q502 392 502 404V514" pathLength="100" style="animation-delay:-1.4s;animation-duration:5.44s"/>
+    <path class="data-synapse" d="M232 320H288Q296 320 302 326L382 406Q390 414 390 424V534" pathLength="100" style="animation-delay:-2.1s;animation-duration:5.66s"/>
+    <path class="data-synapse" d="M698 320H642Q634 320 628 326L548 406Q540 414 540 424V534" pathLength="100" style="animation-delay:-2.8s;animation-duration:5.88s"/>
+    <path class="data-synapse" d="M276 438H322Q330 438 336 444L354 462Q362 470 362 480V555" pathLength="100" style="animation-delay:-3.5s;animation-duration:6.10s"/>
+    <path class="data-synapse" d="M654 438H608Q600 438 594 444L576 462Q568 470 568 480V555" pathLength="100" style="animation-delay:-4.2s;animation-duration:6.32s"/>
   </g>
-  <g fill="#111214" stroke="#F2801E" stroke-width="2">
-    <rect x="458" y="155" width="14" height="14" rx="4"/>
-    <rect x="325" y="208" width="14" height="14" rx="4"/>
-    <rect x="591" y="208" width="14" height="14" rx="4"/>
-    <rect x="263" y="323" width="14" height="14" rx="4"/>
-    <rect x="653" y="323" width="14" height="14" rx="4"/>
-    <rect x="343" y="425" width="14" height="14" rx="4"/>
-    <rect x="573" y="425" width="14" height="14" rx="4"/>
-    <rect x="458" y="295" width="14" height="14" rx="4"/>
+  <g fill="#1B1E21" stroke="#F2801E" stroke-width="1.5">
+    <path d="M465 156l6 6-6 6-6-6Z"/>
+    <path d="M320 204l6 6-6 6-6-6Z"/>
+    <path d="M610 204l6 6-6 6-6-6Z"/>
+    <path d="M232 314l6 6-6 6-6-6Z"/>
+    <path d="M698 314l6 6-6 6-6-6Z"/>
+    <path d="M276 432l6 6-6 6-6-6Z"/>
+    <path d="M654 432l6 6-6 6-6-6Z"/>
   </g>
   <g class="data-neurons" fill="#F2801E">
-    <circle cx="465" cy="162" r="2.5"/>
-    <circle cx="332" cy="215" r="2.5"/>
-    <circle cx="598" cy="215" r="2.5"/>
-    <circle cx="270" cy="330" r="2.5"/>
-    <circle cx="660" cy="330" r="2.5"/>
-    <circle cx="350" cy="432" r="2.5"/>
-    <circle cx="580" cy="432" r="2.5"/>
-    <circle cx="465" cy="302" r="2.5"/>
+    <circle cx="465" cy="162" r="2"/>
+    <circle cx="320" cy="210" r="2"/>
+    <circle cx="610" cy="210" r="2"/>
+    <circle cx="232" cy="320" r="2"/>
+    <circle cx="698" cy="320" r="2"/>
+    <circle cx="276" cy="438" r="2"/>
+    <circle cx="654" cy="438" r="2"/>
   </g>
-  <path d="M465 500V526" stroke="#F2801E" stroke-width="3" stroke-linecap="round"/>
-  <circle class="ui-motion ui-status" cx="465" cy="500" r="6" fill="#F2801E"/>
-
   <!-- Thin, chamfered processor layers replace the cylindrical pedestal. -->
   <g stroke-linejoin="round" filter="url(#mainShadow)">
     <path d="M157 830 457 672Q465 668 473 672L773 830V887L473 1045Q465 1049 457 1045L157 887Z" fill="url(#platformSide)" stroke="#34383D" stroke-width="2"/>
@@ -111,17 +116,16 @@
   <g class="data-core" transform="translate(465 614) scale(.9) translate(-465 -614)" fill="none" stroke-linecap="round" stroke-linejoin="round">
     <path d="M362 614H335L315 625M568 614H595L615 625M395 524V510M535 524V510M465 710V735" stroke="#F2801E" stroke-opacity=".5" stroke-width="2"/>
     <g filter="url(#chipShadow)">
-      <rect class="data-core-face" x="362" y="511" width="206" height="206" rx="38" fill="#FFF"/>
-      <rect x="371" y="520" width="188" height="188" rx="32" stroke="#D8D8D6" stroke-width="1"/>
+      <rect x="362" y="523" width="206" height="206" rx="24" fill="#080808"/>
+      <rect class="data-core-face" x="362" y="511" width="206" height="206" rx="24" fill="#FFF"/>
+      <rect x="371" y="520" width="188" height="188" rx="18" stroke="#D8D8D6" stroke-width="1.25"/>
     </g>
-    <!-- Solid engraved processor mark, framed like the WEDMA symbol in Mission. -->
-    <g class="data-core-symbol" transform="translate(465 614)" fill="#050505" stroke="none">
-      <path fill-rule="evenodd" d="M-27-36H27Q36-36 36-27V27Q36 36 27 36H-27Q-36 36-36 27V-27Q-36-36-27-36ZM-23-27Q-27-27-27-23V23Q-27 27-23 27H23Q27 27 27 23V-23Q27-27 23-27Z"/>
-      <path d="M-22-49H-15V-35H-22ZM-3.5-49H3.5V-35H-3.5ZM15-49H22V-35H15ZM-22 35H-15V49H-22ZM-3.5 35H3.5V49H-3.5ZM15 35H22V49H15ZM-49-22H-35V-15H-49ZM-49-3.5H-35V3.5H-49ZM-49 15H-35V22H-49ZM35-3.5H49V3.5H35ZM35 15H49V22H35Z"/>
-      <path d="M35-22H49V-15H35Z" fill="#F2801E"/>
-      <rect x="-13" y="-13" width="26" height="26" rx="3"/>
-      <path d="M-26 28H23Q28 28 28 23V-26" fill="none" stroke="#FFF" stroke-opacity=".75" stroke-width="1.5"/>
-      <rect class="ui-motion ui-processor" x="-6" y="-6" width="12" height="12" rx="1.5" fill="#F2801E" fill-opacity=".14"/>
+    <g class="data-core-symbol" transform="translate(465 614)" stroke="url(#engravedStroke)" stroke-width="3.5" filter="url(#engravedEdge)">
+      <rect x="-34" y="-34" width="68" height="68" rx="6"/>
+      <path d="M-18-46V-34M0-46V-34M18-46V-34M-18 34V46M0 34V46M18 34V46M-46-18H-34M-46 0H-34M-46 18H-34M34-18H46M34 0H46M34 18H46"/>
+      <rect class="ui-motion ui-processor" x="-8" y="-8" width="16" height="16" rx="2" fill="#F2801E" fill-opacity=".14" stroke="none"/>
+      <rect x="-15" y="-15" width="30" height="30" rx="3" fill="url(#engravedFace)" stroke-width="3"/>
+      <path class="ui-motion ui-draw" pathLength="1" d="M0-15H12a3 3 0 0 1 3 3V0" stroke="#F2801E"/>
     </g>
   </g>
 </svg>
