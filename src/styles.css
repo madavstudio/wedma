@@ -1187,6 +1187,8 @@ select:focus-visible {
   flex-direction: column-reverse;
   align-items: stretch;
   gap: 24px;
+  padding-bottom: 24px;
+  border-bottom: 1px solid #e5e6e6;
 }
 .metric {
   display: flex;
@@ -1194,10 +1196,10 @@ select:focus-visible {
   flex-wrap: wrap;
   gap: 0.12em 0.2em;
   color: #191919;
-  font-size: clamp(2.65rem, 3.7vw, 3.6rem);
+  font-size: clamp(2.5rem, 3.5vw, 3.35rem);
   line-height: 1.04;
-  font-weight: 500;
-  letter-spacing: -0.045em;
+  font-weight: 460;
+  letter-spacing: -0.04em;
   font-variant-numeric: lining-nums tabular-nums;
   overflow-wrap: normal;
 }
@@ -1214,22 +1216,23 @@ select:focus-visible {
 .metric--duration {
   flex-direction: column;
   align-items: flex-start;
-  gap: 0.08em;
+  gap: 0.05em;
 }
-.metric--duration .metric-primary {
-  font-size: 0.6em;
-  font-weight: 430;
-  letter-spacing: -0.025em;
-  color: #57595c;
-}
+.metric--duration .metric-primary,
 .metric--duration .metric-secondary {
   font-size: 1em;
-  font-weight: 500;
-  letter-spacing: -0.045em;
-  color: #191919;
+  font-weight: inherit;
+  letter-spacing: inherit;
+  color: inherit;
+}
+.metric--hours .metric-secondary {
+  font-size: 0.72em;
+  font-weight: inherit;
+  letter-spacing: -0.035em;
+  color: inherit;
 }
 .result-card h3 {
-  font-family: inherit;
+  font-family: "Geist Mono Variable", monospace;
   font-size: 0.75rem;
   letter-spacing: 0.06em;
   line-height: 1.5;
