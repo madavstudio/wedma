@@ -1,5 +1,7 @@
 # WEDMA
 
+> Aktualizácia 19. 9. 2026: aktívny formulár odosiela priamo na `https://formspree.io/f/mljddqjn`. Pre toto zapojenie netreba `RESEND_API_KEY`, `CONTACT_FROM` ani `CONTACT_ORIGIN`. Príjemcu a povolené domény spravujete vo Formspree. Nižšie uvedené serverové nastavenia zostávajú iba pre voliteľný pôvodný adaptér.
+
 Kompletný prezentačný web v Reacte, TypeScripte a Vite. Obsahuje fixnú navigáciu, hero, misiu, predstavenie platformy, výhody, výsledky, trojkrokovú sekciu Ako to funguje, CTA panel a footer. Kontaktný formulár je na samostatnej podstránke `/kontakt`. Slovenčina je predvolená; angličtina zahŕňa aj popisy ilustrácií a prístupné názvy.
 
 ## Spustenie

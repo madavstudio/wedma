@@ -1,5 +1,7 @@
 # Kontakt WEDMA
 
+> Aktualizácia 19. 9. 2026: aktívny formulár odosiela priamo na `https://formspree.io/f/mljddqjn`. Pre toto zapojenie netreba `RESEND_API_KEY`, `CONTACT_FROM` ani `CONTACT_ORIGIN`. Príjemcu a povolené domény spravujete vo Formspree. Nižšie uvedené serverové nastavenia zostávajú iba pre voliteľný pôvodný adaptér.
+
 Kontakt je na samostatnej podstránke `/kontakt`. Hlavná stránka končí CTA panelom a footerom; formulár sa v jej rozložení ani v strome prístupnosti nezobrazuje. Má vlastnú SVG ilustráciu, presné zadanie v SK/EN a osem polí plus povinný súhlas. Všetky kontaktné CTA smerujú na túto podstránku; samostatný e-mail a telefón vo footeri zostávajú `mailto:` a `tel:`. Nadpis dostane fokus po aktivácii kontaktného odkazu, prvé pole sa automaticky neotvára. Klientská navigácia zachová rozpísaný formulár v pamäti aj pri návrate na hlavnú stránku a späť. Odkazy z kontaktu na sekcie hlavnej stránky používajú `/#id`; priamy reload `/kontakt` podporuje Vite aj produkčný Node server.
 
 ## Čo je potrebné na reálne doručovanie

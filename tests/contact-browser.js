@@ -1,19 +1,20 @@
 // Isolated browser tests only. No enquiry leaves this fixture.
+import { CONTACT } from "../src/content/config.ts";
 const originalFetch = window.fetch.bind(window);
 let mode = "error",
   calls = 0;
 window.fetch = async (input, options) => {
-  if (input !== "/api/contact") return originalFetch(input, options);
+  if (input !== CONTACT.formEndpoint) return originalFetch(input, options);
   calls++;
   await new Promise((resolve) => setTimeout(resolve, 500));
   if (mode === "network") throw Error("Test network failure");
   return new Response(
     JSON.stringify(
       mode === "success"
-        ? { accepted: true }
+        ? { ok: true }
         : mode === "unconfirmed"
           ? {}
-          : { accepted: false },
+          : { ok: false },
     ),
     {
       status: mode === "error" ? 503 : 200,

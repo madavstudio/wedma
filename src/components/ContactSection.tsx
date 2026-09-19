@@ -1,8 +1,7 @@
-import { sitePath } from "../sitePaths";
 import { useRef, useState } from "react";
 import type { FormEvent } from "react";
 import { useLanguage } from "../hooks/site";
-import { PRIVACY_PATH } from "../content/privacy";
+import { PRIVACY_PATH, PRIVACY_VERSION } from "../content/privacy";
 import { CONTACT } from "../content/config";
 import {
   EMPTY_CONTACT,
@@ -38,7 +37,6 @@ export function ContactSection() {
   >("idle");
   const form = useRef<HTMLFormElement>(null);
   const inFlight = useRef(false);
-  const attempt = useRef<{ body: string; key: string } | null>(null);
   const [formHeight, setFormHeight] = useState<number>();
   function update<K extends ContactField>(key: K, value: ContactValues[K]) {
     const next = { ...values, [key]: value };
@@ -92,26 +90,25 @@ export function ContactSection() {
     }
     inFlight.current = true;
     setStatus("sending");
-    // Retried, unchanged enquiries reuse the same idempotency key, in memory only.
-    const body = JSON.stringify(validated.values);
     try {
-      if (attempt.current?.body !== body)
-        attempt.current = { body, key: crypto.randomUUID() };
-      const response = await fetch(sitePath("/api/contact"), {
+      const response = await fetch(CONTACT.formEndpoint, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
-          "Idempotency-Key": attempt.current!.key,
+          Accept: "application/json",
         },
-        body: JSON.stringify({ ...validated.values, language: lang }),
+        body: JSON.stringify({
+          ...validated.values,
+          language: lang,
+          privacyVersion: PRIVACY_VERSION,
+        }),
         signal: AbortSignal.timeout(20000),
       });
       const result = await response.json();
-      if (response.ok && result.accepted === true) {
+      if (response.ok && result.ok === true) {
         setFormHeight(form.current?.getBoundingClientRect().height);
         setValues({ ...EMPTY_CONTACT });
         setStatus("success");
-        attempt.current = null;
       } else {
         // Only known validation codes may enter the UI; never render server prose.
         if (
@@ -163,6 +160,8 @@ export function ContactSection() {
           <p>{c.body}</p>
         </div>
         <form
+          action={CONTACT.formEndpoint}
+          method="POST"
           ref={form}
           className="contact-form"
           aria-label={c.label}

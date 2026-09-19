@@ -21,7 +21,7 @@ export const metadata = {
       description:
         "Informácie o spracúvaní osobných údajov na webe WEDMA, účeloch, uchovávaní údajov a vašich právach pri kontakte s WEDMA s.r.o.",
     },
-    imageAlt: "Čierne a oranžové logo WEDMA na bielom pozadí",
+    imageAlt: "Biele a oranžové logo WEDMA na čiernom pozadí",
   },
   en: {
     home: {
@@ -39,6 +39,6 @@ export const metadata = {
       description:
         "How WEDMA handles personal data on this website, why information is processed, how long it is kept and your rights when contacting WEDMA s.r.o.",
     },
-    imageAlt: "Black and orange WEDMA logo on a white background",
+    imageAlt: "White and orange WEDMA logo on a black background",
   },
 };

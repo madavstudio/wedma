@@ -1,5 +1,6 @@
 import { sitePath } from "../sitePaths.ts";
 export const CONTACT = {
+  formEndpoint: "https://formspree.io/f/mljddqjn",
   target: sitePath("/kontakt"),
   emailTarget: "mailto:info@wedma.sk",
   email: "info@wedma.sk",

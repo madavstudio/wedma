@@ -1,5 +1,7 @@
 # WEDMA — GitHub a Vercel
 
+> Aktualizácia 19. 9. 2026: aktívny formulár odosiela priamo na `https://formspree.io/f/mljddqjn`. Pre toto zapojenie netreba `RESEND_API_KEY`, `CONTACT_FROM` ani `CONTACT_ORIGIN`. Príjemcu a povolené domény spravujete vo Formspree. Nižšie uvedené serverové nastavenia zostávajú iba pre voliteľný pôvodný adaptér.
+
 Projekt: React 19 + TypeScript + Vite. Repozitár: https://github.com/madavstudio/wedma.
 Zdrojové súbory sú priamo v koreni repozitára, nie v ďalšom priečinku `wedma`.
 Existujúci vzhľad, obsah, animácie a SK/EN prepínač zostávajú zachované.
@@ -48,7 +50,7 @@ Po zmene domény alebo `SITE_URL` treba nový build.
 - Podstránky majú explicitné pravidlá smerovania. Obnovenie ani priame otvorenie
   odkazu nezávisí od predchádzajúcej návštevy úvodu.
 - API `/api/contact` zostáva samostatnou serverovou funkciou a nevracia HTML úvodu.
-- Favicon: presný čierny a oranžový symbol WEDMA na bielom podklade, SVG, ICO,
+- Favicon: presný biely a oranžový symbol WEDMA na čiernom podklade so zaoblenými rohmi, SVG, ICO,
   PNG 16/32 a Apple Touch Icon 180 px.
 - Zdieľanie: WEDMA názov, popisy konkrétnej stránky, Open Graph a Twitter metadata
   a PNG loga 512 × 512. `sitemap.xml` a `robots.txt` vznikajú pri builde.
