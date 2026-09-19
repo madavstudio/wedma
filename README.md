@@ -20,6 +20,7 @@ npm run lint          # ESLint vrátane React hooks
 npm run test:content  # kontrola 182 dodaných textov, metrík, kontaktov a assetov
 npm run test:how      # kotvy, plynulé prechody a vratnosť časovej osi
 npm run test:contact  # izolované testy API a e-mailového adaptéra
+npm run test:deployment # produkčné metadata, favicon a smerovanie
 npm start            # produkčný klient a kontaktné API na Node serveri
 ```
 
@@ -70,7 +71,7 @@ Výsledok auditu sa zobrazí ako JSON za footerom. Ide o vývojovú pomôcku, ni
 
 Originály v `public/assets/` sú bajtovo identické s dodaným archívom. Pracovné verzie ilustrácií sú v `src/assets/`. Synced `sources/` a pôvodný archív neboli menené.
 
-Aktuálny výsledok je lokálny náhľad a produkčný priečinok `dist/`; web nebol verejne nasadený. Kanonická adresa a samostatné jazykové URL nie sú nastavené, pretože nebola dodaná konfigurácia nasadenia. SEO titulok, description, Open Graph texty, jazyk dokumentu a favicon sú pripravené. Po nasadení treba overiť výsledok na skutočnej doméne a fyzických cieľových zariadeniach.
+Projekt má existujúci verejný náhľad. Postup pre GitHub a Vercel je v [docs/vercel.md](docs/vercel.md): presné nastavenia, kontaktný formulár, doména, favicon a zdieľanie. Táto príprava nevykonáva deployment. Produkčný build vytvára samostatné HTML stránky s metadátami pre úvod, kontakt a ochranu údajov. Kanonickú adresu určuje `SITE_URL` alebo adresa projektu vo Verceli.
 
 ## Ako to funguje
 

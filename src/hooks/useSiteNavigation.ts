@@ -1,16 +1,19 @@
+import { sitePath, localPath } from "../sitePaths";
+import { updateMetadata } from "./useMetadata";
+import type { SitePage } from "../content/metadata";
 import { useEffect, useLayoutEffect, useRef, useState } from "react";
 import { useLanguage } from "./site";
-import { PRIVACY_PATH, privacyContent } from "../content/privacy";
+import { PRIVACY_PATH } from "../content/privacy";
 
-type SitePage = "home" | "contact" | "privacy";
 const pageFor = (path: string, hash = ""): SitePage => {
   const normalized = path.replace(/\/$/, "");
   if (normalized === PRIVACY_PATH) return "privacy";
-  if (normalized === "/kontakt" || hash === "#kontakt") return "contact";
+  if (normalized === sitePath("/kontakt") || hash === "#kontakt")
+    return "contact";
   return "home";
 };
 export function useSiteNavigation() {
-  const { lang, t } = useLanguage();
+  const { lang } = useLanguage();
   const [route, setRoute] = useState(() => ({
     page: pageFor(location.pathname, location.hash),
     revision: 0,
@@ -23,7 +26,7 @@ export function useSiteNavigation() {
   }>({ hash: location.hash, focus: false, smooth: false });
   useEffect(() => {
     if (location.hash === "#kontakt")
-      history.replaceState(null, "", "/kontakt");
+      history.replaceState(null, "", sitePath("/kontakt"));
     const click = (event: MouseEvent) => {
       if (
         event.button !== 0 ||
@@ -42,7 +45,7 @@ export function useSiteNavigation() {
       if (url.origin !== location.origin || url.hash === "#main-content")
         return;
       const page = pageFor(url.pathname, url.hash);
-      if (page === "home" && url.pathname !== "/") return;
+      if (page === "home" && localPath(url.pathname) !== "/") return;
       event.preventDefault();
       history.replaceState(
         { ...history.state, wedmaY: scrollY },
@@ -51,10 +54,10 @@ export function useSiteNavigation() {
       );
       const next =
         page === "contact"
-          ? "/kontakt"
+          ? sitePath("/kontakt")
           : page === "privacy"
             ? PRIVACY_PATH + url.hash
-            : `/${url.hash}`;
+            : sitePath(`/${url.hash}`);
       if (location.pathname + location.hash !== next)
         history.pushState(null, "", next);
       pending.current = {
@@ -121,12 +124,7 @@ export function useSiteNavigation() {
     return () => cancelAnimationFrame(frame);
   }, [route]);
   useEffect(() => {
-    document.title =
-      route.page === "privacy"
-        ? `${privacyContent[lang].title} — WEDMA`
-        : route.page === "contact"
-          ? `${lang === "sk" ? "Kontakt" : "Contact"} — WEDMA`
-          : t.title;
-  }, [route.page, lang, t.title]);
+    updateMetadata(route.page, lang);
+  }, [route.page, lang]);
   return route.page;
 }

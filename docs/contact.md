@@ -10,7 +10,7 @@ Server je pripravený na e-mailový transport Resend cez `POST /api/contact`. Vy
 
 - `RESEND_API_KEY`: kľúč s oprávnením posielať e-maily.
 - `CONTACT_FROM`: overená odosielateľská adresa, napríklad `WEDMA <website@vasa-overena-domena.sk>`; doména musí byť overená v Resend.
-- `CONTACT_ORIGIN`: produkčná verejná adresa vrátane protokolu, bez koncového lomítka (napr. `https://www.wedma.sk`, iba ak na nej bude tento projekt reálne nasadený).
+- `CONTACT_ORIGIN` (voliteľné): jedna povolená verejná adresa vrátane protokolu, bez koncového lomítka. Bez tejto hodnoty sa prijímajú požiadavky z vlastného originu nasadenia.
 
 Žiadna premenná nesmie mať prefix `VITE_`. `.env` a `.env.*` sú ignorované verziovaním, `.env.example` obsahuje prázdny vzor. Nastavte hodnoty v prostredí servera alebo v lokálnom `.env` a reštartujte proces. Tajomstvá nevkladajte do klienta ani do chatu.
 
@@ -25,18 +25,18 @@ Rozhranie vychádza z oficiálnej dokumentácie [odosielania e-mailu](https://re
 - `npm run preview`: produkčný klient vo Vite preview, s rovnakým kontaktným middleware.
 - `npm start`: samostatný Node server, ktorý obsluhuje `dist/` a `/api/contact`. Načíta voliteľný `.env`. Predvolené rozhranie `127.0.0.1:4173`; meniť možno pomocou `HOST` a `PORT`.
 
-Node.js 22.18+ je potrebný pre spúšťanie serverových TypeScript súborov. Produkčné nasadenie musí obsahovať `dist/`, `server/`, `src/contact/schema.ts` a `package.json`. Čisto statické nahratie priečinka `dist/` samo osebe e-maily odosielať nebude. Pred Node serverom použite HTTPS reverzný proxy s limitom veľkosti požiadavky a času spojenia. Web nebol verejne nasadený.
+Node.js 22.18+ je potrebný pre spúšťanie serverových TypeScript súborov. Odporúčaná a overená verzia je 24.x. Čisto statické nahratie priečinka `dist/` samo osebe e-maily odosielať nebude. Existujúci verejný náhľad je statický. Pre Vercel je pripravený adaptér `api/contact.ts`; postup a nastavenia sú v [vercel.md](vercel.md). Vercel zostaví klienta a zabalí serverové závislosti funkcie z celého repozitára.
 
 ## Validácia, duplicity a súkromie
 
 - Klient aj server používajú `src/contact/schema.ts`: neprázdne orezané povinné údaje, medzinárodné mená, formát e-mailu bez zákazu verejných domén, nepovinný telefón, povolené interné hodnoty výberu a výslovný súhlas.
 - Správa najviac 3000 znakov, e-mail 254, mená 100, firma a pozícia 200, telefón 80. Server prijíma iba JSON do 16 KiB.
 - Text sa v e-maile interpretuje iba ako dáta; žiadne používateľské HTML, príjemcovia ani hlavičky odosielateľa sa z neho nevytvárajú.
-- Limit päť pokusov za 15 minút podľa zahashovanej socketovej IP. Forwarded hlavičky sa neberú ako dôveryhodná identita. Za reverzným proxy tento limit platí spoločne pre jeho adresu; produkčný proxy má uplatniť vlastný limit klientov. Viac serverových inštancií vyžaduje zdieľaný limiter alebo limit na proxy.
+- Limit päť pokusov za 15 minút podľa zahashovanej IP. Samostatný Node server používa socket; adaptér na Verceli používa platformou nastavenú `x-vercel-forwarded-for`, iba keď `VERCEL=1`. Pamäťový limit platí pre jednu inštanciu. Viac inštancií vyžaduje zdieľaný limiter alebo limit na platforme.
 - Pri opakovaní nezmeneného formulára ostáva rovnaký náhodný idempotency key. Server súčasné rovnaké požiadavky spája a potvrdený výsledok uchováva 24 hodín; kľúč posiela aj poskytovateľovi. Zmena obsahu s rovnakým kľúčom je konflikt 409.
 - Pamäť servera obsahuje dočasné hashované identifikátory a výsledky, bez perzistentnej databázy. Reštart vymaže lokálny limiter/cache; deduplikácia poskytovateľa sa uplatní podľa jeho pravidiel. Neistý výsledok možno opakovať s rovnakým kľúčom.
 - Údaje zostávajú v pamäti formulára počas vypĺňania a sú odovzdané poskytovateľovi výhradne pri odoslaní. Nie sú v analytike, konzole, URL ani lokálnom úložisku. Reset nastane až po potvrdenom úspechu.
-- Nevytvárali sa právne stránky ani neplatné odkazy. Súhlas používa presný text zadania.
+- Povinné potvrdenie odkazuje na stránku ochrany osobných údajov a potvrdzuje oboznámenie sa s informáciami; nejde o marketingový súhlas.
 
 ## Overenie
 

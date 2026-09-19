@@ -9,3 +9,15 @@ playwright-report/
 .env
 .env.*
 !.env.example
+
+.vercel/
+coverage/
+*.log
+*.pem
+*.key
+*.p12
+*.pfx
+.npmrc
+.netrc
+credentials.json
+service-account*.json

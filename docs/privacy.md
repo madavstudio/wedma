@@ -10,7 +10,7 @@ Povinné, predvolene nezaškrtnuté políčko potvrdzuje oboznámenie sa s infor
 
 V zdrojovom kóde nie je návštevnícka analytika, reklamný pixel ani ukladanie formulára do localStorage. Lokálne sa ukladá jazyk; formulár je len v pamäti otvorenej stránky. Technické spracúvanie prevádzkovateľom hostingu je oddelené od lokálneho nasadenia zákazníckej aplikácie. Informácia o možných prenosoch mimo EHP a zárukách zostáva v oznámení bez názvu poskytovateľa.
 
-Aktuálna hostingová konfigurácia publikuje statický `dist`. Serverové `/api/contact` tým nie je nasadené. Serverový kód podporuje poskytovateľa doručenia až po konfigurácii; testy používajú výlučne náhradu doručenia, žiadne e-maily neposielajú. UI nesmie oznámiť úspech bez potvrdenia servera.
+Existujúci verejný náhľad publikuje statický `dist`. Serverové `/api/contact` tým nie je nasadené. Pre budúce nasadenie na Vercel je pripravený adaptér `api/contact.ts`. Doručovanie vyžaduje konfiguráciu; testy používajú výlučne náhradu doručenia, žiadne e-maily neposielajú. UI nesmie oznámiť úspech bez potvrdenia servera.
 
 Pred ostrým spustením prevádzkovateľ musí potvrdiť skutočných dodávateľov hostingu a komunikácie, ich postavenie, spracovateľské zmluvy, záruky prenosu a doby uchovávania vrátane záloh. V oznámení sú kritériá uchovávania; deklarované vymazanie po ukončení komunikácie treba aj prakticky nastaviť. Poskytovateľ pošty, prípadné CRM a ďalšie použitie údajov neboli potvrdené. Nepovažovať implementáciu webu za overenie celej prevádzky firmy podľa GDPR. Pri zmene hostingu alebo pridaní marketingu oznámenie aktualizovať.
 

@@ -1,3 +1,4 @@
+import { sitePath } from "../sitePaths";
 import { ASSETS, CONTACT } from "../content/config";
 import { useLanguage } from "../hooks/site";
 import { PRIVACY_PATH, privacyContent } from "../content/privacy";
@@ -13,7 +14,7 @@ export function SiteFooter() {
         </div>
         <div className="footer-grid">
           <div className="footer-brand">
-            <a href="/#uvod" aria-label={t.access.logo}>
+            <a href={sitePath("/#uvod")} aria-label={t.access.logo}>
               <picture>
                 <source
                   media="(max-width: 767px)"
@@ -31,11 +32,11 @@ export function SiteFooter() {
           </div>
           <nav aria-label={t.access.footerNav}>
             <h3>{t.footer.navigation}</h3>
-            <a href="/#nasa-misia">{t.footer.mission}</a>
-            <a href="/#co-je-wedma">{t.footer.platform}</a>
-            <a href="/#preco-wedma">{t.footer.why}</a>
-            <a href="/#meratelne-vysledky">{t.footer.results}</a>
-            <a href="/#ako-to-funguje">{t.footer.how}</a>
+            <a href={sitePath("/#nasa-misia")}>{t.footer.mission}</a>
+            <a href={sitePath("/#co-je-wedma")}>{t.footer.platform}</a>
+            <a href={sitePath("/#preco-wedma")}>{t.footer.why}</a>
+            <a href={sitePath("/#meratelne-vysledky")}>{t.footer.results}</a>
+            <a href={sitePath("/#ako-to-funguje")}>{t.footer.how}</a>
             <a href={CONTACT.target}>{t.footer.contact}</a>
           </nav>
           <div className="footer-company">

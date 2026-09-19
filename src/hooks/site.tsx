@@ -72,19 +72,6 @@ export function LanguageProvider({ children }: PropsWithChildren) {
   };
   useLayoutEffect(() => {
     document.documentElement.lang = lang;
-    document.title = translations[lang].title;
-    document
-      .querySelector('meta[name="description"]')
-      ?.setAttribute("content", translations[lang].description);
-    document
-      .querySelector('meta[property="og:title"]')
-      ?.setAttribute("content", translations[lang].title);
-    document
-      .querySelector('meta[property="og:description"]')
-      ?.setAttribute("content", translations[lang].description);
-    document
-      .querySelector('meta[property="og:locale"]')
-      ?.setAttribute("content", lang === "sk" ? "sk_SK" : "en_GB");
     if (anchor.current) {
       const el = document.getElementById(anchor.current.id);
       if (el) {

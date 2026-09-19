@@ -1,3 +1,4 @@
+import { sitePath } from "../sitePaths";
 import { useRef, useState } from "react";
 import type { FormEvent } from "react";
 import { useLanguage } from "../hooks/site";
@@ -96,7 +97,7 @@ export function ContactSection() {
     try {
       if (attempt.current?.body !== body)
         attempt.current = { body, key: crypto.randomUUID() };
-      const response = await fetch("/api/contact", {
+      const response = await fetch(sitePath("/api/contact"), {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

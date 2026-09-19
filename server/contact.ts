@@ -62,6 +62,7 @@ export function createContactHandler(
     origin?: string;
     now?: () => number;
     rateLimit?: number;
+    clientAddress?: (req: IncomingMessage) => string | undefined;
   } = {},
 ) {
   const now = options.now ?? Date.now;
@@ -110,8 +111,10 @@ export function createContactHandler(
       if (value.expires <= time) rates.delete(key);
     for (const [key, value] of attempts)
       if (value.expires <= time) attempts.delete(key);
-    // Socket identity only: arbitrary forwarded IP headers are never trusted.
-    const ip = digest(req.socket.remoteAddress ?? "unknown");
+    // A deployment adapter may supply an identity from its trusted platform.
+    const ip = digest(
+      options.clientAddress?.(req) ?? req.socket.remoteAddress ?? "unknown",
+    );
     const rate = rates.get(ip) ?? { count: 0, expires: time + WINDOW };
     if (rates.size >= 10000 && !rates.has(ip)) {
       reply(503, { accepted: false });
@@ -133,35 +136,47 @@ export function createContactHandler(
     }
     let input: unknown;
     try {
-      const raw = await new Promise<string>((resolve, reject) => {
-        const chunks: Buffer[] = [];
-        let size = 0;
-        const timer = setTimeout(() => {
-          reject(new Error("timeout"));
-          req.resume();
-        }, 10000);
-        req.on("data", (chunk: Buffer) => {
-          size += chunk.length;
-          if (size > MAX_BYTES) {
+      const parsed = (req as IncomingMessage & { body?: unknown }).body;
+      if (parsed !== undefined) {
+        const raw = Buffer.isBuffer(parsed)
+          ? parsed.toString("utf8")
+          : typeof parsed === "string"
+            ? parsed
+            : JSON.stringify(parsed);
+        if (Buffer.byteLength(raw, "utf8") > MAX_BYTES)
+          throw new Error("large");
+        input = JSON.parse(raw);
+      } else {
+        const raw = await new Promise<string>((resolve, reject) => {
+          const chunks: Buffer[] = [];
+          let size = 0;
+          const timer = setTimeout(() => {
+            reject(new Error("timeout"));
+            req.resume();
+          }, 10000);
+          req.on("data", (chunk: Buffer) => {
+            size += chunk.length;
+            if (size > MAX_BYTES) {
+              clearTimeout(timer);
+              chunks.length = 0;
+              reject(new Error("large"));
+            } else chunks.push(chunk);
+          });
+          req.once("end", () => {
             clearTimeout(timer);
-            chunks.length = 0;
-            reject(new Error("large"));
-          } else chunks.push(chunk);
+            resolve(Buffer.concat(chunks).toString("utf8"));
+          });
+          req.once("error", () => {
+            clearTimeout(timer);
+            reject(new Error("read"));
+          });
+          req.once("aborted", () => {
+            clearTimeout(timer);
+            reject(new Error("read"));
+          });
         });
-        req.once("end", () => {
-          clearTimeout(timer);
-          resolve(Buffer.concat(chunks).toString("utf8"));
-        });
-        req.once("error", () => {
-          clearTimeout(timer);
-          reject(new Error("read"));
-        });
-        req.once("aborted", () => {
-          clearTimeout(timer);
-          reject(new Error("read"));
-        });
-      });
-      input = JSON.parse(raw);
+        input = JSON.parse(raw);
+      }
     } catch (error) {
       reply(error instanceof Error && error.message === "large" ? 413 : 400, {
         accepted: false,

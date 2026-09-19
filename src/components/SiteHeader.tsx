@@ -1,3 +1,4 @@
+import { sitePath } from "../sitePaths";
 import { useEffect, useLayoutEffect, useRef, useState } from "react";
 import { ASSETS, NAVIGATION, SECTION_IDS } from "../content/config";
 import { useLanguage } from "../hooks/site";
@@ -106,7 +107,7 @@ export function SiteHeader({
       ref={headerRef}
       className={`site-header ${scrolled ? "is-scrolled" : ""} ${compact ? "is-compact" : ""}`}
     >
-      <a href="/#uvod" className="brand" aria-label={t.access.logo}>
+      <a href={sitePath("/#uvod")} className="brand" aria-label={t.access.logo}>
         <img
           className="nav-symbol nav-symbol--initial"
           src={`${ASSETS}wedma-symbol-color-dark.png`}
@@ -129,8 +130,8 @@ export function SiteHeader({
             key={item.key}
             href={item.target}
             aria-current={
-              item.target === `/#${active}` ||
-              (active === "kontakt" && item.target === "/kontakt")
+              item.target === sitePath(`/#${active}`) ||
+              (active === "kontakt" && item.target === sitePath("/kontakt"))
                 ? "location"
                 : undefined
             }
@@ -169,7 +170,7 @@ export function SiteHeader({
         <div className="mobile-menu-inner">
           <div className="mobile-menu-top">
             <a
-              href="/#uvod"
+              href={sitePath("/#uvod")}
               className="mobile-menu-brand"
               aria-label={t.access.logo}
               onClick={() => setOpen(false)}
@@ -199,8 +200,8 @@ export function SiteHeader({
                 key={item.key}
                 href={item.target}
                 aria-current={
-                  item.target === `/#${active}` ||
-                  (active === "kontakt" && item.target === "/kontakt")
+                  item.target === sitePath(`/#${active}`) ||
+                  (active === "kontakt" && item.target === sitePath("/kontakt"))
                     ? "location"
                     : undefined
                 }

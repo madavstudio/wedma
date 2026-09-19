@@ -1,3 +1,4 @@
+import { ASSETS } from "../content/config";
 import { useEffect, useId, useRef } from "react";
 import { useInView, useMotion } from "../hooks/site";
 // Orthographic solid-edge cube. Greedy meshing joins adjacent coplanar cells
@@ -363,7 +364,7 @@ export function GeometryScene({
       <div className="geometry-viewport">
         <img
           className="geometry-fallback"
-          src="/assets/vedma-graficky-prvok.svg"
+          src={ASSETS + "vedma-graficky-prvok.svg"}
           alt=""
           width="1470"
           height="630"

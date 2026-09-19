@@ -13,7 +13,8 @@
     "test:content": "node tests/content.mjs",
     "test:how": "node tests/how-timeline.mjs",
     "start": "node --env-file-if-exists=.env server/start.ts",
-    "test:contact": "node --test tests/contact.test.mjs"
+    "test:contact": "node --test tests/contact.test.mjs",
+    "test:deployment": "node --test tests/deployment.test.mjs"
   },
   "dependencies": {
     "@fontsource-variable/geist": "^5.2.6",

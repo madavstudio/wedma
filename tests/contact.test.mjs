@@ -18,8 +18,17 @@ const valid = {
   message: "Izolovaný test formulára.",
   consent: true,
 };
-async function fixture(options, run) {
-  const server = createServer(createContactHandler(options));
+async function fixture(options, run, parsedBody = false) {
+  const handler = createContactHandler(options);
+  const server = createServer(async (req, res) => {
+    if (parsedBody) {
+      const chunks = [];
+      for await (const chunk of req) chunks.push(chunk);
+      req.body = JSON.parse(Buffer.concat(chunks).toString("utf8"));
+      delete req.headers["content-length"];
+    }
+    await handler(req, res);
+  });
   await new Promise((resolve) => server.listen(0, "127.0.0.1", resolve));
   const origin = `http://127.0.0.1:${server.address().port}`;
   const post = (body = valid, key = randomUUID(), headers = {}) =>
@@ -230,4 +239,42 @@ test("unconfirmed provider responses are failures", async () => {
     );
     assert.equal(await adapter(valid, "test"), false);
   }
+});
+
+test("Vercel's parsed request body delivers and retains validation and byte limits", async () => {
+  let sends = 0;
+  await fixture(
+    {
+      send: async () => {
+        sends++;
+        return true;
+      },
+    },
+    async (post) => {
+      assert.equal((await post()).status, 200);
+      assert.equal((await post({ ...valid, consent: false })).status, 422);
+      assert.equal(
+        (await post({ ...valid, message: "ž".repeat(9000) })).status,
+        413,
+      );
+      assert.equal(sends, 1);
+    },
+    true,
+  );
+});
+test("a trusted deployment identity separates clients behind the platform proxy", async () => {
+  await fixture(
+    {
+      send: async () => true,
+      rateLimit: 1,
+      clientAddress: (req) => req.headers["x-test-trusted-client"],
+    },
+    async (post) => {
+      const a = { "x-test-trusted-client": "192.0.2.1" };
+      const b = { "x-test-trusted-client": "192.0.2.2" };
+      assert.equal((await post(valid, randomUUID(), a)).status, 200);
+      assert.equal((await post(valid, randomUUID(), a)).status, 429);
+      assert.equal((await post(valid, randomUUID(), b)).status, 200);
+    },
+  );
 });

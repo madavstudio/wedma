@@ -1,3 +1,4 @@
+import { metadata } from "./metadata.ts";
 import { contactContent } from "./contact.ts";
 import { howItWorks } from "./how-it-works.ts";
 export type Language = "sk" | "en";
@@ -5,9 +6,8 @@ export const translations = {
   sk: {
     how: howItWorks.sk,
     contact: contactContent.sk,
-    title: "WEDMA — Jeden systém pre poriadok vo vašej prevádzke",
-    description:
-      "WEDMA spája dokumentáciu, povinnosti a energie do jedného prehľadu. Dáta aj AI zostávajú vo vašej firme.",
+    title: metadata.sk.home.title,
+    description: metadata.sk.home.description,
     slogan: "OWN YOUR DATA. OWN YOUR RULES.",
     demo: "Chcem ukážku",
     contactUs: "Kontaktujte nás",
@@ -118,9 +118,8 @@ export const translations = {
   en: {
     how: howItWorks.en,
     contact: contactContent.en,
-    title: "WEDMA — One system for an organised operation",
-    description:
-      "WEDMA brings documentation, obligations and energy into one overview. Your data and AI stay within your company.",
+    title: metadata.en.home.title,
+    description: metadata.en.home.description,
     slogan: "OWN YOUR DATA. OWN YOUR RULES.",
     demo: "Request a demo",
     contactUs: "Contact us",

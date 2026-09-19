@@ -18,6 +18,8 @@ const types: Record<string, string> = {
   ".ico": "image/x-icon",
   ".woff2": "font/woff2",
   ".json": "application/json",
+  ".xml": "application/xml; charset=utf-8",
+  ".txt": "text/plain; charset=utf-8",
 };
 const server = createServer(async (req, res) => {
   try {
@@ -43,25 +45,30 @@ const server = createServer(async (req, res) => {
       res.end();
       return;
     }
-    const file = resolve(
+    let file = resolve(
       root,
       "." +
-        ([
-          "/",
-          "/kontakt",
-          "/kontakt/",
-          "/ochrana-osobnych-udajov",
-          "/ochrana-osobnych-udajov/",
-        ].includes(pathname)
+        (pathname === "/"
           ? "/index.html"
-          : pathname),
+          : [
+                "/kontakt",
+                "/kontakt/",
+                "/ochrana-osobnych-udajov",
+                "/ochrana-osobnych-udajov/",
+              ].includes(pathname)
+            ? pathname.replace(/\/$/, "") + "/index.html"
+            : pathname),
     );
     if (!file.startsWith(root + sep)) {
       res.writeHead(404);
       res.end();
       return;
     }
-    const info = await stat(file).catch(() => null);
+    let info = await stat(file).catch(() => null);
+    if (info?.isDirectory()) {
+      file = resolve(file, "index.html");
+      info = await stat(file).catch(() => null);
+    }
     if (!info?.isFile()) {
       res.writeHead(404);
       res.end();

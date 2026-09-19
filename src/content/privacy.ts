@@ -1,4 +1,5 @@
-export const PRIVACY_PATH = "/ochrana-osobnych-udajov";
+import { sitePath } from "../sitePaths.ts";
+export const PRIVACY_PATH = sitePath("/ochrana-osobnych-udajov");
 export const PRIVACY_VERSION = "2026-09-18";
 
 export const privacyContent = {
