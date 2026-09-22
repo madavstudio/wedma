@@ -2,8 +2,8 @@ import { sitePath } from "../sitePaths.ts";
 export const CONTACT = {
   formEndpoint: "https://formspree.io/f/mljddqjn",
   target: sitePath("/kontakt"),
-  emailTarget: "mailto:info@wedma.sk",
-  email: "info@wedma.sk",
+  emailTarget: "mailto:wedma@hyllebaer.com",
+  email: "wedma@hyllebaer.com",
   company: "WEDMA s.r.o.",
   person: "Lukáš Galo",
   phone: "+421 911 511 299",

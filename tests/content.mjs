@@ -98,7 +98,7 @@ assert.equal(
   "/#ako-to-funguje",
 );
 assert.equal(CONTACT.target, "/kontakt");
-assert.equal(CONTACT.emailTarget, "mailto:info@wedma.sk");
+assert.equal(CONTACT.emailTarget, "mailto:wedma@hyllebaer.com");
 assert.equal(CONTACT.phoneTarget, "tel:+421911511299");
 assert.equal(CONTACT.company, "WEDMA s.r.o.");
 assert.equal(CONTACT.person, "Lukáš Galo");

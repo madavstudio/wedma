@@ -120,7 +120,7 @@ async function run() {
     "Shared contact navigation and CTA targets",
   );
   check(
-    document.querySelector('.footer-details a[href="mailto:info@wedma.sk"]'),
+    document.querySelector('.footer-details a[href="mailto:wedma@hyllebaer.com"]'),
     "Footer email remains mailto",
   );
   if (innerWidth < 1320) {

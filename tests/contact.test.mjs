@@ -215,7 +215,7 @@ test("mail adapter uses verified sender, reply-to, plain text, fixed recipient a
   );
   const body = JSON.parse(request.body);
   assert.equal(request.url, "https://api.resend.com/emails");
-  assert.deepEqual(body.to, ["info@wedma.sk"]);
+  assert.deepEqual(body.to, ["wedma@hyllebaer.com"]);
   assert.equal(body.reply_to, valid.email);
   assert.equal(body.from, "WEDMA <verified@example.com>");
   assert.equal(body.html, undefined);

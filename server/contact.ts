@@ -44,7 +44,7 @@ export function createResendTransport(
       },
       body: JSON.stringify({
         from,
-        to: ["info@wedma.sk"],
+        to: ["wedma@hyllebaer.com"],
         reply_to: values.email,
         subject: "WEDMA — nová požiadavka na ukážku",
         text: body,
