@@ -47,6 +47,7 @@ export function SiteFooter() {
               <span>949 05 Nitra</span>
               <span className="business-id">{t.footer.businessId}</span>
               <span>{t.footer.taxId}</span>
+              <span>{t.footer.vatId}</span>
             </address>
           </div>
           <div className="footer-details">
