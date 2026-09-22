@@ -180,10 +180,12 @@ export function ContactSection() {
             {status === "success" && (
               <div className="contact-success">
                 <svg viewBox="0 0 40 40" fill="none" aria-hidden="true">
-                  <circle
-                    cx="20"
-                    cy="20"
-                    r="18"
+                  <rect
+                    x="2"
+                    y="2"
+                    width="36"
+                    height="36"
+                    rx="10"
                     stroke="currentColor"
                     strokeWidth="1.5"
                   />
@@ -195,6 +197,7 @@ export function ContactSection() {
                     strokeLinejoin="round"
                   />
                 </svg>
+                <h3>{c.successTitle}</h3>
                 <p>{c.success}</p>
               </div>
             )}

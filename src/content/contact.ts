@@ -31,7 +31,8 @@ export const contactContent = {
       "Potvrdzujem, že som sa oboznámil/a s informáciami o spracúvaní osobných údajov.*",
     submit: "Chcem ukážku",
     sending: "Odosielam…",
-    success: "Ďakujeme. Vašu správu sme prijali a čoskoro sa vám ozveme.",
+    successTitle: "Správa je u nás.",
+    success: "Ďakujeme za váš záujem o WEDMA. Vašu požiadavku si prejdeme a ozveme sa vám na uvedený e-mail.",
     failure:
       "Odoslanie sa nepodarilo potvrdiť. Skúste to znova alebo nám napíšte na",
     again: "Poslať ďalšiu správu",
@@ -80,8 +81,9 @@ export const contactContent = {
       "I confirm that I have read the information about the processing of personal data.*",
     submit: "Request a demo",
     sending: "Sending…",
+    successTitle: "Your message is with us.",
     success:
-      "Thank you. We’ve received your message and will be in touch soon.",
+      "Thank you for your interest in WEDMA. We’ll review your enquiry and get back to you at the email address you provided.",
     failure:
       "We couldn’t confirm your submission. Please try again or email us at",
     again: "Send another message",

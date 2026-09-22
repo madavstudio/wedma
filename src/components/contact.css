@@ -267,20 +267,37 @@
   text-underline-offset: 3px;
 }
 .contact-success {
-  border-top: 1px solid #dedede;
-  padding-top: 48px;
-  margin-top: 24px;
+  position: relative;
+  padding: clamp(28px, 5vw, 48px);
+  border: 1px solid #e5e5e5;
+  border-radius: 24px;
+  background: linear-gradient(145deg, #fff8f1 0%, #fff 48%);
+  box-shadow: 0 16px 48px #19191906;
 }
 .contact-success svg {
-  width: 40px;
-  height: 40px;
-  color: #a74b00;
-  margin-bottom: 24px;
+  display: block;
+  width: 48px;
+  height: 48px;
+  color: #191919;
+  margin-bottom: 28px;
+}
+.contact-success svg path {
+  stroke: #f58220;
+}
+.contact-success h3 {
+  margin: 0 0 16px;
+  color: #191919;
+  font-size: clamp(1.7rem, 3vw, 2.25rem);
+  font-weight: 500;
+  letter-spacing: -0.04em;
+  line-height: 1.15;
 }
 .contact-success p {
+  margin: 0;
   max-width: 440px;
-  font-size: 1.5rem;
-  line-height: 1.4;
+  color: #606064;
+  font-size: 1rem;
+  line-height: 1.65;
 }
 .contact-again {
   display: inline-flex;
